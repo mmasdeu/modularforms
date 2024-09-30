@@ -126,8 +126,9 @@ entries in $\RR$. It contains the subgroup $\GL_2^+(\RR)$ of matrices
 with positive determinant. The $\SL_2(\RR)\subset \GL_2^+(\RR)$ consists
 of those matrices with determinant $1$. For
 $\gamma=\smtx abcd\in \GL_2(\RR)$ and $z\in\HH$, define $\gamma z$ as:
-$$(\#eq:fractional-linear-transformation)
-\gamma z = \mtx abcd z = \frac{az+b}{cz+d}.$$
+$$
+\gamma z = \mtx abcd z = \frac{az+b}{cz+d}.
+$$ {#eq-fractional-linear-transformation}
 
 ::: {#lem-}
 Let $\gamma=\smtx abcd\in\GL_2(\RR)$. Then:
