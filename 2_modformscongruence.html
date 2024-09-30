@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Modular forms for congruence subgroups – Modular Forms</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./3_complextori.html" rel="next">
+<link href="./1_modformslevelone.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2_modformscongruence.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Modular forms for congruence subgroups</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Modular Forms</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://www.github.com/mmasdeu/modforms" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Modular-Forms.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1_modformslevelone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Modular forms of level one</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_modformscongruence.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Modular forms for congruence subgroups</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_complextori.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Moduli interpretation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_hecke.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hecke Theory</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5_eisenstein.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eisenstein series</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_lfunctions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">L-functions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7_modsym.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modular symbols</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bibliography.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bibliography</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec:congruence-subgroups" id="toc-sec:congruence-subgroups" class="nav-link active" data-scroll-target="#sec\:congruence-subgroups"><span class="header-section-number">2.1</span> Congruence subgroups</a></li>
+  <li><a href="#sec:cusps" id="toc-sec:cusps" class="nav-link" data-scroll-target="#sec\:cusps"><span class="header-section-number">2.2</span> Cusps</a></li>
+  <li><a href="#sec-fourier-expansion-at-infinity" id="toc-sec-fourier-expansion-at-infinity" class="nav-link" data-scroll-target="#sec-fourier-expansion-at-infinity"><span class="header-section-number">2.3</span> Fourier expansion at infinity</a></li>
+  <li><a href="#sec:expansions-at-cusps" id="toc-sec:expansions-at-cusps" class="nav-link" data-scroll-target="#sec\:expansions-at-cusps"><span class="header-section-number">2.4</span> Expansions at cusps</a></li>
+  <li><a href="#definition-of-modular-forms" id="toc-definition-of-modular-forms" class="nav-link" data-scroll-target="#definition-of-modular-forms"><span class="header-section-number">2.5</span> Definition of modular forms</a></li>
+  <li><a href="#valence-formula-for-congruence-subgroups" id="toc-valence-formula-for-congruence-subgroups" class="nav-link" data-scroll-target="#valence-formula-for-congruence-subgroups"><span class="header-section-number">2.6</span> Valence formula for congruence subgroups</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://www.github.com/mmasdeu/modforms/edit/main/2_modformscongruence.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://www.github.com/mmasdeu/modforms/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://www.github.com/mmasdeu/modforms/blob/main/2_modformscongruence.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-modforms-congruence" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Modular forms for congruence subgroups</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="hidden">
+
+</div>
+<section id="sec:congruence-subgroups" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec:congruence-subgroups"><span class="header-section-number">2.1</span> Congruence subgroups</h2>
+<p>Let <span class="math inline">\(N\geq 1\)</span> be an integer. In this section we will consider subgroups of <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> that are especially nice to work with. There are other subgroups that are interesting but beyond the scope of this course.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.1</strong></span> The of level <span class="math inline">\(N\)</span> is <span class="math display">\[\Gamma(N)=\{ \gamma\in{\operatorname{SL}}_2({\mathbb{Z}})~|~ \gamma\equiv \left(\begin{smallmatrix}1&amp;0\\0&amp;1\end{smallmatrix}\right) \pmod{N}\}.\]</span></p>
+</div>
+<p>Note that <span class="math inline">\(\Gamma(1)={\operatorname{SL}}_2({\mathbb{Z}})\)</span>, so we are strictly generalizing <a href="1_modformslevelone.html" class="quarto-xref"><span>Chapter 1</span></a>. Note also that <span class="math inline">\(\Gamma(N)\)</span> can be defined as the kernel of the group homomorphism induced by the reduction map <span class="math inline">\({\mathbb{Z}}\longrightarrow{\mathbb{Z}}/N{\mathbb{Z}}\)</span>: <span class="math display">\[\pi_N\colon {\operatorname{SL}}_2({\mathbb{Z}})\longrightarrow{\operatorname{SL}}_2({\mathbb{Z}}/N{\mathbb{Z}}).\]</span> Therefore, <span class="math inline">\(\Gamma(N)\)</span> is a normal subgroup of <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>, of finite index.</p>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.1</strong></span> The map <span class="math inline">\(\pi_N\)</span> is surjective.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Exercise.</p>
+</div>
+<p>There are too few principal congruence subgroups (only one for each <span class="math inline">\(N\geq 1\)</span>), so it is desirable to consider more general subgroups.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.2</strong></span> A subgroup <span class="math inline">\(\Gamma\subseteq {\operatorname{SL}}_2({\mathbb{Z}})\)</span> is a if there is some <span class="math inline">\(N\geq 1\)</span> such that <span class="math display">\[\Gamma(N)\subseteq \Gamma \subseteq {\operatorname{SL}}_2({\mathbb{Z}}).\]</span> The of a congruence subgroup <span class="math inline">\(\Gamma\)</span> is the minimum <span class="math inline">\(N\)</span> such that <span class="math inline">\(\Gamma(N)\subseteq \Gamma\)</span>.</p>
+</div>
+<p>One can think of many different ways to construct congruence subgroups. There are two families that arise so frequently that have special notation for them:</p>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.1</strong></span> For each <span class="math inline">\(N\geq 1\)</span>, define <span class="math display">\[\Gamma_1(N)=\{\left(\begin{smallmatrix}1&amp;*\\0&amp;1\end{smallmatrix}\right)\pmod N\},\]</span> and also <span class="math display">\[\Gamma_0(N)=\{\left(\begin{smallmatrix}*&amp;*\\0&amp;*\end{smallmatrix}\right)\pmod N\}.\]</span></p>
+</div>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 2.1</strong></span> For each <span class="math inline">\(N\geq 1\)</span> there are inclusions <span class="math inline">\(\Gamma(N) \subseteq \Gamma_1(N) \subseteq \Gamma_0(N) \subseteq {\operatorname{SL}}_2({\mathbb{Z}})\)</span>, and <span class="math display">\[[\Gamma_1(N)\colon \Gamma(N)] = N,\quad [\Gamma_0(N)\colon \Gamma_1(N)] = N\prod_{p\mid N} \left(1-\frac 1p\right),\quad [{\operatorname{SL}}_2({\mathbb{Z}})\colon \Gamma_0(N)] = N\prod_{p\mid N} \left(1+\frac 1p\right).\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Exercise.</p>
+</div>
+<div id="rmk-">
+<p>The inclusions are strict except for <span class="math inline">\(N=1\)</span> (where all groups coincide) and for <span class="math inline">\(\Gamma_0(2)=\Gamma_1(2)\)</span>.</p>
+</div>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.3</strong></span> A function <span class="math inline">\(f\colon{\mathbb{H}}\longrightarrow{\mathbb{C}}\)</span> is of weight <span class="math inline">\(k\)</span> with respect to <span class="math inline">\(\Gamma\)</span> if it is meromorphic on <span class="math inline">\({\mathbb{H}}\)</span> and it satisfies <span class="math display">\[f|_k\gamma = f,\quad \forall \gamma\in\Gamma.\]</span></p>
+</div>
+</section>
+<section id="sec:cusps" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec:cusps"><span class="header-section-number">2.2</span> Cusps</h2>
+<p>Of course we will need to understand fundamental domains for the action of congruence subgroups on <span class="math inline">\({\mathbb{H}}\)</span>. Here is for example a fundamental domain for <span class="math inline">\(\Gamma_0(2)\)</span>:</p>
+<div id="fig-fundom-gamma02" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fundom-gamma02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Pictures/fundomGamma02.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fundom-gamma02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: A fundamental domain for <span class="math inline">\(\Gamma_0(2)\)</span>
+</figcaption>
+</figure>
+</div>
+<p>In this case, the fundamental domain contains two points in its closure which do not belong to <span class="math inline">\({\mathbb{H}}\)</span>: the cusp <span class="math inline">\(\infty\)</span> as before, but also <span class="math inline">\(0\)</span>. The following result gives a construction of a fundamental domain for any congruence subgroup, using translates of the fundamental domain <span class="math inline">\(\mathcal{D}\)</span> of <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> seen in <a href="1_modformslevelone.html" class="quarto-xref"><span>Chapter 1</span></a>.</p>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.2</strong></span> Let <span class="math inline">\(\Gamma\)</span> be a congruence subgroup of <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>. If there is a decomposition <span class="math display">\[\Gamma\backslash {\operatorname{SL}}_2({\mathbb{Z}})=\bigcup_{h\in R} \Gamma h,\quad R\text{ finite,}\]</span> then the set <span class="math inline">\(\mathcal{D}_\Gamma=\cup_{h\in R} h\mathcal{D}\)</span> is a (possibly non-connected) fundamental domain for <span class="math inline">\(\Gamma\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(z\in{\mathbb{H}}\)</span>, then there exists <span class="math inline">\(g\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span> and <span class="math inline">\(z_0\in\mathcal{D}\)</span> such that <span class="math inline">\(z = gz_0\)</span>. The coset decomposition implies that there is some <span class="math inline">\(\gamma\in R\)</span> and some <span class="math inline">\(h\in \Gamma\)</span> such that <span class="math inline">\(g=h\gamma\)</span>. Therefore <span class="math display">\[z = h\gamma z_0.\]</span> Since <span class="math inline">\(z_0'=\gamma z_0\in \gamma\mathcal{D}\subset \mathcal{D}_\Gamma\)</span> we have written <span class="math inline">\(z=h z_0'\)</span> with <span class="math inline">\(h\in\Gamma\)</span>.</p>
+<p>It remains to be shown that if <span class="math inline">\(z\in\stackrel{\circ}{\mathcal{D}_\Gamma}\)</span> and <span class="math inline">\(\gamma z \in\stackrel{\circ}{\mathcal{D}_\Gamma}\)</span> for some <span class="math inline">\(\gamma\in\Gamma\)</span>, then <span class="math inline">\(\gamma = 1\)</span>. For that, let <span class="math inline">\(\varepsilon&gt;0\)</span> be small enough so that the ball <span class="math inline">\(B_\varepsilon(z)\)</span> of radius <span class="math inline">\(\varepsilon\)</span> around <span class="math inline">\(z\)</span> is fully contained in <span class="math inline">\(\stackrel{\circ}{\mathcal{D}_\Gamma}\)</span>. The ball <span class="math inline">\(B_\varepsilon(z)\)</span> intersects some translates of <span class="math inline">\(\mathcal{D}\)</span>, say: <span class="math display">\[B_\varepsilon(z)\cap h\mathcal{D}\neq \emptyset\iff h\in R'\subseteq R.\]</span> Consider the translated ball <span class="math inline">\(\gamma B_\varepsilon(z)=B_\varepsilon(\gamma z)\)</span>. Since <span class="math inline">\(\gamma z\)</span> is also in the interior of <span class="math inline">\(\mathcal{D}_\Gamma\)</span>, we deduce that <span class="math inline">\(\gamma B_\varepsilon(z)\)</span> must intersect the interior of some translate of <span class="math inline">\(\mathcal{D}\)</span>, say <span class="math inline">\(h\stackrel{\circ}{\mathcal{D}}\)</span>, for some <span class="math inline">\(h\in R\)</span>. Therefore: <span class="math display">\[\gamma B_\varepsilon(z)\cap h\stackrel{\circ}{\mathcal{D}}\neq \emptyset \implies B_\varepsilon(z)\cap \gamma^{-1}h\stackrel{\circ}{\mathcal{D}}\neq \emptyset.\]</span> Since we listed all the translates whose interior intersected with <span class="math inline">\(B_\varepsilon(z)\)</span>, we must have that <span class="math inline">\(\gamma^{-1}h = h_0\)</span>. But now <span class="math inline">\(\Gamma h = \Gamma \gamma^{-1}h = \Gamma h_0\)</span>, and since both <span class="math inline">\(h\)</span> and <span class="math inline">\(h_0\)</span> belong to <span class="math inline">\(R\)</span>, we must have <span class="math inline">\(h=h_0\)</span>. Therefore <span class="math inline">\(\gamma^{-1}=1\)</span>, or <span class="math inline">\(\gamma=1\)</span> as we wanted.</p>
+</div>
+<p>In order to further study the cusps, we consider the <span class="math inline">\({\mathbb{P}}^1({\mathbb{Q}})={\mathbb{Q}}\cup\{\infty\}\)</span>. Note that <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> (in fact <span class="math inline">\(\operatorname{GL}_2({\mathbb{Q}})\)</span>) acts on <span class="math inline">\({\mathbb{P}}^1({\mathbb{Q}})\)</span> by fractional linear transformations: <span class="math display">\[\gamma x = \frac{ax +b}{cx+d},\quad \gamma = \left(\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right)\in{\operatorname{SL}}_2({\mathbb{Z}}),x\in{\mathbb{P}}^1({\mathbb{Q}}).\]</span> Here we understand that <span class="math inline">\(\gamma\infty = \frac ac\)</span>, and <span class="math inline">\(\gamma x = \infty\)</span> if <span class="math inline">\(cx = -d\)</span>.</p>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.3</strong></span> The action of <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> on <span class="math inline">\({\mathbb{P}}^1({\mathbb{Q}})\)</span> is transitive, and it induces a bijection <span class="math display">\[{\operatorname{SL}}_2({\mathbb{Z}})/{\operatorname{SL}}_2({\mathbb{Z}})_\infty\cong {\mathbb{P}}^1({\mathbb{Q}}),\quad {\operatorname{SL}}_2({\mathbb{Z}})_\infty = \langle \pm T\rangle.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We will see that the orbit of <span class="math inline">\(\infty\)</span> is all of <span class="math inline">\({\mathbb{P}}^1({\mathbb{Q}})\)</span>, where we note that <span class="math inline">\(\left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right) \infty = \frac ac\)</span>. Given <span class="math inline">\(\frac ac\in{\mathbb{P}}^1({\mathbb{Q}})\)</span> in reduced terms (that is, such that <span class="math inline">\((a,c)=1\)</span>), then Bézout’s identity asserts the existence of integers <span class="math inline">\(b\)</span> and <span class="math inline">\(d\)</span> such that <span class="math inline">\(ad-bc=1\)</span>. Then the matrix <span class="math inline">\(\left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right)\)</span> belongs to <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> and takes <span class="math inline">\(\infty\)</span> to <span class="math inline">\(\frac ac\)</span>.</p>
+<p>The stabilizer of <span class="math inline">\(\infty\)</span>, written <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})_\infty\)</span>, is: <span class="math display">\[{\operatorname{SL}}_2({\mathbb{Z}})_\infty = \left\{\left(\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right) ~|~ \left(\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right) \infty = \infty\right\} = \left\{\left(\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right) ~|~ \frac ac = \infty\right\} = \left\{\left(\begin{matrix}a&amp;b\\0&amp;d\end{matrix}\right)\right\} = \langle \pm T\rangle.\]</span></p>
+</div>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.4</strong></span> The set of of a congruence subgroup <span class="math inline">\(\Gamma\)</span> is the set <span class="math inline">\(\operatorname{Cusps}(\Gamma)\)</span> of <span class="math inline">\(\Gamma\)</span>-orbits of <span class="math inline">\({\mathbb{P}}^1({\mathbb{Q}})\)</span>. Equivalently, <span class="math display">\[\operatorname{Cusps}(\Gamma) = \Gamma\backslash {\operatorname{SL}}_2({\mathbb{Z}}) / {\operatorname{SL}}_2({\mathbb{Z}})_\infty.\]</span></p>
+</div>
+<p>If <span class="math inline">\(P = [\frac ac]\)</span> is a cusp of <span class="math inline">\(\Gamma\)</span>, set <span class="math inline">\(\Gamma_P\)</span> for the of <span class="math inline">\(P\)</span> in <span class="math inline">\(\Gamma\)</span>, the elements of <span class="math inline">\(\Gamma\)</span> fixing <span class="math inline">\(P\)</span>.</p>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 2.2</strong></span> If <span class="math inline">\(\gamma_P(\infty) = P\)</span>, then <span class="math display">\[\Gamma_P = \Gamma\cap \gamma_P{\operatorname{SL}}_2({\mathbb{Z}})_\infty \gamma_P^{-1}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(\gamma\in\Gamma\)</span>. Then observe that <span class="math display">\[\begin{align*}
+\gamma\in\Gamma_P&amp;\iff \gamma P = P\iff \gamma \gamma_P\infty=\gamma_P\infty\\
+&amp;\iff \gamma_P^{-1}\gamma\gamma_P\infty=\infty\\
+&amp;\iff \gamma_P^{-1}\gamma\gamma_P\in {\operatorname{SL}}_2({\mathbb{Z}})_\infty\\
+&amp;\iff \gamma\in \gamma_P{\operatorname{SL}}_2({\mathbb{Z}})_\infty \gamma_P^{-1}.
+\end{align*}\]</span> This concludes the proof.</p>
+</div>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 2.3</strong></span> The subgroup <span class="math inline">\(H_P = \gamma_P^{-1}\Gamma\gamma_P\cap {\operatorname{SL}}_2({\mathbb{Z}})_\infty \subseteq {\operatorname{SL}}_2({\mathbb{Z}})_\infty\)</span> does not depend on the choice of the representative for <span class="math inline">\(P\)</span>, and has finite index in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})_\infty\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Just note that if <span class="math inline">\(\frac{a'}{c'}\)</span> is another representative for <span class="math inline">\(P\)</span>, then <span class="math inline">\(\gamma_P\)</span> gets modified into <span class="math inline">\(\gamma\gamma_P\)</span> for some <span class="math inline">\(\gamma\in\Gamma\)</span>. Then <span class="math inline">\((\gamma\gamma_P)^{-1}\Gamma(\gamma\gamma_P) = \gamma_P^{-1}\Gamma\gamma_P\)</span>.</p>
+</div>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 2.4</strong></span> Let <span class="math inline">\(H\)</span> be a subgroup of finite index in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})_\infty\)</span>, and let <span class="math inline">\(h\)</span> be the index of <span class="math inline">\(\{\pm 1\}H\)</span> in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})_\infty\)</span>. Then <span class="math inline">\(H\)</span> is one of he following: <span class="math display">\[H = \begin{cases}
+\langle \left(\begin{smallmatrix}1&amp;h\\0&amp;1\end{smallmatrix}\right)\rangle&amp;\\
+\langle \left(\begin{smallmatrix}-1&amp;h\\0&amp;-1\end{smallmatrix}\right)\rangle&amp;\\
+\{\pm 1\}\times \langle \left(\begin{smallmatrix}1&amp;h\\0&amp;1\end{smallmatrix}\right)\rangle&amp;
+\end{cases}\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Exercise.</p>
+</div>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.5</strong></span> The integer <span class="math inline">\(h_\Gamma(P)=h\)</span> in the above lemma is called <span class="math inline">\(P\)</span> for <span class="math inline">\(\Gamma\)</span>. A cusp is an if <span class="math inline">\(\gamma_P^{-1}\Gamma_P\gamma_P\)</span> is of the form <span class="math inline">\(\langle \left(\begin{smallmatrix}-1&amp;h\\0&amp;-1\end{smallmatrix}\right)\rangle\)</span>, and it is otherwise.</p>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.2</strong></span> In this example we show that if <span class="math inline">\(p\)</span> is any prime, then <span class="math inline">\(\operatorname{Cusps}(\Gamma_0(p)) = \{ \infty, 0\}\)</span>.</p>
+<p>Write an element <span class="math inline">\(\gamma\in\Gamma_0(p)\)</span> as <span class="math inline">\(\left(\begin{smallmatrix}a&amp;b\\pc&amp;d\end{smallmatrix}\right)\)</span>, with <span class="math inline">\(a,b,c,d\in{\mathbb{Z}}\)</span> satisfying <span class="math inline">\(ad-pbc =1\)</span>. The orbit of <span class="math inline">\(\infty\)</span> is: <span class="math display">\[\Gamma_0(p)\cdot \infty = \left\{\left(\begin{matrix}a&amp;b\\pc&amp;d\end{matrix}\right)\infty\right\} = \left\{\frac{a}{pc}~\colon~ a,c\in{\mathbb{Z}},\gcd(a,pc) = 1\right\} = \left\{ \frac{r}{s}~\colon~ p\mid s, \gcd(r,s)=1\right\}.\]</span> We thus see the orbit of the cusp <span class="math inline">\(\infty\)</span> consists of infinity together with all the rationals which when expressed in reduced terms have a denominator which is divisible by <span class="math inline">\(p\)</span>. One element which is not in this orbit is <span class="math inline">\(0=\frac{0}{1}\)</span>. Let us study then the orbit of <span class="math inline">\(0\)</span>. <span class="math display">\[\Gamma_0(p) \cdot 0 = \{\left(\begin{matrix}a&amp;b\\pc&amp;d\end{matrix}\right) 0\} = \{\frac{b}{d}~\colon~ b,d\in{\mathbb{Z}}, \gcd(b,d)=1, p\nmid d\}.\]</span></p>
+</div>
+<p>As we have seen in the example above, each cusp may have a different width. However, if <span class="math inline">\(\Gamma\)</span> is a normal congruence subgroup of <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>, the subgroup <span class="math inline">\(H_P\)</span> does not depend on the cusp <span class="math inline">\(P\)</span> and hence all cusps have the same width and regularity.</p>
+<p>Although one can have more cusps than the index of <span class="math inline">\(\Gamma\)</span>, the last result of this section says that this is basically right, once one counts in a proper way. To prove it, we will need a group-theoretic result.</p>
+<div id="lem-orbit-stabilizer" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 2.5</strong></span> Let <span class="math inline">\(G\)</span> be a group acting transitively on a set <span class="math inline">\(X\)</span> and let <span class="math inline">\(H\)</span> be a finite index subgroup of <span class="math inline">\(G\)</span>. Then for any <span class="math inline">\(x\in X\)</span> the stabilizer of <span class="math inline">\(x\)</span> in <span class="math inline">\(H\)</span> has finite index in the stabilizer of <span class="math inline">\(x\)</span> in <span class="math inline">\(G\)</span>, and the following formula holds: <span class="math display">\[\sum_{x\in H\backslash X} [G_x\colon H_x]=[G\colon H].\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(x\in X\)</span>, and consider the inclusion map <span class="math inline">\(G_x\longrightarrow G\)</span>. By taking the quotient by <span class="math inline">\(H\)</span> we get <span class="math inline">\(G_x\longrightarrow H\backslash G\)</span>. Suppose <span class="math inline">\(g_1, g_2\)</span> are mapped to the same element <span class="math inline">\(Hg\)</span> in <span class="math inline">\(H\backslash G\)</span>. This means that <span class="math inline">\(Hg_1 = Hg_2\)</span>, or that <span class="math inline">\(g_2g_1^{-1}\)</span> belongs to <span class="math inline">\(H\)</span>. Since <span class="math inline">\(g_2g_1^{-1}\)</span> stabilizes <span class="math inline">\(x\)</span> as well, we deduce that <span class="math inline">\(H_x g_1 = H_x g_2\)</span>. Therefore there is an injection of <span class="math inline">\(H_x\backslash G_x\hookrightarrow H\backslash G\)</span>. Since by assumption the latter set is finite, so is the first. Note also that the image of the map is precisely <span class="math inline">\(H\backslash HG_x\)</span>, and thus we also obtain <span class="math inline">\([G_x\colon H_x] = [H G_x\colon H]\)</span>.</p>
+<p>To prove the second assertion, fix an element <span class="math inline">\(x_0\in X\)</span>, and consider the map <span class="math display">\[H\backslash G\longrightarrow H\backslash X,\quad Hg\mapsto Hgx_0\]</span> which is surjective because <span class="math inline">\(G\)</span> acts transitively on <span class="math inline">\(X\)</span>. The fibre <span class="math inline">\(T_{Hx}\)</span> of an orbit <span class="math inline">\(Hx\)</span> consists of the set of classes <span class="math inline">\(Hg\)</span> such that <span class="math inline">\(Hgx_0 = Hx\)</span>. Let <span class="math inline">\(g_x\in G\)</span> be such that <span class="math inline">\(g_x x_0 = x\)</span>. Write <span class="math inline">\(Hg = Hg'g_x\)</span> and then we have: <span class="math display">\[\begin{align*}
+T_{Hx}&amp;\cong \{Hg'\in H\backslash G\colon Hg'g_xx_0 = Hx\} = \{Hg'\in H\backslash G\colon Hg'x=Hx\}= H\backslash(H G_x)\cong H_x\backslash G_x.
+\end{align*}\]</span> This allows us to find a formula for <span class="math inline">\([G\colon H]\)</span>: <span class="math display">\[\begin{align*}
+&amp;=\# (H\backslash G) = \sum_{x\in R} \# T_{Hx} = \sum_{x\in R} [G_x\colon H_x].
+\end{align*}\]</span></p>
+</div>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.1</strong></span> Let <span class="math inline">\(\Gamma\)</span> be a congruence subgroup. Then we have <span class="math display">\[\sum_{P\in \operatorname{Cusps}(\Gamma)} h_\Gamma(P) = [{\operatorname{SL}}_2({\mathbb{Z}})\colon \{\pm 1\}\Gamma].\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Consider the group <span class="math inline">\(G=\operatorname{PSL}_2({\mathbb{Z}})={\operatorname{SL}}_2({\mathbb{Z}})/\{\pm 1\}\)</span>, which acts transitively on the set <span class="math inline">\(X={\mathbb{P}}^1({\mathbb{Q}})\)</span>. Let <span class="math inline">\(H\)</span> be the image of <span class="math inline">\(\Gamma\)</span> in <span class="math inline">\(G\)</span>. Note that <span class="math inline">\(H\backslash X=\operatorname{Cusps}(\Gamma)\)</span>. Also, <span class="math inline">\(G_\infty\)</span> is the image in <span class="math inline">\(G\)</span> of <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})_\infty\)</span>. For each <span class="math inline">\(x\in X\)</span>, let <span class="math inline">\(\gamma\in G\)</span> be such that <span class="math inline">\(\gamma \infty = x\)</span>. Then <span class="math display">\[G_x=\gamma G_\infty\gamma^{-1},\text{ and}\quad H_x= \gamma \left(\gamma^{-1}H\gamma\right)_\infty \gamma^{-1}.\]</span> Therefore <span class="math display">\[[G_x\colon H_x] = [\bar{\operatorname{SL}}_2({\mathbb{Z}})\colon \bar \Gamma_P] = h_\Gamma(P),\]</span> where by <span class="math inline">\(\overline{(\cdot)}\)</span> we write the image of the group inside <span class="math inline">\(G\)</span>. Then applying <a href="#lem-orbit-stabilizer" class="quarto-xref">Lemma&nbsp;<span>2.5</span></a> to this setting gives <span class="math display">\[\sum_{P\in \operatorname{Cusps}(\Gamma)} h_\Gamma(P) = [G\colon H] = [{\operatorname{SL}}_2({\mathbb{Z}})\colon \{\pm 1\}\Gamma].\]</span></p>
+</div>
+</section>
+<section id="sec-fourier-expansion-at-infinity" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="sec-fourier-expansion-at-infinity"><span class="header-section-number">2.3</span> Fourier expansion at infinity</h2>
+<p>Let <span class="math inline">\(\Gamma\)</span> be a congruence subgroup of level <span class="math inline">\(N\)</span>. Note that the matrix <span class="math inline">\(\left(\begin{smallmatrix}1&amp;N\\0&amp;1\end{smallmatrix}\right)\)</span> belongs to <span class="math inline">\(\Gamma(N)\)</span>, and thus there is a minimum <span class="math inline">\(h&gt;0\)</span> with the property that <span class="math inline">\(\left(\begin{smallmatrix}1&amp;h\\0&amp;1\end{smallmatrix}\right) \in\Gamma\)</span>.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.6</strong></span> The of <span class="math inline">\(\Gamma\)</span> is the minimum <span class="math inline">\(h&gt;0\)</span> such that <span class="math inline">\(\left(\begin{smallmatrix}1&amp;h\\0&amp;1\end{smallmatrix}\right)\in\Gamma\)</span>.</p>
+</div>
+<div id="rmk-">
+<p>The fan width of a congruence subgroup of level <span class="math inline">\(N\)</span> is a divisor of <span class="math inline">\(N\)</span>.</p>
+</div>
+<p>Write <span class="math display">\[q_h =q_h(z)= e^{\frac{2\pi i z}{h}},\]</span> and note that <span class="math inline">\(z\mapsto q_h(z)\)</span> is periodic with period <span class="math inline">\(h\)</span>. Define <span class="math inline">\(g\)</span> by <span class="math inline">\(g = f\circ q_h^{-1}\)</span>. That is, <span class="math inline">\(g(q_h) = f(z)\)</span>. Although <span class="math inline">\(q_h\)</span> is not invertible, the above definition makes sense, and <span class="math inline">\(g\)</span> has a Laurent expansion.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.7</strong></span> The <span class="math inline">\(q\)</span>-expansion of <span class="math inline">\(f\)</span> at infinity is the Laurent expansion: <span class="math display">\[f(z) = g(q_h)=\sum_{n=-\infty}^\infty a(n)q_h^n.\]</span></p>
+</div>
+</section>
+<section id="sec:expansions-at-cusps" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="sec:expansions-at-cusps"><span class="header-section-number">2.4</span> Expansions at cusps</h2>
+<p>Let <span class="math inline">\(s\)</span> be a cusp, <span class="math inline">\(s\neq \infty\)</span>. Write <span class="math inline">\(s =\alpha\infty\)</span> for some <span class="math inline">\(\alpha\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span>, and consider the equation: <span class="math display">\[f(\alpha z) = j(\alpha,z)^{k}(f|_k\alpha)(z).\]</span> Since <span class="math inline">\(j(\alpha,z)\neq 0,\infty\)</span> when <span class="math inline">\(z\)</span> is near <span class="math inline">\(\infty\)</span>, the behavior of <span class="math inline">\(f(z)\)</span> near <span class="math inline">\(s\)</span> is related to the behavior of <span class="math inline">\((f|_k\alpha)(z)\)</span> near <span class="math inline">\(\infty\)</span>. Assume that <span class="math inline">\(f\)</span> is weakly modular for the congruence subgroup <span class="math inline">\(\Gamma\)</span>. Since<span class="math display">\[(f|_k\alpha)|_k(\alpha^{-1}\gamma\alpha) = (f|_k\gamma)|_k\alpha = f|_k\alpha,\]</span> the new function <span class="math inline">\(f|_k\alpha\)</span> is invariant under the group <span class="math inline">\(\Gamma'=\alpha^{-1}\Gamma\alpha\)</span>. Since <span class="math inline">\(\Gamma(N)\)</span> is normal inside <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>, we deduce that <span class="math inline">\(\Gamma'\)</span> is also a congruence subgroup of level <span class="math inline">\(N\)</span>. Hence <span class="math inline">\(f|_k\alpha\)</span> has a Fourier expansion at infinity as in <a href="#sec-fourier-expansion-at-infinity" class="quarto-xref"><span>Section 2.3</span></a> in powers of <span class="math inline">\(q_N\)</span>.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.8</strong></span> The <span class="math inline">\(s\)</span> is the expansion: <span class="math display">\[f|_k\alpha = \sum_{n=-\infty}^\infty b(n)q_N^n.\]</span></p>
+</div>
+</section>
+<section id="definition-of-modular-forms" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="definition-of-modular-forms"><span class="header-section-number">2.5</span> Definition of modular forms</h2>
+<p>The expansions at different cusps allow us to define modular forms for arbitrary congruence subgroups.</p>
+<div id="def-modforms-congruence" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.9</strong></span> A function <span class="math inline">\(f\colon{\mathbb{H}}\longrightarrow{\mathbb{C}}\)</span> is a of weight <span class="math inline">\(k\)</span> for a congruence subgroup <span class="math inline">\(\Gamma\)</span> if:</p>
+<ol type="1">
+<li><p><span class="math inline">\(f\)</span> is holomorphic on <span class="math inline">\({\mathbb{H}}\)</span>,</p></li>
+<li><p><span class="math inline">\(f|_k\gamma = f\)</span> for all <span class="math inline">\(\gamma\in\Gamma\)</span>, and</p></li>
+<li><p><span class="math inline">\(f|_k\alpha\)</span> is holomorphic at infinity for all <span class="math inline">\(\alpha\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span>.</p></li>
+</ol>
+<p>A function is a of weight <span class="math inline">\(k\)</span> for a congruence subgroup <span class="math inline">\(\Gamma\)</span> if instead of <span class="math inline">\(3\)</span> is satisfies:</p>
+<ol type="1">
+<li><span class="math inline">\(f|_k\alpha\)</span> vanishes at infinity for all <span class="math inline">\(\alpha\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span>.</li>
+</ol>
+<p>The of weight <span class="math inline">\(k\)</span> for a congruence subgroup <span class="math inline">\(\Gamma\)</span> is written <span class="math inline">\(M_k(\Gamma)\)</span>; the of weight <span class="math inline">\(k\)</span> for a congruence subgroup <span class="math inline">\(\Gamma\)</span> is written <span class="math inline">\(S_k(\Gamma)\)</span>.</p>
+</div>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.4</strong></span> Suppose that <span class="math inline">\(f\colon{\mathbb{H}}\longrightarrow{\mathbb{C}}\)</span> satisfies <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> above. Suppose that <span class="math inline">\(f\)</span> is holomorphic at infinity. That is, <span class="math display">\[f(z) = \sum_{n=0}^\infty a(n)q_N^n.\]</span> Furthermore, suppose that there exists constants <span class="math inline">\(C&gt;0\)</span> and <span class="math inline">\(r&gt;0\)</span> such that: <span class="math display">\[|a(n)|&lt; Cn^r,\quad \forall n &gt; 0.\]</span> Then <span class="math inline">\(f\)</span> satisfies <span class="math inline">\(3\)</span>, and thus <span class="math inline">\(f\in M_k(\Gamma)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Exercise.</p>
+</div>
+<div id="rmk-">
+<p>In fact, the converse is also true: if the Fourier coefficients of <span class="math inline">\(f\)</span> grow as <span class="math inline">\(Cn^r\)</span> as above, then condition <span class="math inline">\(3\)</span> in <a href="#def-modforms-congruence" class="quarto-xref">Definition&nbsp;<span>2.9</span></a> is satisfied. The proof of this fact uses Eisenstein series for congruence subgroups, and thus will be postponed until we introduce those.</p>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.3</strong></span> Let <span class="math inline">\(f\)</span> be a weakly-modular form of weight <span class="math inline">\(k\)</span> for the full modular subgroup. Consider the function <span class="math inline">\(g(z) = f(Nz)\)</span>. If <span class="math inline">\(\gamma\in\Gamma_0(N)\)</span> is of the form <span class="math inline">\(\gamma=\left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right)\)</span>, then since <span class="math inline">\(N\mid c\)</span> the matrix <span class="math display">\[\gamma'=\left(\begin{matrix}a&amp;bN\\c/N&amp;d\end{matrix}\right)\]</span> is in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>. Therefore we may compute: <span class="math display">\[\begin{align*}
+g(\gamma z) &amp;= f(N(\gamma z)) = f(\frac{Naz+bN}{cz+d}) \\
+&amp;= f(\frac{a(Nz)+bN}{c/N (Nz) + d}) = f(\gamma'(Nz))\\
+&amp;=(c/N(Nz) + d)^{k}f(Nz) = j(\gamma,z)^k g(z).
+\end{align*}\]</span> Therefore the function <span class="math inline">\(g\)</span> is weakly-modular of weight <span class="math inline">\(k\)</span> for the congruence subgroup <span class="math inline">\(\Gamma_0(N)\)</span>. In fact, this operation defines injections <span class="math display">\[M_k({\operatorname{SL}}_2({\mathbb{Z}}))\longrightarrow M_k(\Gamma_0(N))\]</span> which will play an important role later in the course, in the Atkin-Lehner-Li theory of old/new forms.</p>
+</div>
+<p>We end this section by realizing that the definition of modular forms can be checked by finitely many computations. Suppose that <span class="math inline">\(\sigma=\alpha\infty\)</span> and <span class="math inline">\(\tau=\beta\infty\)</span> are two cusps (here <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>). Suppose that <span class="math inline">\(\sigma=\gamma\tau\)</span> with <span class="math inline">\(\gamma\in\Gamma\)</span>.</p>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.5</strong></span> If <span class="math display">\[f|_k\alpha = \sum_{n=-\infty}^\infty a(n)q_h^n,\]</span> then <span class="math display">\[f|_k\beta = \sum_{n=-\infty}^\infty b(n)q_h^n,\quad b(n) = (\pm 1)^k e^{\frac{2\pi i n j}{h}} a(n), j\in {\mathbb{Z}}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By assumption <span class="math inline">\(\alpha\infty=\gamma\beta\infty\)</span>, so <span class="math inline">\(\alpha^{-1}\gamma\beta\infty=\infty\)</span>, and therefore since the only matrices that fix infinity are of the form <span class="math inline">\(\pm \left(\begin{smallmatrix}1&amp;j\\0&amp;1\end{smallmatrix}\right)\)</span> we have: <span class="math display">\[\alpha^{-1}\gamma\beta = \pm\left(\begin{matrix}1&amp;j\\0&amp;1\end{matrix}\right),\quad j\in{\mathbb{Z}}.\]</span> This means that <span class="math display">\[\beta = \pm \gamma^{-1}\alpha\left(\begin{matrix}1&amp;j\\0&amp;1\end{matrix}\right),\]</span> and therefore: <span class="math display">\[\begin{align*}
+f|_k\beta &amp;= f|_k\pm I |_k \gamma^{-1} |_k\alpha |_k \left(\begin{matrix}1&amp;j\\0&amp;1\end{matrix}\right) = (\pm 1)^k\sum a(n)e^{\frac{2\pi i n z}{h}} |_k \left(\begin{matrix}1&amp;j\\0&amp;1\end{matrix}\right)\\
+&amp;=(\pm 1)^k\sum a(n) e^{\frac{2\pi i n (z+j)}{h}}.
+\end{align*}\]</span></p>
+</div>
+<div id="cor-" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 2.1</strong></span> For each <span class="math inline">\(n\in{\mathbb{Z}}\)</span>, we have <span class="math inline">\(a(n)=0\)</span> if and only if <span class="math inline">\(b(n)=0\)</span>. In particular, it is enough to check <span class="math inline">\(3\)</span> or <span class="math inline">\(3'\)</span> for one representative from each of the equivalence classes of cusps.</p>
+</div>
+</section>
+<section id="valence-formula-for-congruence-subgroups" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="valence-formula-for-congruence-subgroups"><span class="header-section-number">2.6</span> Valence formula for congruence subgroups</h2>
+<p>Let <span class="math inline">\(\Gamma\)</span> be a congruence subgroup of level <span class="math inline">\(N\)</span>. In order to state the next result we need to define the order of a weakly-modular function at a cusps <span class="math inline">\(P\in\operatorname{Cusps}(\Gamma)\)</span>.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.10</strong></span> Let <span class="math inline">\(f\)</span> be a weakly-modular form of weight <span class="math inline">\(k\)</span> for <span class="math inline">\(\Gamma\)</span>, and let <span class="math inline">\(P\)</span> be a cusp of <span class="math inline">\(\Gamma\)</span> of width <span class="math inline">\(h_\Gamma(P)\)</span>. Since <span class="math inline">\(f(z+N)=f(z)\)</span>, we can write <span class="math inline">\(f\)</span> as a Laurent series in <span class="math inline">\(q_N=e^{\frac{2\pi i z}{N}}\)</span>, say <span class="math display">\[f(q_N) = \sum_{n\geq n_0} a_n q_N^n,\quad a_{n_0}\neq 0.\]</span> The of <span class="math inline">\(f\)</span> at <span class="math inline">\(P\)</span> is <span class="math inline">\(v_P(f) = \frac{h_\Gamma(P)}{N}n_0\)</span>.</p>
+</div>
+<p>Here is a generalization of <a href="1_modformslevelone.html#thm-valence-formula" class="quarto-xref">Theorem&nbsp;<span>1.9</span></a> to arbitrary congruence subgroups.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.2</strong></span> Let <span class="math inline">\(\Gamma\)</span> be a congruence subgroup, and let <span class="math inline">\(k\)</span> be an integer. Let <span class="math inline">\(f\)</span> be a non-zero meromorphic function on <span class="math inline">\({\mathbb{H}}\cup\{\infty\}\)</span>, which is weakly-modular of weight <span class="math inline">\(k\)</span> for <span class="math inline">\(\Gamma\)</span>. Then we have <span class="math display">\[\sum_{z\in\Gamma\backslash{\mathbb{H}}} \frac{v_z(f)}{\#\overline\Gamma_z} +\sum_{P\in\operatorname{Cusps}(\Gamma)} v_P(f)=\frac{k}{12}[\operatorname{PSL}_2({\mathbb{Z}})\colon\overline\Gamma].\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Write <span class="math inline">\(d_\Gamma=[\operatorname{PSL}_2({\mathbb{Z}})\colon\overline\Gamma]\)</span>, let <span class="math inline">\(R\)</span> be a set of coset representatives for <span class="math inline">\(\overline\Gamma\backslash\operatorname{PSL}_2({\mathbb{Z}})\)</span>, and define <span class="math inline">\(F=\prod_{\gamma\in R} f|_k\gamma\)</span>. Note that <span class="math inline">\(F\)</span> is weakly-modular of weight <span class="math inline">\(kd_\Gamma\)</span> for <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>, and it is meromorphic at <span class="math inline">\(\infty\)</span>. By <a href="1_modformslevelone.html#thm-valence-formula" class="quarto-xref">Theorem&nbsp;<span>1.9</span></a> we have <span class="math display">\[v_\infty(F)+\frac 12 v_i(F) + \frac 13 v_\rho(F) +\sum_{w\in W} v_w(F) = \frac{k}{12} d_\Gamma.\]</span> Another way to write the above is: <span class="math display">\[v_\infty(F) + \sum_{z\in\operatorname{PSL}_2({\mathbb{Z}})\backslash{\mathbb{H}}} \frac{v_z(F)}{\#\operatorname{PSL}_2({\mathbb{Z}})_z} = \frac{k}{12} d_\Gamma.\]</span> We may now compute: <span class="math display">\[\begin{align*}
+v_z(F) &amp;= \sum_{\gamma\in\overline\Gamma\backslash\operatorname{PSL}_2({\mathbb{Z}})} v_z(f|_k\gamma) = \sum_{\gamma\in\overline\Gamma\backslash\operatorname{PSL}_2({\mathbb{Z}})} v_{\gamma z}(f)=\sum_{w\in\overline\Gamma\backslash \operatorname{PSL}_2({\mathbb{Z}})z} [\operatorname{PSL}_2({\mathbb{Z}})_w\colon\overline\Gamma_w] v_w(f).
+\end{align*}\]</span> The last equality follows by grouping all elements <span class="math inline">\(\gamma\)</span> such that <span class="math inline">\(\gamma z=w\)</span>, for each possible <span class="math inline">\(w\)</span>. Now, since <span class="math inline">\(\operatorname{PSL}_2({\mathbb{Z}})_w\)</span> is finite and independent of <span class="math inline">\(w\in \overline\Gamma\backslash\operatorname{PSL}_2({\mathbb{Z}})z\)</span>, we get <span class="math inline">\([\operatorname{PSL}_2({\mathbb{Z}})_w\colon\overline\Gamma_w]=\frac{\# \operatorname{PSL}_2({\mathbb{Z}})_z}{\#\overline\Gamma_w}\)</span>. Dividing by <span class="math inline">\(\#\operatorname{PSL}_2({\mathbb{Z}})_z\)</span> we obtain <span class="math display">\[\frac{v_z(F)}{\#\operatorname{PSL}_2({\mathbb{Z}})_z} = \sum_{w\in \overline\Gamma\backslash \operatorname{PSL}_2({\mathbb{Z}})z} \frac{v_w(f)}{\#\overline\Gamma_w}.\]</span> By summing over a set of representatives for <span class="math inline">\(\operatorname{PSL}_2({\mathbb{Z}})\backslash {\mathbb{H}}\)</span> we finally obtain <span class="math display">\[\begin{align*}
+\sum_{z\in\operatorname{PSL}_2({\mathbb{Z}})\backslash{\mathbb{H}}} \frac{v_z(F)}{\#\operatorname{PSL}_2({\mathbb{Z}})_z} &amp;=\sum_{z\in\operatorname{PSL}_2({\mathbb{Z}})\backslash {\mathbb{H}}}\sum_{w\in\overline\Gamma\backslash \operatorname{PSL}_2({\mathbb{Z}})z} \frac{v_w(f)}{\#\overline\Gamma_w}=\sum_{w\in\overline\Gamma\backslash{\mathbb{H}}} \frac{v_w(f)}{\#\overline\Gamma_w}.
+\end{align*}\]</span> In order to conclude the proof it remains to be shown that <span class="math inline">\(v_\infty(F) = \sum_{P\in\operatorname{Cusps}(\Gamma)} v_P(f)\)</span>. We first prove it assuming that <span class="math inline">\(\overline\Gamma\)</span> is normal in <span class="math inline">\(\operatorname{PSL}_2({\mathbb{Z}})\)</span>. In this case, we have <span class="math display">\[\begin{align*}
+d_\Gamma v_\infty(F) &amp;= \sum_{P\in\operatorname{Cusps}(\Gamma)} h_\Gamma(P)v_\infty(F)\\
+&amp;=\sum_{P\in\operatorname{Cusps}(\Gamma)} v_P(F)\\
+&amp;=\sum_{P\in\operatorname{Cusps}(\Gamma)} \sum_{\gamma\in R} v_{\gamma P}(f)\\
+&amp;=\sum_{P\in\operatorname{Cusps}(\Gamma)} \sum_{P'\in\operatorname{Cusps}(\Gamma)} \#\{\gamma\in R ~|~ \gamma P = P'\} v_{P'}(f)\\
+&amp;=\sum_{P'\in\operatorname{Cusps}(\Gamma)} \sum_{P\in\operatorname{Cusps}(\Gamma)} \#\{\gamma\in R ~|~ \gamma P = P'\} v_{P'}(f)\\
+&amp;=d_\Gamma\sum_{P'\in\operatorname{Cusps}(\Gamma)} v_{P'}(f).
+\end{align*}\]</span> Note that any congruence subgroup <span class="math inline">\(\Gamma\)</span> contains a subgroup (for instance <span class="math inline">\(\Gamma(N)\)</span>) which is normal in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>, and such that it is of finite index. Therefore it is enough to show that, if <span class="math inline">\(\Gamma'\subset \Gamma\)</span> have finite index and <span class="math inline">\(g\)</span> is weakly modular of weight <span class="math inline">\(k\)</span> for <span class="math inline">\(\Gamma\)</span>, then <span class="math display">\[\sum_{P'\in \operatorname{Cusps}(\Gamma')} v_{P'}(f) = \frac{d_{\Gamma'}}{d_\Gamma} \sum_{P'\in \operatorname{Cusps}(\Gamma')} v_{P'}(f).\]</span> Let <span class="math inline">\(P\in\operatorname{Cusps}(\Gamma)\)</span> and <span class="math inline">\(P'\in\operatorname{Cusps}(\Gamma')\)</span> be such that <span class="math inline">\([P]=[P']\)</span> inside <span class="math inline">\(\operatorname{Cusps}(\Gamma)\)</span>. Pick <span class="math inline">\(\sigma\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span> such that <span class="math inline">\(\sigma\infty = [P]\)</span> in <span class="math inline">\(\operatorname{Cusps}(\Gamma)\)</span>. Write also <span class="math inline">\(n_0 = v_P^\Gamma(g)\)</span>, and <span class="math inline">\(m = \frac{h_{\Gamma'}}{h_\Gamma}\)</span>. Then: <span class="math display">\[(g|_k\sigma)(z) = \sum_{n\geq n_0} a_n(g) e^{\frac{2\pi i n z}{h_\Gamma}} = \sum_{n\geq n_0} a_n(g)e^{\frac{2\pi i nmz}{h_{\Gamma'}}} = \sum_{n\geq mn_0} a_n(g)e^{\frac{2\pi i nz}{h_{\Gamma'}}}.\]</span> Hence we have <span class="math inline">\(v_{P'}(g) = m v_P(g)\)</span>, as we wanted. This concludes the proof of the valence formula.</p>
+</div>
+<p>As for level <span class="math inline">\(1\)</span>, the valence formula gives a criterion for equality of modular forms:</p>
+<div id="cor-" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 2.2</strong></span> Let <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> be two modular forms in <span class="math inline">\(M_k(\Gamma)\)</span>, whose <span class="math inline">\(q\)</span>-expansions (at one cusp of <span class="math inline">\(\Gamma\)</span>) coincide up to the term <span class="math inline">\(\frac{k}{12}[\operatorname{PSL}_2({\mathbb{Z}})\colon\overline\Gamma]\)</span>. Then <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are equal.</p>
+</div>
+<p>There are dimension formulas for congruence subgroups (see <span class="citation" data-cites="diamond-shurman">(<a href="bibliography.html#ref-diamond-shurman" role="doc-biblioref">Diamond and Shurman 2005, vol. 228, chap. 3</a>)</span>) but we will not see them in this course.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-diamond-shurman" class="csl-entry" role="listitem">
+Diamond, Fred, and Jerry Michael Shurman. 2005. <em>A First Course in Modular Forms</em>. Vol. 228. Springer.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./1_modformslevelone.html" class="pagination-link" aria-label="Modular forms of level one">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Modular forms of level one</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./3_complextori.html" class="pagination-link" aria-label="Moduli interpretation">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Moduli interpretation</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://www.github.com/mmasdeu/modforms/edit/main/2_modformscongruence.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://www.github.com/mmasdeu/modforms/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://www.github.com/mmasdeu/modforms/blob/main/2_modformscongruence.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>

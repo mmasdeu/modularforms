@@ -1,2 +1,0 @@
-#!/bin/bash
-for file in PicSrc/*pdf;do iperender -svg $file Pictures/`basename $file .pdf`.svg;done;

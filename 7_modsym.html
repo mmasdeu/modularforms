@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7&nbsp; Modular symbols – Modular Forms</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./bibliography.html" rel="next">
+<link href="./6_lfunctions.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./7_modsym.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modular symbols</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Modular Forms</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://www.github.com/mmasdeu/modforms" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Modular-Forms.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1_modformslevelone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Modular forms of level one</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_modformscongruence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Modular forms for congruence subgroups</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_complextori.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Moduli interpretation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_hecke.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hecke Theory</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5_eisenstein.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eisenstein series</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_lfunctions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">L-functions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7_modsym.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modular symbols</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bibliography.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bibliography</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#first-definitions" id="toc-first-definitions" class="nav-link active" data-scroll-target="#first-definitions"><span class="header-section-number">7.1</span> First definitions</a></li>
+  <li><a href="#the-eichlershimura-isomorphism" id="toc-the-eichlershimura-isomorphism" class="nav-link" data-scroll-target="#the-eichlershimura-isomorphism"><span class="header-section-number">7.2</span> The Eichler–Shimura isomorphism</a></li>
+  <li><a href="#computation-of-modular-symbols" id="toc-computation-of-modular-symbols" class="nav-link" data-scroll-target="#computation-of-modular-symbols"><span class="header-section-number">7.3</span> Computation of modular symbols</a></li>
+  <li><a href="#a-worked-out-example" id="toc-a-worked-out-example" class="nav-link" data-scroll-target="#a-worked-out-example"><span class="header-section-number">7.4</span> A worked out example</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://www.github.com/mmasdeu/modforms/edit/main/7_modsym.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://www.github.com/mmasdeu/modforms/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://www.github.com/mmasdeu/modforms/blob/main/7_modsym.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-modular-symbols" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modular symbols</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="hidden">
+
+</div>
+<section id="first-definitions" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="first-definitions"><span class="header-section-number">7.1</span> First definitions</h2>
+<p>Let <span class="math inline">\(A\)</span> be an abelian group.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7.1</strong></span> An <span class="math inline">\(A\)</span>-valued is a function <span class="math display">\[m\colon {\mathbb{P}}_1({\mathbb{Q}})\times {\mathbb{P}}_1({\mathbb{Q}}) \longrightarrow A, \quad (r,s)\mapsto m\{r\longrightarrow s\}\]</span> satisfying, for all <span class="math inline">\(r\)</span>, <span class="math inline">\(s\)</span> and <span class="math inline">\(t\)</span> in <span class="math inline">\({\mathbb{P}}_1({\mathbb{Q}})\)</span>,</p>
+<ol type="1">
+<li><p><span class="math inline">\(m\{r\longrightarrow s\} = -m\{s\longrightarrow r\}\)</span>,</p></li>
+<li><p><span class="math inline">\(m\{r\longrightarrow s\} + m\{s\longrightarrow t\} = m\{r\longrightarrow t\}\)</span>.</p></li>
+</ol>
+<p>Denote by <span class="math inline">\({\mathcal{M}}(A)\)</span> the abelian group of all <span class="math inline">\(A\)</span>-valued modular symbols. We will also write <span class="math inline">\({\mathcal{M}}={\mathcal{M}}({\mathbb{C}})\)</span>.</p>
+</div>
+<p>The group <span class="math inline">\(\operatorname{GL}_2({\mathbb{Q}})\)</span> acts on <span class="math inline">\({\mathcal{M}}(A)\)</span> on the left, by the rule <span class="math display">\[(\gamma m)\{r\longrightarrow s\} = m\{\gamma^{-1} r\longrightarrow\gamma^{-1} s\}.\]</span></p>
+<p>We are interested in modular symbols invariant under a congruence subgroup <span class="math inline">\(\Gamma\subset SL_2({\mathbb{Z}})\)</span> and, to simplify the exposition, we will concentrate on <span class="math inline">\(\Gamma=\Gamma_0(N)\)</span>. The most important examples of modular symbols will arise from integrating modular forms. Let <span class="math inline">\(f\in S_2(\Gamma_0(N))\)</span> be a <em>newform</em>, and define <span class="math display">\[\lambda_f \{r\longrightarrow s\} = \int_r^s 2\pi i f(z) dz.\]</span></p>
+<p>Note that since <span class="math inline">\(f\)</span> is a cusp form the above integrals converge. Moreover, they can be explicitly computed: choose some <span class="math inline">\(\tau\in{\mathbb{H}}\)</span> and write <span class="math display">\[\int_r^s 2\pi i f(z)dz = \int_r^\tau 2\pi i f(z)dz + \int_\tau^s 2\pi i f(z)dz.\]</span> If <span class="math inline">\(r=\infty\)</span> then the integral from <span class="math inline">\(x\)</span> to <span class="math inline">\(\tau\)</span> can be calculated with the formula <span class="math display">\[\int_\infty^\tau 2\pi i f(z)dz=\sum_{n=1}^\infty \frac{a_n}{n} e^{2\pi i n \tau}.\]</span> Otherwise, choose a matrix <span class="math inline">\(\gamma\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span> with <span class="math inline">\(\gamma \infty = r\)</span> and reduce to the case above, using the change of variables <span class="math display">\[\int_r^\tau 2\pi i f(z)dz = \int_\infty^{\gamma^{-1}\tau} 2\pi if(\gamma z)d(\gamma z)=\int_\infty^{\gamma^{-1}\tau} 2\pi i (f|_2\gamma)(z)dz.\]</span> A priori the modular symbol <span class="math inline">\(\lambda_f\)</span> belongs to <span class="math inline">\({\mathcal{M}}({\mathbb{C}})\)</span>, although a deep theorem of Shimura gives a much more precise description of its values. Define the plus-minus symbols <span class="math display">\[\lambda_f^\pm \{r\longrightarrow s\} = 2\pi i \left(\int_r^s f(z) dz \pm \int_{-r}^{-s} f(z)dz\right).\]</span></p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 7.1</strong></span> Let <span class="math inline">\(f\in S_2(\Gamma_0(N))\)</span> be a newform such that <span class="math display">\[f(q)=\sum_{n=1}^\infty a_n q^n,\quad a_1=1, a_n\in{\mathbb{Z}}.\]</span> There exists <span class="math inline">\(\Omega_f^+\in{\mathbb{R}}\)</span> and <span class="math inline">\(\Omega_f^-\in i{\mathbb{R}}\)</span> such that <span class="math display">\[\lambda_f^\pm\{r\longrightarrow s\}\in \Omega_f^\pm{\mathbb{Z}}.\]</span> Therefore <span class="math inline">\(\frac{1}{\Omega_f^\pm}\lambda_f^\pm\in {\mathcal{M}}({\mathbb{Z}})\)</span>.</p>
+</div>
+<p>A crucial property of <span class="math inline">\(\lambda_f\)</span> and thus of <span class="math inline">\(\lambda_f^\pm\)</span> is their invariance with respect to <span class="math inline">\(\Gamma_0(N)\)</span>:</p>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 7.1</strong></span> We have, for all <span class="math inline">\(\gamma\in\Gamma_0(N)\)</span>, <span class="math display">\[\lambda_f\{\gamma r\longrightarrow\gamma s\} = \lambda_f\{r\longrightarrow s\}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Write <span class="math inline">\(\omega_f = 2\pi i f(z)dz\)</span>, and note that: <span class="math display">\[\lambda_f\{\gamma r\longrightarrow\gamma s\}=\int_{\gamma r}^{\gamma s}\omega_f = \int_{r}^{s} \omega_f|_2\gamma = \int_r^s \omega_f=\lambda_f\{r\longrightarrow s\}.\]</span></p>
+</div>
+<p>In the next section we will study the space of <span class="math inline">\(\Gamma_0(N)\)</span>-invariant modular symbols in more detail.</p>
+</section>
+<section id="the-eichlershimura-isomorphism" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="the-eichlershimura-isomorphism"><span class="header-section-number">7.2</span> The Eichler–Shimura isomorphism</h2>
+<p>Write <span class="math inline">\({\mathcal{M}}^{\Gamma_0(N)}\)</span> for the space of <span class="math inline">\(\Gamma_0(N)\)</span>-invariant modular symbols. It is equipped with an action of the Hecke operators <span class="math inline">\(T_p\)</span> with <span class="math inline">\(p\nmid N\)</span>, via the formula <span class="math display">\[(T_p m)\{r\longrightarrow s\} = m\{pr\longrightarrow ps\} + \sum_{j=0}^{p-1}m\left\{\frac{r+j}{p}\longrightarrow\frac{s+j}{p}\right\}.\]</span></p>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 7.2</strong></span> The map <span class="math inline">\(f\mapsto \lambda_f\)</span> is an injective, <span class="math inline">\({\mathbb{C}}\)</span>-linear Hecke-equivariant map.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Assuming that <span class="math inline">\(\lambda_f=0\)</span>, define the following holomorphic function on <span class="math inline">\({\mathbb{H}}\cup {\mathbb{P}}^1({\mathbb{Q}})\)</span>: <span class="math display">\[F(\tau) = \int_\infty^\tau 2\pi i f(z)dz.\]</span> Note that <span class="math inline">\(F(\gamma\tau)-F(\tau) = \lambda_f\{r\longrightarrow\gamma r\}\)</span> for any choice of <span class="math inline">\(r\in{\mathbb{P}}^1({\mathbb{Q}})\)</span>. Since by assumption <span class="math inline">\(\lambda_f\{r\longrightarrow\gamma r\}\)</span> is zero, we get that <span class="math inline">\(F\)</span> is <span class="math inline">\(\Gamma_0(N)\)</span>-invariant. Therefore <span class="math inline">\(F\)</span> is bounded on <span class="math inline">\({\mathbb{H}}\)</span>, and hence is constant by Liouville’s theorem. Therefore <span class="math inline">\(F'(\tau)=0\)</span>. But note that by the fundamental theorem of Calculus <span class="math inline">\(F'(\tau)=2\pi i f(\tau)\)</span>. Hence <span class="math inline">\(f=0\)</span>.</p>
+</div>
+<p>In order to investigate the image of <span class="math inline">\(f\mapsto \lambda_f\)</span>, we first need to know the dimension of <span class="math inline">\({\mathcal{M}}^{\Gamma_0(N)}\)</span>. Let <span class="math inline">\(g=\dim S_2(\Gamma_0(N))\)</span> and let <span class="math inline">\(s\)</span> be the number of cusps of <span class="math inline">\(\Gamma_0(N)\)</span>.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 7.2</strong></span> The space <span class="math inline">\({\mathcal{M}}^{\Gamma_0(N)}\)</span> has dimension <span class="math inline">\(2g+s-1\)</span>.</p>
+</div>
+<p>Therefore the map <span class="math inline">\(f\mapsto \lambda_f\)</span> cannot be surjective, and in fact it will fail to be surjective in two ways. First, complex conjugation gives a natural action on <span class="math inline">\({\mathcal{M}}^{\Gamma_0(N)}\)</span>, by <span class="math display">\[\overline m\{r\longrightarrow s\} = \overline{m\{r\longrightarrow s\}}.\]</span> However <span class="math inline">\(\overline{\lambda}_f\)</span> is the modular symbol attached to <span class="math inline">\(\overline{2\pi i f(z)dz} = -2\pi i \bar f(z) d\bar z\)</span>, which we didn’t consider. Therefore we get a new homomorphism <span class="math display">\[\lambda\colon S_2(\Gamma_0(N))\oplus\overline{S_2(\Gamma_0(N))} \longrightarrow{\mathcal{M}}^{\Gamma_0(N)},\]</span> which is still injective and its image has thus dimension <span class="math inline">\(2g\)</span> inside the <span class="math inline">\(2g+s-1\)</span>-dimensional space <span class="math inline">\({\mathcal{M}}^{\Gamma_0(N)}\)</span>.</p>
+<p>Secondly, we need to consider the so-called .</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7.2</strong></span> A <span class="math inline">\(\Gamma_0(N)\)</span>-invariant modular symbol <span class="math inline">\(m\)</span> is called <em>Eisenstein</em> if there exists a <span class="math inline">\(\Gamma_0(N)\)</span>-invariant function <span class="math inline">\(M\colon {\mathbb{P}}^1({\mathbb{Q}})\longrightarrow{\mathbb{C}}\)</span> such that <span class="math display">\[m\{r\longrightarrow s\} = M(s)-M(r),\quad r,s\in {\mathbb{P}}^1({\mathbb{Q}}).\]</span></p>
+</div>
+<p>The space of Eisenstein modular symbols has dimension <span class="math inline">\(s-1\)</span> and is linearly disjoint from the image of <span class="math inline">\(\lambda\)</span> above. This gives a complete description of <span class="math inline">\({\mathcal{M}}^{\Gamma_0(N)}\)</span>.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 7.3</strong></span> The map <span class="math inline">\(\lambda\)</span> gives a Hecke-equivariant isomorphism <span class="math display">\[M_2(\Gamma_0(N))\oplus \overline{S_2(\Gamma_0(N))} \longrightarrow{\mathcal{M}}^{\Gamma_0(N)}.\]</span></p>
+</div>
+</section>
+<section id="computation-of-modular-symbols" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="computation-of-modular-symbols"><span class="header-section-number">7.3</span> Computation of modular symbols</h2>
+<p>One important feature of modular symbols is that they are computable. That is, we can calculate the space <span class="math inline">\({\mathcal{M}}^{\Gamma_0(N)}\)</span> without using the Eichler–Shimura isomorphism and thus avoiding the computation of path integrals. The key to making this possible consists in noticing that a modular symbol <span class="math inline">\(m\)</span> is determined by “a few” of its values <span class="math inline">\(m\{r\longrightarrow s\}\)</span>.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7.3</strong></span> Two elements <span class="math inline">\(a/b\)</span> and <span class="math inline">\(c/d\)</span> in <span class="math inline">\({\mathbb{P}}^1({\mathbb{Q}})\)</span> are if <span class="math inline">\(ad-bc=\pm 1\)</span>. Here, we use the convention that these fractions are in reduced terms, and <span class="math inline">\(\infty = 1/0\)</span>.</p>
+</div>
+<p>The following lemma is crucial in the algorithms for computing with modular symbols.</p>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 7.1</strong></span> Any two elements <span class="math inline">\(a/b\)</span> and <span class="math inline">\(c/d\)</span> in <span class="math inline">\({\mathbb{P}}^1({\mathbb{Q}})\)</span> can be joined by a succession of paths between adjacent cusps.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>It is enough to see how to join <span class="math inline">\(a/b\)</span> to <span class="math inline">\(\infty\)</span>. We will find <span class="math inline">\(t/a'\in{\mathbb{P}}_1({\mathbb{Q}})\)</span> such that: <span class="math display">\[\{a/b\longrightarrow\infty\} = \{a/b\longrightarrow t/a'\}+\{t/a'\longrightarrow\infty\}.\]</span> Choose <span class="math inline">\(a'\)</span> satisfying <span class="math display">\[a'a\equiv 1\pmod{b},\quad |a'|\leq b/2.\]</span> Next, choose <span class="math inline">\(t\)</span> such that <span class="math display">\[aa'-bt = 1.\]</span> Then <span class="math inline">\(\{a/b\longrightarrow t/a'\}\)</span> is a path joining adjacent cusps, and we reduced to a problem of smaller size, since <span class="math inline">\(|a'|\leq b/2\)</span>. One can see how to adapt the Euclidean algorithm that computes the greatest common divisor of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> to perform the above calculation.</p>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.1</strong></span> Consider <span class="math inline">\(a/b = 2/3\)</span> and <span class="math inline">\(c/d = 1/0=\infty\)</span>. Then these are not adjacent, but note that <span class="math inline">\(2/3\)</span> is adjacent to <span class="math inline">\(1/2\)</span>, that <span class="math inline">\(1/2\)</span> is adjacent to <span class="math inline">\(1/1\)</span>, and <span class="math inline">\(1/1\)</span> is adjacent to <span class="math inline">\(1/0\)</span>. Therefore we have have joined the cusps <span class="math inline">\(2/3\)</span> and <span class="math inline">\(\infty\)</span> with a chain of adjacent cusps. <span class="math display">\[2/3\sim 1/2\sim 1/0 \sim 1/0\]</span></p>
+</div>
+<p>Using the first defining property of modular symbols, the above proposition says that a modular symbol is determined by the values <span class="math inline">\(m\{r\longrightarrow s\}\)</span> where <span class="math inline">\(r\)</span> and <span class="math inline">\(s\)</span> are adjacent. That is, a modular symbol is completely determined by its values on <span class="math display">\[\Gamma_0(N)\backslash \left\{\left(\frac ab,\frac cd\right) ~|~ ad-bc = 1\right\}.\]</span> To study this set, define the projective line over <span class="math inline">\({\mathbb{Z}}/N{\mathbb{Z}}\)</span> as <span class="math display">\[{\mathbb{P}}^1({\mathbb{Z}}/N{\mathbb{Z}}) = \{(x:y)\in ({\mathbb{Z}}/N{\mathbb{Z}})^2 ~|~ \gcd(x,y,N)=1\}/\sim,\]</span> where <span class="math inline">\((x:y)\sim (x':y')\)</span> if and only if there is <span class="math inline">\(u\in({\mathbb{Z}}/N{\mathbb{Z}})^\times\)</span> such that <span class="math inline">\(x'=ux\)</span> and <span class="math inline">\(y'=uy\)</span>.</p>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 7.2</strong></span> The set <span class="math inline">\(\Gamma_0(N)\backslash \left\{\left(\frac ab,\frac cd\right) ~|~ ad-bc = 1\right\}\)</span> is in natural bijection with <span class="math inline">\({\mathbb{P}}^1({\mathbb{Z}}/N{\mathbb{Z}})\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>First, note that the set <span class="math inline">\(\left\{\left(\frac ab,\frac cd\right) ~|~ ad-bc = 1\right\}\)</span> is in bijection with <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> via <span class="math inline">\((a/b,c/d)\mapsto \left(\begin{smallmatrix}a&amp;c\\b&amp;d\end{smallmatrix}\right)\)</span>. So to conclude the proof we need to show that the map <span class="math inline">\(\left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right)\mapsto (c\colon d)\)</span> induces a bijection <span class="math display">\[\Gamma_0(N)\backslash {\operatorname{SL}}_2({\mathbb{Z}})\longrightarrow{\mathbb{P}}^1({\mathbb{Z}}/N{\mathbb{Z}}).\]</span> To see this, note that the map is surjective, since given <span class="math inline">\((c:d)\in {\mathbb{P}}^1({\mathbb{Z}}/N{\mathbb{Z}})\)</span> we can find a matrix in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}}/N{\mathbb{Z}})\)</span> whose second row is <span class="math inline">\((c,d)\)</span>. Using that <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\longrightarrow{\operatorname{SL}}_2({\mathbb{Z}}/N{\mathbb{Z}})\)</span> is surjective we can lift this matrix to <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>. Secondly, if two matrices in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> map to the same element in <span class="math inline">\({\mathbb{P}}^1({\mathbb{Z}}/N{\mathbb{Z}})\)</span> then modulo <span class="math inline">\(N\)</span> these matrices are of the form <span class="math display">\[\gamma_1\equiv \left(\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right)\pmod{N},\quad \gamma_2 \equiv \left(\begin{matrix}au^{-1}&amp;bu^{-1}\\cu&amp;du\end{matrix}\right)\pmod{N}.\]</span> Then note that the product <span class="math inline">\(\gamma_1\gamma_2^{-1}\)</span> is <span class="math inline">\(\gamma_1\gamma_2^{-1} \equiv \left(\begin{smallmatrix}1&amp;0\\0&amp;1\end{smallmatrix}\right)\pmod{N}\)</span>, and hence the matrices in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> are in the same coset for <span class="math inline">\(\Gamma_0(N)\)</span>.</p>
+</div>
+<p>Therefore a modular symbol <span class="math inline">\(m\)</span> is determined by the function <span class="math display">\[[\cdot]_m\colon {\mathbb{P}}^1({\mathbb{Z}}/N{\mathbb{Z}})\longrightarrow{\mathbb{C}},\quad [b\colon d]_m =m\{a/b\longrightarrow c/d\},\quad ad-bc = 1.\]</span> In particular, the dimension of <span class="math inline">\({\mathcal{M}}^{\Gamma_0(N)}\)</span> is finite, bounded by <span class="math inline">\(\#{\mathbb{P}}^1({\mathbb{Z}}/N{\mathbb{Z}})\)</span>.</p>
+<p>Note, however, that not all functions <span class="math inline">\({\mathbb{P}}^1({\mathbb{Z}}/N{\mathbb{Z}})\longrightarrow{\mathbb{C}}\)</span> represent a modular symbol. In fact, for such a function to be a modular symbol it has to satisfy some linear relations coming from the two axioms defining modular symbols.</p>
+<div id="prp-msym-relations" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 7.3</strong></span> A function <span class="math inline">\(\varphi\colon {\mathbb{P}}^1({\mathbb{Z}}/N{\mathbb{Z}})\longrightarrow{\mathbb{C}}\)</span> satisfies <span class="math inline">\(\varphi=[\cdot]_m\)</span> for some modular symbol <span class="math inline">\(m\in{\mathcal{M}}^{\Gamma_0(N)}\)</span> if and only if</p>
+<ol type="1">
+<li><p><span class="math inline">\(\varphi(x) = -\varphi(\frac{-1}{x})\)</span>, for all <span class="math inline">\(x\in{\mathbb{P}}^1({\mathbb{Z}}/N{\mathbb{Z}})\)</span>.</p></li>
+<li><p><span class="math inline">\(\varphi(x) = \varphi(\frac{x}{x+1}) + \varphi(x+1)\)</span>, for all <span class="math inline">\(x\in {\mathbb{P}}^1({\mathbb{Z}}/N{\mathbb{Z}})\)</span>.</p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Suppose that <span class="math inline">\(\varphi=[\cdot]_m\)</span> for some modular symbol <span class="math inline">\(m\in{\mathcal{M}}^{\Gamma_0(N)}\)</span>, and let <span class="math inline">\(x=[b\colon d]\in {\mathbb{P}}^1({\mathbb{Z}}/N{\mathbb{Z}})\)</span>. Then <span class="math display">\[\begin{align*}
+\varphi(x)&amp;=\varphi(b\colon d) = [b\colon d]_m = m\left\{\frac ab\longrightarrow\frac cd\right\}\\
+&amp;= -m\left\{\frac{-c}{-d}\longrightarrow\frac ab\right\} = -[-d\colon b]_m=-\varphi(-1/x).
+\end{align*}\]</span> Similarly, we compute <span class="math display">\[\begin{align*}
+\varphi(x)&amp;=\varphi(b\colon d) = [b\colon d]_m = m\left\{\frac ab\longrightarrow\frac cd\right\} = m\left\{\frac ab\longrightarrow\frac{a+c}{b+d}\right\} + m\left\{\frac{a+c}{b+d}\longrightarrow\frac cd\right\}\\
+&amp;=[b\colon b+d]_m+[b+d\colon d]_m = \varphi\left(\frac{x}{x+1}\right) + \varphi(x+1).
+\end{align*}\]</span></p>
+</div>
+<p>The above proposition allows for an algorithm that computes the space <span class="math inline">\({\mathcal{M}}^{\Gamma_0(N)}\)</span>, by solving the linear system of equations for <span class="math inline">\(\varphi\)</span>. Moreover, the Hecke action is also computable on this resulting representation. The details of this were worked out for the first time in <span class="citation" data-cites="cremona-book">(<a href="bibliography.html#ref-cremona-book" role="doc-biblioref">Cremona 1997</a>)</span>.</p>
+</section>
+<section id="a-worked-out-example" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="a-worked-out-example"><span class="header-section-number">7.4</span> A worked out example</h2>
+<p>We compute the space of modular symbols for <span class="math inline">\(\Gamma_0(11)\)</span>. First we enumerate the elements of <span class="math inline">\({\mathbb{P}}^1({\mathbb{Z}}/11{\mathbb{Z}})\)</span>: <span class="math display">\[{\mathbb{P}}^1({\mathbb{Z}}/11{\mathbb{Z}}) = \{\infty,0,1,\ldots,10\}.\]</span> Using the two-term relations of <a href="#prp-msym-relations" class="quarto-xref">Proposition&nbsp;<span>7.3</span></a> we find that if <span class="math inline">\(\varphi\in \mathbb{M}(\Gamma_0(11))\)</span> then: <span class="math display">\[\varphi(\infty) = -\varphi(-1/\infty) = -\varphi(0).\]</span> Similarly, we find: <span class="math display">\[\begin{align*}
+\varphi(1)&amp;=-\varphi(10)\\
+\varphi(2)&amp;=-\varphi(5)\\
+\varphi(3)&amp;=-\varphi(7)\\
+\varphi(4)&amp;=-\varphi(8)\\
+\varphi(6)&amp;=-\varphi(9).\\
+\end{align*}\]</span> Therefore an M-symbol <span class="math inline">\(\varphi\)</span> is determined by its values on <span class="math inline">\(0,1,2,3,4,6\)</span>. Now we find the <span class="math inline">\(3\)</span>-term relations:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\infty\)</span></th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(x+1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\infty\)</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\frac{x}{x+1}\)</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span class="math inline">\(\infty\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The table above is to be read as follows. For example, the first column says <span class="math inline">\(\varphi(\infty)=\varphi(\infty) + \varphi(1)\)</span>. The last column implies, in turn, <span class="math inline">\(\varphi(10)=\varphi(0)+\varphi(\infty)\)</span>. We see from the first column that <span class="math inline">\(\varphi(1)=0\)</span> (and thus <span class="math inline">\(\varphi(10)=0\)</span>). Column 3 gives then that <span class="math inline">\(\varphi(6)=-\varphi(2)\)</span>, and Column 4 gives <span class="math inline">\(\varphi(4)=\varphi(3)-\varphi(2)\)</span>. All the other columns are redundant, and so any modular symbol <span class="math inline">\(\varphi\)</span> is (freely) determined by its values on <span class="math inline">\(0\)</span>, <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>. We can write down a basis <span class="math inline">\(\{f,g,h\}\)</span> for <span class="math inline">\(\mathbb{M}(\Gamma_0(11))\)</span></p>
+<div class="centering">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;"><span class="math inline">\(\infty\)</span></th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: left;">4</th>
+<th style="text-align: left;">5</th>
+<th style="text-align: left;">6</th>
+<th style="text-align: left;">7</th>
+<th style="text-align: left;">8</th>
+<th style="text-align: left;">9</th>
+<th style="text-align: left;">10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>f</td>
+<td style="text-align: center;">-1</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td>g</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td>h</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Next we calculate <span class="math inline">\(T_2\)</span> acting on the basis <span class="math inline">\(\{f,g,h\}\)</span>. Since we have only given the definition of <span class="math inline">\(T_p\)</span> on modular symbols, we will need to relate the M-symbols <span class="math inline">\(\{f,g,h\}\)</span> to their corresponding modular symbols. We will abuse notation and use the same notation for those. Each element of <span class="math inline">\({\mathbb{P}}^1({\mathbb{Z}}/N{\mathbb{Z}})\)</span> can be lifted to a matrix in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>. In fact, we can write the following table:</p>
+<div class="centering">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x=(c\colon d)\in{\mathbb{P}}^1({\mathbb{Z}}/N{\mathbb{Z}})\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right)\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\frac{a}{c}\longrightarrow\frac{b}{d}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\left(\begin{smallmatrix}1&amp;0\\0&amp;1\end{smallmatrix}\right)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\infty \longrightarrow 0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\left(\begin{smallmatrix}-1&amp;-1\\2&amp;1\end{smallmatrix}\right)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-1/2\longrightarrow-1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\left(\begin{smallmatrix}-2&amp;-1\\3&amp;1\end{smallmatrix}\right)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-2/3\longrightarrow-1\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Let us write <span class="math inline">\(T_2 f = af+bg+ch\)</span>, with <span class="math inline">\(a,b,c\)</span> to be determined. Note that <span class="math inline">\(a=(T_2f)(0)\)</span>, and thus we compute: <span class="math display">\[\begin{align*}
+[0]_{T_2(m)} &amp;= (T_2m)\{\infty \longrightarrow 0\}\\
+&amp;= m\{\frac 20\longrightarrow\frac 01\}+m\{\frac{\infty + 0}{2}\longrightarrow\frac{0+0}{2}\}+m\{\frac{\infty+1}{2}\longrightarrow\frac{0+1}{2}\}\\
+&amp;=m\{\infty\longrightarrow 0\} + m\{\infty \longrightarrow 0\} + m\{\infty \longrightarrow\frac 12\}\\
+&amp;=2m\{\infty\longrightarrow 0\} + m\{\infty\longrightarrow 1\}+m\{1\longrightarrow\frac 12\}\\
+&amp;=2[0]_m + [(0\colon 1)]_m + [1\colon 2]_m\\
+&amp;=3[0]_m + [1/2]_m = 3[0]_m + [6]_m.
+\end{align*}\]</span> Analogous computations give <span class="math display">\[[2]_{T_2(m)} = [1]_m+[4]_m+[5]_m+[7]_m,\quad [3]_{T_2(m)} = [1]_m+[6]_m+[7]_m+[8]_m\]</span> Note that we could express the resulting values in other ways using the relations for M-symbols, so the above equations are not unique. In any way, this allows us to find that <span class="math display">\[T_2f = 3f,\quad T_2g = -f-2g,\quad T_2h = -2h.\]</span> We find then that the matrix of <span class="math inline">\(T_2\)</span> in the basis <span class="math inline">\(\{f,g,h\}\)</span> is <span class="math display">\[[T_2] = \left(\begin{matrix}3&amp;-1&amp;0\\0&amp;-2&amp;0\\0&amp;0&amp;-2\end{matrix}\right),\]</span> whose eigenvalues are <span class="math inline">\(3\)</span> and <span class="math inline">\(-2\)</span> (the eigenvalue <span class="math inline">\(-2\)</span> with multiplicity <span class="math inline">\(2\)</span>). Since we have a decomposition <span class="math inline">\({\mathcal{M}}(\Gamma_0(11))\cong {\mathcal{E}}\oplus S_2(\Gamma_0(11))\oplus \overline{S_2(\Gamma_0(11))}\)</span>, we deduce that <span class="math inline">\(\dim S_2(\Gamma_0(11))=1\)</span> (and also <span class="math inline">\(\dim{\mathcal{E}}= 1\)</span>). Moreover, if <span class="math inline">\(F\in S_2(\Gamma_0(11))\)</span> is any nonzero cusp form, then we know that <span class="math inline">\(T_2F = -2F\)</span>, so <span class="math inline">\(a_2(F)=-2\)</span>.</p>
+<p>Similar computations would give us the Hecke eigenvalues for all <span class="math inline">\(T_p\)</span> operators (with <span class="math inline">\(p\neq 11\)</span>). By the Eichler–Shimura construction, these numbers are telling us the number of points of a certain elliptic curve. In fact, let <span class="math inline">\(E\)</span> be the elliptic curve of conductor <span class="math inline">\(11\)</span> given by the equation <span class="math display">\[E_{/{\mathbb{Q}}} \colon y^2+y=x^3-x^2-10x-20.\]</span> When reduced modulo <span class="math inline">\(2\)</span>, we get <span class="math inline">\(\overline E\)</span>: <span class="math display">\[\overline E_{{\mathbb{F}}_2} \colon y^2+y=x^3+x^2.\]</span> Note that <span class="math display">\[\#\overline E({\mathbb{F}}_2)=\#\{\infty, (0,0),(0,1),(1,0),(1,1)\} =5,\]</span> which matches with the prediction from the modular symbols computation: we expected <span class="math inline">\(p+1-\#E({\mathbb{F}}_p) = a_p\)</span> and, in fact: <span class="math inline">\(2+1-5 = -2\)</span>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-cremona-book" class="csl-entry" role="listitem">
+Cremona, J. E. 1997. <em>Algorithms for Modular Elliptic Curves</em>. Second. Cambridge University Press, Cambridge.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./6_lfunctions.html" class="pagination-link" aria-label="L-functions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">L-functions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./bibliography.html" class="pagination-link" aria-label="Bibliography">
+        <span class="nav-page-text">Bibliography</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://www.github.com/mmasdeu/modforms/edit/main/7_modsym.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://www.github.com/mmasdeu/modforms/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://www.github.com/mmasdeu/modforms/blob/main/7_modsym.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>

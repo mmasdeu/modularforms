@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; L-functions – Modular Forms</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./7_modsym.html" rel="next">
+<link href="./5_eisenstein.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6_lfunctions.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">L-functions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Modular Forms</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://www.github.com/mmasdeu/modforms" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Modular-Forms.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1_modformslevelone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Modular forms of level one</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_modformscongruence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Modular forms for congruence subgroups</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_complextori.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Moduli interpretation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_hecke.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hecke Theory</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5_eisenstein.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eisenstein series</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_lfunctions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">L-functions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7_modsym.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modular symbols</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bibliography.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bibliography</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec:levelone" id="toc-sec:levelone" class="nav-link active" data-scroll-target="#sec\:levelone"><span class="header-section-number">6.1</span> Basic definitions</a></li>
+  <li><a href="#l-functions-of-eisenstein-series" id="toc-l-functions-of-eisenstein-series" class="nav-link" data-scroll-target="#l-functions-of-eisenstein-series"><span class="header-section-number">6.2</span> L-functions of Eisenstein series</a></li>
+  <li><a href="#l-functions-of-cusp-forms" id="toc-l-functions-of-cusp-forms" class="nav-link" data-scroll-target="#l-functions-of-cusp-forms"><span class="header-section-number">6.3</span> L-functions of cusp forms</a></li>
+  <li><a href="#relation-to-elliptic-curves" id="toc-relation-to-elliptic-curves" class="nav-link" data-scroll-target="#relation-to-elliptic-curves"><span class="header-section-number">6.4</span> Relation to elliptic curves</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://www.github.com/mmasdeu/modforms/edit/main/6_lfunctions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://www.github.com/mmasdeu/modforms/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://www.github.com/mmasdeu/modforms/blob/main/6_lfunctions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-lfunctions" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">L-functions</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="hidden">
+
+</div>
+<p>In this chapter we study the connection of modular forms with <span class="math inline">\(L\)</span>-functions.</p>
+<section id="sec:levelone" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec:levelone"><span class="header-section-number">6.1</span> Basic definitions</h2>
+<p>Let <span class="math inline">\(f\in M_k(\Gamma_1(N))\)</span> be a modular form, given by a <span class="math inline">\(q\)</span>-expansion <span class="math inline">\(f=\sum_{n=0}^\infty a_nq^n\)</span>.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6.1</strong></span> The of <span class="math inline">\(f\)</span> is the function of <span class="math inline">\(s\in{\mathbb{C}}\)</span> given formally as <span class="math display">\[L(f,s)=\sum_{n=1}^\infty a_n n^{-s}.\]</span></p>
+</div>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6.1</strong></span> If <span class="math inline">\(f\in S_k(\Gamma_1(N))\)</span> is a cusp form then <span class="math inline">\(L(f,s)\)</span> converges absolutely for all <span class="math inline">\(s\)</span> such that <span class="math inline">\(\Re(s)&gt;k/2+1\)</span>. If <span class="math inline">\(f\in M_k(\Gamma_1(N))\)</span> is not a cusp form then <span class="math inline">\(L(f,s)\)</span> converges absolutely for all <span class="math inline">\(s\)</span> with <span class="math inline">\(\Re(s)&gt;k\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We have seen in <a href="1_modformslevelone.html#thm-growthcusps" class="quarto-xref">Theorem&nbsp;<span>1.15</span></a> and <a href="1_modformslevelone.html#cor-growthmodforms" class="quarto-xref">Corollary&nbsp;<span>1.9</span></a> that <span class="math inline">\(|a_n|\leq Mn^{r(k)}\)</span> for some constant <span class="math inline">\(M\)</span>, where <span class="math inline">\(r(k)=k/2\)</span> when <span class="math inline">\(f\)</span> is a cusp form and <span class="math inline">\(r(k)=k-1\)</span> when <span class="math inline">\(f\)</span> is not a cusp form. Although those results were stated and proven only for level <span class="math inline">\(1\)</span>, they hold true (with essentially the same proofs) for higher levels. Therefore if <span class="math inline">\(\Re(s)&gt;r(k)+1\)</span> then <span class="math display">\[|\sum_{n\geq 0} a_nn^{-s}|\leq M \sum_{n\geq 0} n^{r(k)-\Re(s)} &lt; \infty.\]</span></p>
+</div>
+<p>The <span class="math inline">\(L\)</span>-functions attached to normalized eigenforms have a very remarkable decomposition, known as . In fact, having this property characterizes normalized eigenforms, as the following result states.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.1</strong></span> Let <span class="math inline">\(f\in M_k(\Gamma_0(N),\chi)\)</span> be a modular form with <span class="math inline">\(q\)</span>-expansion <span class="math inline">\(f=\sum_{n\geq 0} a_n q^n\)</span>. Then <span class="math inline">\(f\)</span> is a normalized eigenform if and only if <span class="math inline">\(L(f,s)\)</span> has an Euler product expansion <span class="math display">\[L(f,s)=\prod_{p\text{ prime}} (1-a_pp^{-s}+\chi(p)p^{k-1-2s})^{-1}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="4_hecke.html#prp-coeffsnormalizedeigen" class="quarto-xref">Proposition&nbsp;<span>4.5</span></a> we need to show that conditions <span class="math inline">\((1)\)</span>, <span class="math inline">\((2)\)</span> and <span class="math inline">\((3)\)</span> of loc.cit. are equivalent to <span class="math inline">\(L(f,s)\)</span> having an Euler product. For a fixed prime <span class="math inline">\(p\)</span>, condition <span class="math inline">\((2)\)</span> says <span class="math display">\[a_{p^r}(f) = a_p(f)a_{p^{r-1}}(f) - p^{k-1}\chi(p) a_{p^{r-2}}(f).\]</span> Multiplying by <span class="math inline">\(t^r\)</span> and summing over all <span class="math inline">\(r\geq 2\)</span> we see that <span class="math inline">\((2)\)</span> is equivalent to <span class="math display">\[\sum_{r=2}^\infty a_{p^r}(f)t^r=a_p(f)t\sum_{r=1}^\infty a_{p^{r}}(f)-p^{k-1}\chi(p)t^2\sum_{r=0}^\infty a_{p^{r}}(f),\]</span> or <span class="math display">\[\left(\sum_{r\geq 0} a_{p^r}(f)t^r\right)(1-a_p(f)t+\chi(p)p^{k-1}t^2) = a_1(f)+a_p(f)t(1-a_1(f)).\]</span> Since we are assuming that <span class="math inline">\(a_1(f)=1\)</span> we get, by substituting <span class="math inline">\(t=p^{-s}\)</span>, the equality <span id="eq-eulerfactor"><span class="math display">\[
+\sum_{r=0}^{\infty} a_{p^r}(f)p^{-rs} = (1-a_p(f)p^{-s}+\chi(p)p^{k-1-2s})^{-1}.
+\tag{6.1}\]</span></span> Conversely, if this equality holds then letting <span class="math inline">\(s\)</span> approach <span class="math inline">\(\infty\)</span> we get <span class="math inline">\(a_1(f)=1\)</span>, and the other implications can also be reversed to show that <a href="#eq-eulerfactor" class="quarto-xref">Equation&nbsp;<span>6.1</span></a> is equivalent to conditions <span class="math inline">\((1)\)</span> and <span class="math inline">\((2)\)</span> for the <span class="math inline">\(a_n(f)\)</span>’s.</p>
+<p>The Fundamental Theorem of Arithmetic implies that if <span class="math inline">\(g\)</span> is any function of prime powers, then <span class="math display">\[\prod_p \sum_{r=0}^\infty g(p^r) = \sum_{n=1}^\infty \prod_{p^r\| n} g(p^r).\]</span> Using this fact, it is easy to see that <a href="#eq-eulerfactor" class="quarto-xref">Equation&nbsp;<span>6.1</span></a> and condition <span class="math inline">\((3)\)</span> are equivalent to the existence of the Euler product, thus finishing the proof.</p>
+</div>
+</section>
+<section id="l-functions-of-eisenstein-series" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="l-functions-of-eisenstein-series"><span class="header-section-number">6.2</span> L-functions of Eisenstein series</h2>
+<p>Let <span class="math inline">\(\chi\colon{\mathbb{Z}}\longrightarrow{\mathbb{C}}\)</span> be a primitive Dirichlet character modulo <span class="math inline">\(N\)</span>. One can attach an L-function to <span class="math inline">\(\chi\)</span> via the formula <span class="math display">\[L(\chi,s)=\sum_{n=1}^\infty \chi(n)n^{-s},\quad \Re(s)&gt;1.\]</span></p>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6.2</strong></span> The L-function of <span class="math inline">\(\chi\)</span> extends to an entire function of on <span class="math inline">\({\mathbb{C}}\)</span> unless <span class="math inline">\(\chi=1\)</span>, in which case <span class="math inline">\(L(1,s)=\zeta(s)\)</span> has a simple pole at <span class="math inline">\(s=1\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Omitted.</p>
+</div>
+<p>We also have an Euler product:</p>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6.3</strong></span> There is an Euler product decomposition <span class="math display">\[L(\chi,s)=\prod_{p\text{ prime}} \frac{1}{1-\chi(p)p^{-s}}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Exercise.</p>
+</div>
+<p>We have defined the L-function of any modular form. In particular, if <span class="math inline">\(\chi_1\)</span> and <span class="math inline">\(\chi_2\)</span> are primitive Dirichlet characters modulo <span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span> respectively, then we can consider the L-function <span class="math inline">\(L(E_k^{\chi_1,\chi_2},s)\)</span>.</p>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.1</strong></span> Consider the Eisenstein series for the full modular group <span class="math inline">\(E_k(z)\in M_k({\operatorname{SL}}_2({\mathbb{Z}}))\)</span>. In <a href="4_hecke.html#prp-Ek-is-eigen" class="quarto-xref">Proposition&nbsp;<span>4.4</span></a> we have seen that <span class="math inline">\(E_k\)</span> is an eigenform for all the Hecke algebra, satisfying <span class="math inline">\(T_p E_k = \sigma_{k-1}(p) E_k\)</span>. If we normalize <span class="math inline">\(E_k\)</span> using its first coefficient (instead of the zero-th) and call the resulting Eisenstein series <span class="math inline">\(\bar E_K\)</span>, then we have <span class="math inline">\(a_p(\bar E_k) = \sigma_{k-1}(p) = 1+p^{k-1}\)</span>. Therefore <span class="math display">\[\begin{align*}
+L(\bar E_k,s) &amp;= \prod_{p\text{ prime}}\frac{1}{1-(1+p^{k-1})p^{-s}+p^{k-1-2s}}\\
+&amp;=\prod_{p\text{ prime}}\frac{1}{1-p^{-s}}\frac{1}{1-p^{k-1-s}}=\zeta(s)\zeta(s-k+1).
+\end{align*}\]</span></p>
+</div>
+<p>The factorization of the example holds in much more generality. Denote by <span class="math inline">\(\bar E_k^{\chi_1,\chi_2}=\frac{1}{2} E_k^{\chi_1,\chi_2}\)</span>, where <span class="math inline">\(E_k^{\chi_1,\chi_2}\)</span> were defined in <a href="5_eisenstein.html#thm-eisenstein-gamma1" class="quarto-xref">Theorem&nbsp;<span>5.2</span></a>.</p>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6.4</strong></span> The L-function attached to the Eisenstein series <span class="math inline">\(\bar E_k^{\chi_1,\chi_2}\)</span> has a factorization <span class="math display">\[L(\bar E_k^{\chi_1,\chi_2},s)=L(\chi_1,s)L(\chi_2,s-k+1).\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Exercise.</p>
+</div>
+<p>The idea that one can extract from this is that the Eisenstein series are quite simple, and their L-functions are not too interesting since they can be understood from the (simpler) L-functions attached to characters. In stark contrast, the L-functions attached to cusp forms have much deeper connections.</p>
+</section>
+<section id="l-functions-of-cusp-forms" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="l-functions-of-cusp-forms"><span class="header-section-number">6.3</span> L-functions of cusp forms</h2>
+<p>We focus from now on on cusp forms. The next striking property of L-functions of cusp forms is known as , a symmetry property of deep consequences. In order to state it precisely, we first define the , which appears often in number theory, as <span class="math display">\[\Gamma(s)=\int_0^\infty t^s e^{-t}\frac{dt}{t}.\]</span> Note that <span class="math inline">\(\Gamma(n+1)= n!\)</span> for all integers <span class="math inline">\(n\geq 1\)</span>, so we can think of <span class="math inline">\(\Gamma\)</span> as an analytic function interpolating the factorials. The Gamma-function enters also in the definition of another complex function, for which the symmetry property is more apparent.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6.2</strong></span> The of <span class="math inline">\(f\in S_k(\Gamma_1(N))\)</span> is <span class="math display">\[\Lambda(f,s)=(2\pi)^{-s}\Gamma(s)L(f,s),\quad \Re(s)&gt;k/2+1.\]</span></p>
+</div>
+<p>The next result gives an integral formula for the completed L-function.</p>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6.5</strong></span> We have <span class="math display">\[\Lambda(f,s)=\int_0^\infty f(it)t^s\frac{dt}{t},\quad \Re(s)&gt;k/2+1.\]</span> This is called the of <span class="math inline">\(f\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We first remark that the integral makes sense, since <span class="math display">\[\left|\int_0^\infty f(it)t^s\frac{dt}{t}\right| &lt;\!\!\!\!&lt; \int_0^\infty t^{-k/2+s} \frac{dt}{t},\]</span> which converges for <span class="math inline">\(\Re(s)&gt;k/2+1\)</span>. Now we compute <span class="math display">\[\Lambda(f,s) = (2\pi)^{-s} \left(\int_0^\infty t^s e^{-t}\frac{dt}{t}\right)\sum a_n n^{-s} = \sum_{n=1}^\infty a_n\int_0^\infty \left(\frac{t}{2\pi n}\right)^s e^{-t}\frac{dt}{t}.\]</span> By doing a change of variables <span class="math inline">\(t\mapsto t/(2\pi n)\)</span> in each term, the above expression becomes <span class="math display">\[\sum_{n=1}^\infty a_n\int_0^\infty t^s e^{-2\pi n t}\frac{dt}{t} = \int_0^\infty \left(\sum_{n=1}^\infty a_n e^{-2\pi nt}\right) t^s\frac{dt}{t} = \int_0^\infty f(it)t^s\frac{dt}{t},\]</span> which gives the desired equality.</p>
+</div>
+<p>In order to extend <span class="math inline">\(\Lambda(f,s)\)</span> (and thus <span class="math inline">\(L(f,s)\)</span>) to <span class="math inline">\(s\in{\mathbb{C}}\)</span> we need to avoid integrating near the real axis. We will also need to consider the operator <span class="math inline">\(W_N\)</span> given by <span class="math display">\[W_N(f)= i^k N^{1-k/2} f|_k \left(\begin{matrix}0&amp;-1\\N&amp;0\end{matrix}\right).\]</span> It is an idempotent operator: <span class="math inline">\(W_N^2=W_N\)</span>, and one easily sees that it is self-adjoint: <span class="math inline">\(\langle W_Nf,g\rangle = \langle f,W_Ng\rangle\)</span> for <span class="math inline">\(f,g\in S_k(\Gamma_1(N))\)</span>. Consider the <span class="math inline">\(+\)</span> and <span class="math inline">\(-\)</span>-eigenspaces <span class="math display">\[S_k(\Gamma_1(N))^{\pm} = \{f\in S_k(\Gamma_1(N)) ~|~ W_Nf = \pm f\},\]</span> which gives an orthogonal decomposition of <span class="math inline">\(S_k = S_k^+\oplus S_k^-\)</span>.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.2</strong></span> Suppose that <span class="math inline">\(f\in S_k(\Gamma_1(N))^\pm\)</span>. Then the function <span class="math inline">\(\Lambda(f,s)\)</span> extends to an entire function on <span class="math inline">\({\mathbb{C}}\)</span>, which satisfies the functional equation <span class="math display">\[\Lambda(f,s)=\pm N^{s-k/2}\Lambda(f,k-s).\]</span> In particular, the <span class="math inline">\(L\)</span>-function <span class="math inline">\(L(f,s)\)</span> has an analytic continuation to all of <span class="math inline">\({\mathbb{C}}\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Define <span class="math inline">\(\Lambda_N(s)=N^{s/2}\Lambda(f,s)\)</span>, and note that we must show that <span class="math inline">\(\Lambda_N(s) = \pm \Lambda_N(k-s)\)</span>. By changing <span class="math inline">\(t\mapsto t/\sqrt{N}\)</span> we get <span class="math display">\[\Lambda_N(s)=N^{s/2}\int_0^\infty f(it)t^s\frac{dt}{t} = \int_0^\infty f(it/\sqrt{N}) t^s\frac{dt}{t}.\]</span> We break the integral at <span class="math inline">\(t=1\)</span>. Note that the piece <span class="math display">\[\int_1^\infty f(it/\sqrt{N}) t^s\frac{dt}{t}\]</span> converges to an entire function of <span class="math inline">\(s\)</span>, because <span class="math inline">\(f(it/\sqrt{N})=O(e^{-2\pi t/\sqrt{N}})\)</span> when <span class="math inline">\(t\longrightarrow\infty\)</span>. As for the other part, use that <span class="math inline">\((W_Nf)(i/(\sqrt N t)) = t^k f(it/\sqrt{N})\)</span> to get <span class="math display">\[\int_0^1 f(it/\sqrt{N}) t^s\frac{dt}{t} = \int_0^1 (W_Nf)(i/(\sqrt{N}t)) t^{s-k}\frac{dt}{t} = \int_1^\infty (W_Nf)(it/\sqrt{N})t^{k-s}\frac{dt}{t}.\]</span> Again, since <span class="math inline">\(W_nf = \pm f\)</span> this converges to an entire function. As for the functional equation, note that we have obtained <span class="math display">\[\Lambda_N(s) = \int_1^\infty\left(f(it/\sqrt{N})t^s \pm f(it/\sqrt{N})t^{k-s}\right)\frac{dt}{t} = \pm\Lambda_N(k-s).\]</span></p>
+</div>
+</section>
+<section id="relation-to-elliptic-curves" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="relation-to-elliptic-curves"><span class="header-section-number">6.4</span> Relation to elliptic curves</h2>
+<p>Let <span class="math inline">\(E/{\mathbb{Q}}\)</span> be an elliptic curve. It can be thought of as the set cut out by an equation of the form <span class="math display">\[E\colon Y^2 = X^3+AX+B,\quad A,B\in{\mathbb{Z}},\]</span> such that the discriminant <span class="math inline">\(\Delta_E\)</span> of <span class="math inline">\(X^3+AX+B\)</span> is nonzero. The coefficients of this equation can be reduced modulo any prime <span class="math inline">\(p\)</span> and the conductor <span class="math inline">\(N_E\)</span> of <span class="math inline">\(E\)</span> is an integer whose prime divisors are precisely the prime divisors of <span class="math inline">\(N_E\)</span> (although in general <span class="math inline">\(N_E\neq \Delta_E\)</span>. One can define an L-function attached to <span class="math inline">\(E\)</span> via the following Euler product: <span class="math display">\[L(E,s)=\prod_{p\mid N_E}(1-a_p(E)p^{-s})^{-1} \prod_{p\nmid N_E} (1-a_p(E)p^{-s} + p^{1-2s})^{-1},\quad \Re(s)&gt;3/2.\]</span> where <span class="math inline">\(a_p(E) = 1+p-\# E({\mathbb{F}}_p)\)</span>. Here, by <span class="math inline">\(E({\mathbb{F}}_p)\)</span> we mean the set of points of (the reduction of) <span class="math inline">\(E\)</span> over the finite field <span class="math inline">\({\mathbb{F}}_p\)</span>, where we always include the “point at infinity”.</p>
+<p>It turns out that elliptic curves arise from modular forms, thanks to results of Eichler and Shimura.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.3</strong></span> Let <span class="math inline">\(f\in S_2(\Gamma_0(N))\)</span> be a normalized eigenform whose Fourier coefficients <span class="math inline">\(a_n(f)\)</span> are all integers. Then there exists an elliptic curve <span class="math inline">\(E_f\)</span> defined over <span class="math inline">\({\mathbb{Q}}\)</span> such that <span class="math inline">\(L(E_f,s)=L(f,s)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><em>Construction of <span class="math inline">\(E_f\)</span>.</em> Consider the differential form <span class="math inline">\(\omega_f=2\pi i f(z)dz\)</span>, and write <span class="math inline">\({\mathbb{H}}^*={\mathbb{H}}\cup{\mathbb{P}}^1({\mathbb{Q}})\)</span>. To a point <span class="math inline">\(\tau\in{\mathbb{H}}^*\)</span> we attach the following complex number <span class="math display">\[\varphi(\tau) = \int_{\infty}^\tau \omega_f \in{\mathbb{C}}.\]</span> Let <span class="math inline">\(\gamma\in\Gamma_0(N)\)</span>. Then note that <span class="math display">\[\beta_{\gamma} =\varphi(\gamma\tau)-\varphi(\tau) = \int_{\tau}^{\gamma_\tau} \omega_f\]</span> does not depend on <span class="math inline">\(\tau\)</span>: <span class="math display">\[\begin{align*}
+\int_\tau^{\gamma\tau}\omega_f &amp;= \int_\tau^\infty\omega_f+\int_\infty^{\gamma\infty}\omega_f+ \int_{\gamma\infty}^{\gamma\tau}\omega_f\\
+&amp;= \int_\tau^\infty\omega_f+\int_\infty^{\gamma\infty}\omega_f+ \int_{\infty}^{\tau}\omega_f\\
+&amp;=\int_\infty^{\gamma\infty}\omega_f.
+\end{align*}\]</span> Therefore if denote by <span class="math inline">\(\Lambda_f\)</span> the following subset of complex numbers <span class="math display">\[\Lambda_f=\left\{\beta_\gamma=\int_{\infty}^{\gamma\infty}\omega_f ~|~ \gamma\in\Gamma_0(N)\right\}\subset{\mathbb{C}},\]</span> we get a well-defined map <span class="math display">\[\Gamma_0(N)\backslash {\mathbb{H}}^*\longrightarrow{\mathbb{C}}/\Lambda_f.\]</span> One can show that <span class="math inline">\(\Lambda_f\)</span> is a lattice, and define <span class="math inline">\(E_f\)</span> to be the elliptic curve corresponding to the complex torus <span class="math inline">\({\mathbb{C}}/\Lambda_f\)</span>. It is considerably harder to show that <span class="math inline">\(E_f\)</span> is defined over <span class="math inline">\({\mathbb{Q}}\)</span>, and that <span class="math inline">\(L(E_f,s)=L(f,s)\)</span>.</p>
+</div>
+<p>We may wonder about a converse to the previous result. That is, given an elliptic curve <span class="math inline">\(E\)</span> of conductor <span class="math inline">\(N_E\)</span>, can we find a cusp form of level <span class="math inline">\(N_E\)</span> having the same L-function as that of <span class="math inline">\(E\)</span>? Let us give a name to the elliptic curves <span class="math inline">\(E\)</span> satisfying this property.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6.3</strong></span> We say that <span class="math inline">\(E\)</span> is if there is a newform <span class="math inline">\(f\in S_2(\Gamma_0(N_E))\)</span> with <span class="math inline">\(a_p(E)=a_p(f)\)</span>. Equivalently, if <span class="math inline">\(L(E,s)=L(f,s)\)</span>.</p>
+</div>
+<p>The following theorem, which gives a positive answer to the question we asked, is one of the hallmarks of XX-century number theory. Its proof, spanning hundreds of pages of difficult mathematics, relies on breakthrough work of Andrew Wiles in the nineties, although the full proof needed extra work of Taylor–Wiles and Breuil–Conrad–Diamond–Taylor.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.4</strong></span> Let <span class="math inline">\(E/{\mathbb{Q}}\)</span> be an elliptic curve. Then <span class="math inline">\(E\)</span> is modular.</p>
+</div>
+<p>Thanks to the above theorem, the L-function of <span class="math inline">\(E\)</span> extends to an entire function, which satisfies a functional equation relating <span class="math inline">\(L(E,s)\)</span> with <span class="math inline">\(L(E,2-s)\)</span>. In fact, there is no known proof of these two facts that does not need modularity of <span class="math inline">\(E\)</span>. Finally, the Birch–Swinnerton-Dyer conjecture is a prediction about the behavior of <span class="math inline">\(L(E,s)\)</span> near <span class="math inline">\(s=1\)</span>. Recall that the set of points <span class="math inline">\(E({\mathbb{Q}})\)</span> of <span class="math inline">\(E\)</span> which have coordinates in the rational numbers has a structure of a finitely-generated group (this is the Mordell–Weil theorem).</p>
+<div id="cnj-" class="theorem conjecture">
+<p><span class="theorem-title"><strong>Conjecture 6.1</strong></span> Let <span class="math inline">\(E\)</span> be an elliptic curve defined over <span class="math inline">\({\mathbb{Q}}\)</span>. Let <span class="math inline">\(L(E,s)\)</span> be its L-function. Then <span class="math display">\[\operatorname{ord}_{s=1} L(E,s) = \operatorname{rank}_{{\mathbb{Z}}} E({\mathbb{Q}}).\]</span></p>
+</div>
+<p>This conjectures is one of the ten “Millennium” problems proposed in 2000 by the Clay Mathematics Institute, and it is worth <span class="math inline">\(1\text{M}\$\)</span>. Very little is known of it. For instance, one does not yet know how to show the particular case <span class="math display">\[L(E,1)=0\stackrel{?}{\implies} E({\mathbb{Q}})\text{ infinite}.\]</span> However, thanks to work of B.Gross, D.Zagier and V.Kolyvagin, one has the following result.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.5</strong></span> Let <span class="math inline">\(E/{\mathbb{Q}}\)</span> be a modular elliptic curve.</p>
+<ol type="1">
+<li><p>Suppose that <span class="math inline">\(L(E,1)\neq 0\)</span>. Then <span class="math inline">\(E({\mathbb{Q}})\)</span> is finite.</p></li>
+<li><p>Suppose that <span class="math inline">\(L(E,1)=0\)</span> and <span class="math inline">\(L'(E,1)\neq 0\)</span>. Then <span class="math inline">\(E({\mathbb{Q}})\)</span> has rank one.</p></li>
+</ol>
+<p>That is, BSD holds if we assume <em>a priori</em> that <span class="math inline">\(\operatorname{ord}_{s=1} L(E,s)\)</span> is at most one.</p>
+</div>
+<p>The proof of this is also very difficult and uses crucially the modular form <span class="math inline">\(f_E\)</span> attached to <span class="math inline">\(E\)</span> by modularity. This is nowadays no restriction, since by the modularity theorem we know that all elliptic curves over <span class="math inline">\({\mathbb{Q}}\)</span> are modular. However, the result of Gross–Zagier and Kolyvagin was proven in the eighties, <em>before</em> modularity was proven (or even thought to be attainable). A crucial ingredient that goes in the proof is to be able to produce, in the case of <span class="math inline">\(L(E,1)=0\)</span>, a point <span class="math inline">\(P \in E({\mathbb{Q}})\)</span> which has infinite order, as predicted by BSD. It is an open problem to find a point of infinite order in <span class="math inline">\(E({\mathbb{Q}})\)</span> knowing that <span class="math inline">\(\operatorname{ord}_{s=1} L(E,s)\geq 2\)</span>. This is an example of the recurring phenomenon in mathematics: it is easy to construct objects that are uniquely defined, in what could be thought of as a perverse manifestation of the “axiom of choice”.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./5_eisenstein.html" class="pagination-link" aria-label="Eisenstein series">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eisenstein series</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./7_modsym.html" class="pagination-link" aria-label="Modular symbols">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modular symbols</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://www.github.com/mmasdeu/modforms/edit/main/6_lfunctions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://www.github.com/mmasdeu/modforms/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://www.github.com/mmasdeu/modforms/blob/main/6_lfunctions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>

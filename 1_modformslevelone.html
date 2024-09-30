@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Modular forms of level one – Modular Forms</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./2_modformscongruence.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1_modformslevelone.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Modular forms of level one</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Modular Forms</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://www.github.com/mmasdeu/modforms" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Modular-Forms.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1_modformslevelone.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Modular forms of level one</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_modformscongruence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Modular forms for congruence subgroups</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_complextori.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Moduli interpretation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_hecke.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hecke Theory</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5_eisenstein.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eisenstein series</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_lfunctions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">L-functions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7_modsym.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modular symbols</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bibliography.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bibliography</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#two-examples" id="toc-two-examples" class="nav-link active" data-scroll-target="#two-examples"><span class="header-section-number">1.1</span> Two examples</a>
+  <ul class="collapse">
+  <li><a href="#partitions-and-ramanujans-tau-function" id="toc-partitions-and-ramanujans-tau-function" class="nav-link" data-scroll-target="#partitions-and-ramanujans-tau-function"><span class="header-section-number">1.1.1</span> Partitions and Ramanujan’s <span class="math inline">\(\tau\)</span>-function</a></li>
+  <li><a href="#a-modular-form-of-level-11-that-knows-about-congruences" id="toc-a-modular-form-of-level-11-that-knows-about-congruences" class="nav-link" data-scroll-target="#a-modular-form-of-level-11-that-knows-about-congruences"><span class="header-section-number">1.1.2</span> A modular form of level <span class="math inline">\(11\)</span> that knows about congruences</a></li>
+  </ul></li>
+  <li><a href="#sec:upper-half-plane" id="toc-sec:upper-half-plane" class="nav-link" data-scroll-target="#sec\:upper-half-plane"><span class="header-section-number">1.2</span> The upper half-plane</a>
+  <ul class="collapse">
+  <li><a href="#group-theoretic-description-of-mathbbh" id="toc-group-theoretic-description-of-mathbbh" class="nav-link" data-scroll-target="#group-theoretic-description-of-mathbbh"><span class="header-section-number">1.2.1</span> Group-theoretic description of <span class="math inline">\({\mathbb{H}}\)</span></a></li>
+  <li><a href="#the-quotient-operatornamesl_2mathbbzbackslash-mathbbh-as-a-topological-space" id="toc-the-quotient-operatornamesl_2mathbbzbackslash-mathbbh-as-a-topological-space" class="nav-link" data-scroll-target="#the-quotient-operatornamesl_2mathbbzbackslash-mathbbh-as-a-topological-space"><span class="header-section-number">1.2.2</span> The quotient <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\backslash {\mathbb{H}}\)</span> as a topological space</a></li>
+  </ul></li>
+  <li><a href="#sec:the-modular-group" id="toc-sec:the-modular-group" class="nav-link" data-scroll-target="#sec\:the-modular-group"><span class="header-section-number">1.3</span> Basic definitions of modular forms</a></li>
+  <li><a href="#sec-fourier-expansions-eisenstein" id="toc-sec-fourier-expansions-eisenstein" class="nav-link" data-scroll-target="#sec-fourier-expansions-eisenstein"><span class="header-section-number">1.4</span> Eisenstein series</a></li>
+  <li><a href="#fundamental-domains" id="toc-fundamental-domains" class="nav-link" data-scroll-target="#fundamental-domains"><span class="header-section-number">1.5</span> Fundamental domains</a></li>
+  <li><a href="#sec:valence-formula" id="toc-sec:valence-formula" class="nav-link" data-scroll-target="#sec\:valence-formula"><span class="header-section-number">1.6</span> Valence formula</a>
+  <ul class="collapse">
+  <li><a href="#the-modular-invariant-j" id="toc-the-modular-invariant-j" class="nav-link" data-scroll-target="#the-modular-invariant-j"><span class="header-section-number">1.6.1</span> The modular invariant <span class="math inline">\(j\)</span></a></li>
+  <li><a href="#proof-of-the-valence-formula" id="toc-proof-of-the-valence-formula" class="nav-link" data-scroll-target="#proof-of-the-valence-formula"><span class="header-section-number">1.6.2</span> Proof of the valence formula</a></li>
+  </ul></li>
+  <li><a href="#sec:a-product-formula-for-Delta" id="toc-sec:a-product-formula-for-Delta" class="nav-link" data-scroll-target="#sec\:a-product-formula-for-Delta"><span class="header-section-number">1.7</span> A product formula for <span class="math inline">\(\Delta(z)\)</span></a>
+  <ul class="collapse">
+  <li><a href="#sec:dedekind-eta" id="toc-sec:dedekind-eta" class="nav-link" data-scroll-target="#sec\:dedekind-eta"><span class="header-section-number">1.7.1</span> The Dedekind-eta function</a></li>
+  </ul></li>
+  <li><a href="#growth-of-fourier-coefficients" id="toc-growth-of-fourier-coefficients" class="nav-link" data-scroll-target="#growth-of-fourier-coefficients"><span class="header-section-number">1.8</span> Growth of Fourier coefficients</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://www.github.com/mmasdeu/modforms/edit/main/1_modformslevelone.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://www.github.com/mmasdeu/modforms/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://www.github.com/mmasdeu/modforms/blob/main/1_modformslevelone.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-modforms-full-level" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Modular forms of level one</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="hidden">
+
+</div>
+<section id="two-examples" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="two-examples"><span class="header-section-number">1.1</span> Two examples</h2>
+<p>Modular forms have been for a while a central object in number theory. They have connections to many research areas: arithmetic, combinatorics, analysis, geometry, representation theory,…Since they appear essentially everywhere you look at, it is quite reasonable to wish to understand them.</p>
+<p>Here is a not too serious reason: have you ever tried to calculate <span class="math inline">\(e^{\pi\sqrt{163}}\)</span>? It turns out that it is <span class="math display">\[e^{\pi\sqrt{163}} = 262537412640768743.999999999999250072597\ldots\]</span> which seems <em>too close</em> to an integer to be a coincidence. That is, until you learn about modular forms: it turns out that this number is related to a value of a modular funtion (the <span class="math inline">\(j\)</span>-function), which is known to be an integer.</p>
+<p>In this introduction I give two more examples that hopefully convince the reader of the importance of modular forms in number theory. You can find many more examples in <span class="citation" data-cites="book123modforms">(<a href="bibliography.html#ref-book123modforms" role="doc-biblioref">Bruinier et al. 2008, chap. 1</a>)</span>.</p>
+<section id="partitions-and-ramanujans-tau-function" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="partitions-and-ramanujans-tau-function"><span class="header-section-number">1.1.1</span> Partitions and Ramanujan’s <span class="math inline">\(\tau\)</span>-function</h3>
+<p>For each <span class="math inline">\(n\geq 0\)</span>, define the <em>partition function</em> <span class="math inline">\(p(n)\)</span> as <span class="math display">\[p(n)=\#\{\text{ways of representing $n$ as a sum of natural numbers }\}.\]</span> As a convention, <span class="math inline">\(p(0)=1\)</span>. Also, note that: <span class="math display">\[\begin{align*}
+p(1) &amp;= 1\\
+p(2) &amp;= 2 = \#\{1+1,2\}\\
+p(3) &amp;= 3 = \#\{1+1+1, 1+2, 3\}\\
+p(4) &amp;= 5 = \#\{1+1+1+1,1+1+2,1+3,2+2,4\}\\
+p(5) &amp;= 7 = \#\{1+1+1+1+1,1+1+1+2,1+1+3,1+4,1+2+2,2+3,5\}\\
+\ldots&amp;
+\end{align*}\]</span> In order to package all these numbers we may consider the following formal powers series: <span class="math display">\[P(q) = \sum_{n=0}^\infty p(n)q^n,\]</span> where we think of <span class="math inline">\(q\)</span> as a formal variable.</p>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1.1</strong></span> There is an infinite product decomposition <span class="math display">\[P(q) = \prod_{m=1}^\infty \frac{1}{1-q^m}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We need to look at the right-hand side. Each of the factors can be written as <span class="math inline">\(\sum_{k=0}^\infty q^{km}\)</span>, so the right-hand side looks like <span class="math display">\[\prod_{m=1}^\infty\sum_{k=0}^\infty q^{km}.\]</span> Now we collect the terms contributing to <span class="math inline">\(q^n\)</span>, for a fixed <span class="math inline">\(n\)</span>. These come from taking <span class="math inline">\(1\)</span> from all but finitely many of the infinite sums, and then collecting <span class="math inline">\(q^{k_1m_1}\)</span>, <span class="math inline">\(q^{k_2m_2}\)</span>, …, <span class="math inline">\(q^{k_rm_r}\)</span> from <span class="math inline">\(r\)</span> other factors. This is subject to the condition <span class="math display">\[k_1m_1+k_2m_2+\cdots+k_rm_r = n,\]</span> and note that the <span class="math inline">\(m_i\)</span> are all different because they are taken from different factors. There are exactly <span class="math inline">\(p(n)\)</span> such choices, as we wanted to show.</p>
+</div>
+<p>In view of the previous lemma, a convenient way to study the partition function is through another very popular function, defined by the following infinite product: <span class="math display">\[\Delta(q) = q\prod_{n=1}^\infty (1-q^n)^{24}.\]</span> Note that we have: <span class="math display">\[\Delta(q) = q\prod_{n=1}^\infty (1-q^n)^{24} = \frac{q\prod(1-q^n)^{25}}{\prod 1-q^n} = \left(\prod_{n=1}^\infty(1-q^n)^{25}\right) \sum_{n=0}^\infty p(n)q^{n+1}.\]</span> We define the <em>Ramanujan’s tau</em> function as the Fourier coefficients of <span class="math inline">\(\Delta\)</span>. That is, <span class="math display">\[\Delta(q)=\sum_{n=1}^{\infty} \tau(n)q^n.\]</span></p>
+<p>Later in this course you will be able to prove the following striking result.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.1</strong></span> For each <span class="math inline">\(n\geq 1\)</span>, we have: <span class="math display">\[\tau(n)\equiv \sum_{d\mid n} d^{11}\pmod{691}.\]</span> Moreover, the partition function satisfies the following congruences: <span class="math display">\[p(5n+4) \equiv 0\pmod{5},\quad \forall n,\]</span> <span class="math display">\[p(7n+5) \equiv 0\pmod{7},\quad \forall n,\]</span> <span class="math display">\[p(11n+6) \equiv 0\pmod{11},\quad \forall n.\]</span></p>
+</div>
+</section>
+<section id="a-modular-form-of-level-11-that-knows-about-congruences" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="a-modular-form-of-level-11-that-knows-about-congruences"><span class="header-section-number">1.1.2</span> A modular form of level <span class="math inline">\(11\)</span> that knows about congruences</h3>
+<p>Consider another modular form: <span class="math display">\[f(z)=q\prod_{n=1}^\infty (1-q^n)^2(1-q^{11n})^2 = q-2q^2-q^3+2q^4+q^5+2q^6+\cdots = \sum_{n=1}^\infty a(n)q^n.\]</span></p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.2</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p><span class="math inline">\(a(nm) = a(n)a(m)\)</span> whenever <span class="math inline">\((n,m)=1\)</span>.</p></li>
+<li><p><span class="math inline">\(|a(p)|\leq 2\sqrt{p}\)</span> for all prime <span class="math inline">\(p\)</span>.</p></li>
+</ol>
+</div>
+<p>Consider the equation: <span class="math display">\[E\colon Y^2+Y=X^3-X^2-10X-20,\]</span> and let <span class="math inline">\(N(p)\)</span> be the number of solutions in <span class="math inline">\({\mathbb{F}}_p\)</span>. Heuristically we should think that <span class="math inline">\(N(p)\simeq p\)</span>.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.3</strong></span> <span class="math inline">\(|p-N(p)|\leq 2\sqrt{p}\)</span>.</p>
+</div>
+<p>The theory of modular forms allows to prove that the <span class="math inline">\(E\)</span> and <span class="math inline">\(f\)</span> “correspond” to each other:</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.4</strong></span> For all primes <span class="math inline">\(p\)</span>, we have <span class="math inline">\(a(p) = p - N(p)\)</span>.</p>
+</div>
+<p>This allows us to easily calculate (from <span class="math inline">\(f\)</span>) what is <span class="math inline">\(N(p)\)</span> for all <span class="math inline">\(p\)</span>. We say in this case that <span class="math inline">\(E\)</span> “is modular”. In <span class="citation" data-cites="diamond-shurman">(<a href="bibliography.html#ref-diamond-shurman" role="doc-biblioref">Diamond and Shurman 2005</a>)</span> you can learn how to attach an elliptic curve to a modular form (this is called the “Eichler–Shimura” construction). It is <strong>much</strong> harder to reverse this process, and this is what A.Wiles did in order to prove Fermat’s Last Theorem.</p>
+</section>
+</section>
+<section id="sec:upper-half-plane" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sec:upper-half-plane"><span class="header-section-number">1.2</span> The upper half-plane</h2>
+<p>This section introduces the seemingly innocuous upper half-plane <span class="math inline">\({\mathbb{H}}\)</span>.</p>
+<div id="def-semipla-superior" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.1</strong></span> The <em>upper half-plane</em> <span class="math inline">\({\mathbb{H}}\)</span> is the set of complex numbers with positive imaginary part: <span class="math display">\[{\mathbb{H}}= \{ z=x+iy ~|~ \Im(z)&gt;0\}.\]</span></p>
+</div>
+<p>The upper half-plane appears in the classification of Riemann surfaces: there are only three of them which are simply connected which are the complex plane, the complex sphere, and <span class="math inline">\({\mathbb{H}}\)</span>.</p>
+<p>The <em>general linear group</em> <span class="math inline">\(\operatorname{GL}_2({\mathbb{R}})\)</span> consists of all <span class="math inline">\(2\times 2\)</span> invertible matrices with entries in <span class="math inline">\({\mathbb{R}}\)</span>. It contains the subgroup <span class="math inline">\(\operatorname{GL}_2^+({\mathbb{R}})\)</span> of matrices with positive determinant. The <span class="math inline">\({\operatorname{SL}}_2({\mathbb{R}})\subset \operatorname{GL}_2^+({\mathbb{R}})\)</span> consists of those matrices with determinant <span class="math inline">\(1\)</span>. For <span class="math inline">\(\gamma=\left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right)\in \operatorname{GL}_2({\mathbb{R}})\)</span> and <span class="math inline">\(z\in{\mathbb{H}}\)</span>, define <span class="math inline">\(\gamma z\)</span> as: <span class="math display">\[(\#eq:fractional-linear-transformation)
+\gamma z = \left(\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right) z = \frac{az+b}{cz+d}.\]</span></p>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1.2</strong></span> Let <span class="math inline">\(\gamma=\left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right)\in\operatorname{GL}_2({\mathbb{R}})\)</span>. Then: <span class="math display">\[\Im(\gamma\tau) = \frac{\det(\gamma)}{|c\tau+d|^2}\Im(\tau),\quad \gamma=\left(\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right).\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>One just needs to compute <span class="math display">\[\begin{align*}
+\Im(\gamma\tau) &amp;= \Im(\frac{a\tau + b}{c\tau+d}) = \Im\left(\frac{(a\tau+b)(c\bar\tau + d)}{|c\tau+d|^2}\right)\\
+&amp;= \frac{\Im(ac|\tau|^2 +ad\tau + bc\bar\tau +bd)}{|c\tau+d|^2}=\frac{ad\Im(\tau) - bc\Im(\tau)}{|c\tau+d|^2}.
+\end{align*}\]</span></p>
+</div>
+<div id="cor-" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1.1</strong></span> <span class="math inline">\(\operatorname{GL}_2^+({\mathbb{R}})\)</span> acts on the left on <span class="math inline">\({\mathbb{H}}\)</span>.</p>
+</div>
+<p>Note that the determinant gives a decomposition <span class="math display">\[\operatorname{GL}_2^+({\mathbb{R}}) = {\operatorname{SL}}_2({\mathbb{R}}) \times {\mathbb{R}},\]</span> and since the scalar matrices (those of the form <span class="math inline">\(\left(\begin{smallmatrix}\lambda&amp;0\\0&amp;\lambda\end{smallmatrix}\right)\)</span>) act trivially on <span class="math inline">\({\mathbb{H}}\)</span>, from now on we will restrict our attention to <span class="math inline">\({\operatorname{SL}}_2({\mathbb{R}})\)</span>. In fact, since the scalar matrix <span class="math inline">\(\left(\begin{smallmatrix}-1&amp;0\\0&amp;-1\end{smallmatrix}\right)\)</span> belongs to <span class="math inline">\({\operatorname{SL}}_2({\mathbb{R}})\)</span>, the above action on <span class="math inline">\({\mathbb{H}}\)</span> factors through <span class="math inline">\(\operatorname{PSL}_2({\mathbb{R}})={\operatorname{SL}}_2({\mathbb{R}})/\{\pm 1\}\)</span>, which is called the .</p>
+<p>From this action we can deduce a right action on functions on <span class="math inline">\({\mathbb{H}}\)</span>, by precomposing: <span class="math display">\[(f\cdot \gamma)(z) = f(\gamma z).\]</span> However, we will need slightly more general actions on functions, but before we introduce a piece of notation that will later prove useful.</p>
+<div id="def-j-function" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.2</strong></span> The <span class="math inline">\(j\)</span>-function is the function <span class="math display">\[j\colon \operatorname{GL}_2^+({\mathbb{R}})\times {\mathbb{H}}\longrightarrow{\mathbb{C}}\]</span> given by: <span class="math display">\[j(\gamma,z) = cz+d,\quad \gamma = \left(\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right).\]</span></p>
+</div>
+<p>The following lemma gives a very interesting property of the automorphy factor.</p>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1.3</strong></span> For every <span class="math inline">\(\gamma_1\)</span>, <span class="math inline">\(\gamma_2\)</span> in <span class="math inline">\(\operatorname{GL}_2^+({\mathbb{R}})\)</span> and for every <span class="math inline">\(z\in{\mathbb{H}}\)</span> we have: <span class="math display">\[j(\gamma_1\gamma_2,z) = j(\gamma_1,\gamma_2z)j(\gamma_2,z).\]</span></p>
+</div>
+<p>Finally, we define an action of <span class="math inline">\(\operatorname{GL}_2^+({\mathbb{R}})\)</span> on functions <span class="math inline">\(f\colon{\mathbb{H}}\longrightarrow{\mathbb{C}}\)</span>, for each <span class="math inline">\(k\in{\mathbb{Z}}\)</span>.</p>
+<div id="def-slash-operator" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.3</strong></span> The slash operator is defined as <span class="math display">\[(f|_k\gamma)(z) = (\det \gamma)^{k-1} j(\gamma,z)^{-k}f(\gamma z).\]</span></p>
+</div>
+<p>The cocycle property and the multiplicativity of the determinant implies that if <span class="math inline">\(f\)</span> is a function, then: <span class="math display">\[f|_k(\gamma_1\gamma_2) = (f|_k\gamma_1)|_k\gamma_2, \quad \forall \gamma_1,\gamma_2\in\operatorname{GL}_2^+({\mathbb{R}}).\]</span> That is, for each <span class="math inline">\(k\)</span> the weight-<span class="math inline">\(k\)</span> slash operator defines an action of <span class="math inline">\(\operatorname{GL}_2^+({\mathbb{R}})\)</span> on functions on the upper-half plane.</p>
+<section id="group-theoretic-description-of-mathbbh" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="group-theoretic-description-of-mathbbh"><span class="header-section-number">1.2.1</span> Group-theoretic description of <span class="math inline">\({\mathbb{H}}\)</span></h3>
+<p>Recall that <span class="math inline">\({\operatorname{SL}}_2({\mathbb{R}})\)</span> acts on <span class="math inline">\({\mathbb{H}}\)</span>. If <span class="math inline">\(\tau=x+iy\in{\mathbb{H}}\)</span>, then define <span class="math display">\[s_\tau =\left(\begin{matrix}y^{1/2}&amp;xy^{-1/2}\\0&amp;y^{-1/2}\end{matrix}\right).\]</span> Note that <span class="math inline">\(s_\tau i = \tau\)</span>, and therefore <span class="math inline">\({\operatorname{SL}}_2({\mathbb{R}})\)</span> acts transitively on <span class="math inline">\({\mathbb{H}}\)</span>.</p>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1.4</strong></span> The stabilizer in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{R}})\)</span> of <span class="math inline">\(i\)</span> is the compact subgroup of <span class="math inline">\({\operatorname{SL}}_2({\mathbb{R}})\)</span>: <span class="math display">\[\operatorname{SO}_2({\mathbb{R}})=\left\{\left(\begin{matrix}\cos\theta&amp;-\sin\theta\\\sin\theta&amp;\cos\theta\end{matrix}\right) ~|~ \theta\in [0,2\pi]\right\}\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(g=\left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right) \in{\operatorname{SL}}_2({\mathbb{R}})\)</span> stabilize <span class="math inline">\(i\)</span>. That means that: <span class="math display">\[\frac{ai + b}{ci +d} = i,\]</span> or equivalently that <span class="math display">\[ai+b = -c+di.\]</span> Since the entries of <span class="math inline">\(g\)</span> are real, this means that <span class="math inline">\(a=d\)</span> and <span class="math inline">\(b=-c\)</span>. Therefore <span class="math inline">\(g=\left(\begin{smallmatrix}a&amp;b\\-b&amp;a\end{smallmatrix}\right)\)</span>. Since moreover <span class="math inline">\(\det(g)=a^2+b^2=1\)</span>, we deduce that <span class="math inline">\(g\in \operatorname{SO}_2({\mathbb{R}})\)</span>.</p>
+</div>
+<p>The lemma gives a bijection: <span class="math display">\[{\mathbb{H}}\longrightarrow{\operatorname{SL}}_2({\mathbb{R}})/\operatorname{SO}_2({\mathbb{R}}),\quad \tau\mapsto s_\tau\operatorname{SO}_2({\mathbb{R}}),\]</span> whose inverse maps <span class="math inline">\(g\operatorname{SO}_2({\mathbb{R}})\mapsto g\cdot i\)</span>.</p>
+</section>
+<section id="the-quotient-operatornamesl_2mathbbzbackslash-mathbbh-as-a-topological-space" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="the-quotient-operatornamesl_2mathbbzbackslash-mathbbh-as-a-topological-space"><span class="header-section-number">1.2.2</span> The quotient <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\backslash {\mathbb{H}}\)</span> as a topological space</h3>
+<p>We end this section by showing that the quotient <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\backslash {\mathbb{H}}\)</span> is a Hausdorff space.</p>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1.5</strong></span> Let <span class="math inline">\(U_1\)</span> and <span class="math inline">\(U_2\)</span> be two open sets in <span class="math inline">\({\mathbb{H}}\)</span>. Then the set <span class="math display">\[S = \{\gamma\in {\operatorname{SL}}_2({\mathbb{Z}}) ~|~ \gamma U_1 \cap U_2 \neq \emptyset\}\]</span> is finite.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>First observe that the matrices <span class="math inline">\(s_{\gamma\tau}\)</span> and <span class="math inline">\(\gamma s_\tau\)</span> both send <span class="math inline">\(i\)</span> to <span class="math inline">\(\gamma\tau\)</span>. By the identification <span class="math inline">\({\mathbb{H}}= {\operatorname{SL}}_2({\mathbb{R}})/\operatorname{SO}_2({\mathbb{R}})\)</span> we deduce that <span class="math inline">\(\gamma s_\tau\operatorname{SO}_2({\mathbb{R}})=s_{\gamma\tau}\operatorname{SO}_2({\mathbb{R}})\)</span>. Given two points <span class="math inline">\(\tau_1\)</span> and <span class="math inline">\(\tau_2\)</span> of <span class="math inline">\({\mathbb{H}}\)</span>, we have <span class="math inline">\(\gamma\tau_1 =\tau_2\)</span> if and only if <span class="math inline">\(s_{\gamma\tau_1}\operatorname{SO}_2({\mathbb{R}}) = s_{\tau_2}\operatorname{SO}_2({\mathbb{R}})\)</span>. We have just seen that the left hand side equals <span class="math inline">\(\gamma s_{\tau_1}\operatorname{SO}_2({\mathbb{R}})\)</span>. We deduce that <span class="math inline">\(\gamma\tau_1=\tau_2\)</span> if and only if <span class="math inline">\(\gamma\)</span> belongs to the conjugate: <span class="math inline">\(s_{\tau_2}\operatorname{SO}_2({\mathbb{R}}) s_{\tau_1}^{-1}\)</span>. Therefore the set <span class="math inline">\(S\)</span> is a subset of the set <span class="math display">\[\{\gamma\in{\operatorname{SL}}_2({\mathbb{Z}}) ~|~ \gamma \overline U_1 \cap \overline U_2 \neq \emptyset\}\]</span> which in turn can be written as <span class="math display">\[{\operatorname{SL}}_2({\mathbb{Z}})\cap s_{\overline U_2} \operatorname{SO}_2({\mathbb{R}}) s_{\overline U_1}^{-1}.\]</span> Since <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> is discrete and the other term is compact, the intersection, and hence <span class="math inline">\(S\)</span>, is finite.</p>
+</div>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1.1</strong></span> The action of <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> on <span class="math inline">\({\mathbb{H}}\)</span> is proper discontinuous. That is, given any <span class="math inline">\(\tau_1\)</span>, <span class="math inline">\(\tau_2\)</span> in <span class="math inline">\({\mathbb{H}}\)</span>, there are neighborhoods <span class="math inline">\(U_1\)</span> and <span class="math inline">\(U_2\)</span> such that for each <span class="math inline">\(\gamma\in {\operatorname{SL}}_2({\mathbb{Z}})\)</span> either</p>
+<ol type="1">
+<li><p><span class="math inline">\(\gamma\tau_1=\tau_2\)</span>, or</p></li>
+<li><p><span class="math inline">\(\gamma U_1\cap U_2 = \emptyset\)</span>.</p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(U_1\)</span> and <span class="math inline">\(U_2\)</span> be any two neighborhoods of <span class="math inline">\(\tau_1\)</span> and <span class="math inline">\(\tau_2\)</span>, and let <span class="math inline">\(\gamma\in S\)</span>. If <span class="math inline">\(\gamma\tau_1=\tau_2\)</span> then we do not need to do anything. Otherwise, if <span class="math inline">\(\gamma U_1\cap U_2\neq \emptyset\)</span> then we may replace <span class="math inline">\(U_2\)</span> with <span class="math inline">\(V_2\)</span> and <span class="math inline">\(U_1\)</span> with <span class="math inline">\(\gamma^{-1} V_1\)</span> if <span class="math inline">\(V_1\cap V_2=\emptyset\)</span>, <span class="math inline">\(\tau_2\in V_2\)</span> and <span class="math inline">\(\gamma\tau_1\in V_1\)</span>:</p>
+<div id="fig-shriking-neighborhoods" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-shriking-neighborhoods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Pictures/shrinking-neighborhoods.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-shriking-neighborhoods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: Shrinking the neighborhoods
+</figcaption>
+</figure>
+</div>
+<p>Since the set of <span class="math inline">\(\gamma\)</span> such that these intersections are nonempty is finite, this process terminates after a finite number of steps and will leave us with the right neighborhoods.</p>
+</div>
+<div id="cor-" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1.2</strong></span> The quotient <span class="math inline">\(Y(1) = {\operatorname{SL}}_2({\mathbb{Z}})\backslash{\mathbb{H}}\)</span> is Hausdorff.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Pick <span class="math inline">\(\pi(\tau_1)\neq \pi(\tau_2)\)</span> in <span class="math inline">\(Y(1)\)</span>, and let <span class="math inline">\(U_1\)</span> and <span class="math inline">\(U_2\)</span> be neighborhoods as in the Proposition. For every <span class="math inline">\(\gamma\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span> we have <span class="math inline">\(\gamma\tau_1\neq \tau_2\)</span> by the choice of <span class="math inline">\(\tau_1\)</span> and <span class="math inline">\(\tau_2\)</span>. Therefore for every <span class="math inline">\(\gamma\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span> we have <span class="math inline">\(\gamma U_1\cap U_2=\emptyset\)</span>. Therefore <span class="math inline">\(\pi(U_1)\cap\pi(U_2)=\emptyset\)</span>. It remains to show that <span class="math inline">\(\pi(U_i)\)</span> is an open set. Indeed, if <span class="math inline">\(U\subseteq{\mathbb{H}}\)</span> is an open set, then <span class="math display">\[\pi^{-1}(\pi(U)) = \cup_{\gamma\in{\operatorname{SL}}_2({\mathbb{Z}})} \gamma U\]</span> is a union of open sets. Therefore it is open. We have showed that <span class="math inline">\(\pi(U)\)</span> is open (because of the quotient topology). Therefore each of the <span class="math inline">\(\pi(U_i)\)</span> is open, as we wanted to show.</p>
+</div>
+</section>
+</section>
+<section id="sec:the-modular-group" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sec:the-modular-group"><span class="header-section-number">1.3</span> Basic definitions of modular forms</h2>
+<p>Let <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\subset{\operatorname{SL}}_2({\mathbb{R}})\)</span> be the subgroup of matrices with entries in <span class="math inline">\({\mathbb{Z}}\)</span> (and determinant <span class="math inline">\(1\)</span>), which of course still acts on functions as we have seen.</p>
+<div id="def-weakly-modular" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.4</strong></span> A holomorphic function <span class="math inline">\(f\colon {\mathbb{H}}\longrightarrow{\mathbb{C}}\)</span> is called <em>weakly modular</em> of weight <span class="math inline">\(k\in{\mathbb{Z}}\)</span> for <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> if <span class="math inline">\(f|_k\gamma = f\)</span> for all <span class="math inline">\(\gamma\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span>. Explicitly: <span id="eq-modular-transformation"><span class="math display">\[
+f(\gamma\cdot z) = j(\gamma,z)^k f(z),\quad\forall \gamma\in{\operatorname{SL}}_2({\mathbb{Z}}).
+\tag{1.1}\]</span></span></p>
+</div>
+<p>Note that since <span class="math inline">\(-I\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span>, then there are no non-zero weakly-modular functions of odd weight: <span class="math display">\[f(z)=(-1)^kf(z)\implies f=0.\]</span></p>
+<p>We will need an extra analytic property to define modular forms for <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>. For now, note that: <span class="math display">\[\frac{d(\gamma\cdot z)}{dz} = j(\gamma,z)^{-2},\]</span> so we can rewrite the weakly-modular property by asking that the differential <span class="math inline">\(f(z)(dz)^{k/2}\)</span> is invariant under <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>. It also shows that if <a href="#eq-modular-transformation" class="quarto-xref">Equation&nbsp;<span>1.1</span></a> holds for <span class="math inline">\(\gamma_1\)</span> and <span class="math inline">\(\gamma_2\)</span>, then it also holds for <span class="math inline">\(\gamma_1\gamma_2\)</span>.</p>
+<p>We will see later (see <a href="#cor-STgenerate" class="quarto-xref">Corollary&nbsp;<span>1.3</span></a>) that <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> is generated by the matrices <span class="math inline">\(T=\left(\begin{smallmatrix}1&amp;1\\0&amp;1\end{smallmatrix}\right)\)</span> and <span class="math inline">\(S=\left(\begin{smallmatrix}0&amp;-1\\1&amp;0\end{smallmatrix}\right)\)</span>. Together with the previous observation, this implies that for <span class="math inline">\(f\)</span> to be weakly-modular it is enough to check <a href="#eq-modular-transformation" class="quarto-xref">Equation&nbsp;<span>1.1</span></a> for <span class="math inline">\(T\)</span> and <span class="math inline">\(S\)</span>: <span class="math display">\[f(z+1)=f(z),\quad f(-1/z) = z^k f(z).\]</span></p>
+<p>The transformation property (rather, the fact that <span class="math inline">\(f(z+1)=f(z)\)</span>) implies that <span class="math inline">\(f\)</span> has a Fourier expansion. Another way to think about it is that there is a holomorphic map: <span class="math display">\[\exp\colon {\mathbb{H}}\longrightarrow\{0&lt;|q|&lt;1\},\quad z\mapsto q=e^{2\pi i z}.\]</span> If <span class="math inline">\(f\)</span> is holomorphic and <span class="math inline">\(1\)</span>-periodic, then we can define <span class="math inline">\(g(q)=f(z)\)</span>. That is, we may define: <span class="math display">\[g(q)=f\left(\frac{\log q}{2\pi i}\right),\]</span> where we may choose any branch of the logarithm because of the periodicity of <span class="math inline">\(f\)</span>. The function <span class="math inline">\(g\)</span> is holomorphic on <span class="math inline">\(D'\)</span>, and thus it has a Laurent expansion <span class="math display">\[g(q)=\sum_{n=-\infty}^\infty a(n)q^n.\]</span> Therefore <span class="math inline">\(f\)</span> has an expansion <span class="math display">\[f(z) = \sum_{n=-\infty}^\infty a(n)e^{2\pi i nz}.\]</span></p>
+<div id="def-meromorphic-holomorphic-at-infinity" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.5</strong></span> We say that <span class="math inline">\(f\)</span> is <em>meromorphic at infinity</em> (respectively <em>holomorphic at infinity</em>) if <span class="math inline">\(f(z)=\sum_{n\geq n_0} a(n)q^n\)</span> (respectively if in addition <span class="math inline">\(n_0=0\)</span>).</p>
+</div>
+<p>Note that checking that <span class="math inline">\(f\)</span> is holomorphic at infinity is the same as checking that <span class="math inline">\(f(z)\)</span> is bounded as <span class="math inline">\(z\)</span> approaches <span class="math inline">\(i\infty\)</span>. If <span class="math inline">\(f\)</span> is holomorphic at infinity, then the value of <span class="math inline">\(f\)</span> at infinity is defined to be <span class="math inline">\(f(\infty)=a(0)\)</span>.</p>
+<div id="def-cuspidal" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.6</strong></span> We say that <span class="math inline">\(f\)</span> is <em>cuspidal</em> if <span class="math inline">\(n_0=1\)</span>. Equivalently, if <span class="math inline">\(f(\infty)=0\)</span>.</p>
+</div>
+<div id="def-modular-form" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.7</strong></span> Let <span class="math inline">\(k\in {\mathbb{Z}}\)</span> and let <span class="math inline">\(f\colon{\mathbb{H}}\longrightarrow{\mathbb{C}}\)</span>. We say that <span class="math inline">\(f\)</span> is a <em>modular form</em> of weight <span class="math inline">\(k\)</span> for <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> if:</p>
+<ol type="1">
+<li><p><span class="math inline">\(f\)</span> is holomorphic,</p></li>
+<li><p><span class="math inline">\(f(\gamma z) = (cz+d)^kf(z)\)</span> for all <span class="math inline">\(\gamma=\left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right)\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span>, and</p></li>
+<li><p><span class="math inline">\(f\)</span> is holomorphic at infinity.</p></li>
+</ol>
+<p>A <em>cusp form</em> is a modular form which vanishes at infinity.</p>
+<p>The space of modular forms of weight <span class="math inline">\(k\)</span> is written <span class="math inline">\(M_k=M_k({\operatorname{SL}}_2({\mathbb{Z}}))\)</span>, and it contains the space of cusp forms of weight <span class="math inline">\(k\)</span>, which in turn is written <span class="math inline">\(S_k=S_k({\operatorname{SL}}_2({\mathbb{Z}}))\)</span>.</p>
+</div>
+<div id="rem-" class="proof remark">
+<p><span class="proof-title"><em>Remark 1.1</em>. </span>If we replace “holomorphic” with “meromorphic” above, we obtain what can be called an <em>automorphic form</em>. Other authors call them modular functions, but this name is used in different contexts and we will avoid it.</p>
+</div>
+<p>Note that both <span class="math inline">\(M_k\)</span> and <span class="math inline">\(S_k\)</span> are <span class="math inline">\({\mathbb{C}}\)</span>-vector spaces. Also, multiplication of functions gives <span class="math inline">\(M=\bigoplus_{k\in{\mathbb{Z}}} M_k\)</span> the structure of a <em>graded ring</em>. That is, <span class="math inline">\(M_rM_s\subseteq M_{r+s}\)</span>. Finally, for all odd <span class="math inline">\(k\)</span> one has <span class="math inline">\(M_k = \{0\}\)</span>.</p>
+</section>
+<section id="sec-fourier-expansions-eisenstein" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sec-fourier-expansions-eisenstein"><span class="header-section-number">1.4</span> Eisenstein series</h2>
+<p>For <span class="math inline">\(k\geq 3\)</span>, define <span class="math display">\[G_k(z) = \mathop{\sum{\raise 3pt\hbox{${}'$}}}_{(m,n)\in {\mathbb{Z}}^2} (mz+n)^{-k}.\]</span></p>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1.2</strong></span> For all <span class="math inline">\(k\geq 3\)</span>, the function <span class="math inline">\(G_k(z)\)</span> is a weight-<span class="math inline">\(k\)</span> modular form, with <span class="math inline">\(G_k(\infty)=2\zeta(k)\)</span>, where <span class="math inline">\(\zeta\)</span> is Riemann’s zeta function.</p>
+</div>
+<p>In order to prove the above result, we will need to auxiliary lemmas.</p>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1.6</strong></span> If <span class="math inline">\(k\geq 2\)</span>, the series <span class="math display">\[
+\sum_{(c,d)\neq (0,0)} \max(c,d)^{-k}
+\]</span> converges absolutely.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Consider the partial sum of the series in the box <span class="math inline">\(\{ |c| \leq N, |d| \leq N\}\)</span>. We can explicitly compute this sum, which equals <span class="math display">\[
+\sum_{n=1}^N (2n+1) n^{-k}.
+\]</span> Evaluating this sum we obtain the exact value <span class="math inline">\(\zeta(k)+2\zeta(k-1)\)</span>.</p>
+</div>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1.7</strong></span> Given positive real numbers <span class="math inline">\(A&gt;0\)</span> i <span class="math inline">\(B&gt;0\)</span>, consider the compact set <span class="math display">\[
+\Omega = \{z\in {\mathbb{H}}: |\Re(z)|\leq A, \Im(z) \geq B\}.
+\]</span> There exists a constant <span class="math inline">\(C=C_{A,B}\)</span> such that <span class="math display">\[
+|z + \delta| &gt; L \max(1,|\delta|), \quad \forall \delta\in {\mathbb{R}}.
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(|\delta|&lt;1\)</span>, then <span class="math inline">\(|z+\delta|\geq B=B\max(1,|\delta|)\)</span>. If <span class="math inline">\(1\leq |\delta| \leq 10A\)</span>, then if <span class="math inline">\(\Im(z) &gt; A\)</span> we have <span class="math display">\[
+|z+\delta| &gt;A \geq \frac{|\delta|}{10},
+\]</span> and if <span class="math inline">\(B\leq \Im z \leq A\)</span> then the function <span class="math display">\[
+\left|\frac{z+\delta}{\delta}\right|
+\]</span> has an absolute minimum <span class="math inline">\(m\)</span> in the compact set <span class="math inline">\(1\leq |\delta|\leq 10A\)</span> i <span class="math inline">\(B\leq \Im z \leq A\)</span>.</p>
+<p>Finally, if <span class="math inline">\(|\delta|&gt; 10A\)</span>, then <span class="math display">\[
+|z+\delta|\geq |\delta|-|z| &gt; |\delta| - A &gt; \frac{9}{10}|\delta|.
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (of the proposition). </span>First, we need to show the convergence of the series for all <span class="math inline">\(z\)</span>. In order to simplify notation, we will restrict the sum to the pairs in the first quadrant. Restricting further the double sum to pairs in the box <span class="math inline">\(\{ 0 \leq c,d \leq N\}\)</span>, we have on one hand <span class="math display">\[
+\sum_{d=1}^N d^{-k} + \sum_{c=1}^N\sum_{d=1}^N (cz+d)^{-k}.
+\]</span> The first summand is bounded by <span class="math inline">\(\zeta(k)\)</span> and so we will ignore it. By restricting <span class="math inline">\(z\)</span> to the compact <span class="math inline">\(\Omega_{A,B}\)</span> as above, the second summand can be rewritten as <span class="math display">\[\begin{align*}
+\sum_{c=1}^N\sum_{d=1}^N c^{-k}|z+d/c|^{-k} &amp;\leq \sum_{c=1}^N\sum_{d=1}^N c^{-k} L^k \max(1,d^{-k}/c^{-k}) \\
+&amp;= L^k \sum_{c=1}^N\sum_{d=1}^N \max(c,d)^{-k}.
+\end{align*}\]</span> By the first lemma, this series converges absolutely. We have already seen that it also converges absolutely in compact sets that cover all of <span class="math inline">\({\mathbb{H}}\)</span>, and thus we deduce that it converges to a holomorphic function on <span class="math inline">\({\mathbb{H}}\)</span>.</p>
+<p>In order to compute <span class="math inline">\(G_k(\infty)\)</span>, we take the limit as <span class="math inline">\(\Im(z)\longrightarrow\infty\)</span>, which can be done while keeping <span class="math inline">\(z\in D\)</span>. In this case, thanks to the uniforme convergent of the series, we can take the term-wise limit. All terms with <span class="math inline">\(c\neq 0\)</span> tend to zero, so we get <span class="math display">\[
+\lim G_k(z) = \sum_{n\neq 0} n^{-k} = 2 \zeta(k).
+\]</span></p>
+</div>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1.3</strong></span> For each <span class="math inline">\(k\geq 3\)</span> the holomorphic function <span class="math inline">\(G_k\)</span> is weakly modular.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(\gamma = \left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right)\)</span> be a matrix in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>. We compute <span class="math display">\[\begin{align*}
+G_k(\gamma z) &amp;= \mathop{\sum{\raise 3pt\hbox{${}'$}}}_{(m,n)} \left(m\frac{az+b}{cz+d} + n\right)^{-k}\\
+&amp;= \mathop{\sum{\raise 3pt\hbox{${}'$}}}_{(m,n)} (cz+d)^k \left(m(az+b)+n(cz+d)\right)^{-k}\\
+&amp;= (cz+d)^k\mathop{\sum{\raise 3pt\hbox{${}'$}}}_{(m,n)}\left( (am+cn)z + (bm+dn)\right)^{-k}.
+\end{align*}\]</span> Note that the pair <span class="math inline">\((am+cn,bm+dn)\)</span> is the result of multiplying the row vector <span class="math inline">\((m,n)\)</span> by the matrix <span class="math inline">\(\left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right)\)</span>. Since <span class="math inline">\(\left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right)\)</span> is invertible, the pair <span class="math inline">\((am+cn,bm+dn)\)</span> runs through all values of <span class="math inline">\({\mathbb{Z}}^2\)</span> as <span class="math inline">\((m,n)\)</span> does. Therefore, by reordering the sum (which we can do thanks to absolute convergence) we get: <span class="math display">\[G_k(\gamma z) = (cz+d)^k \mathop{\sum{\raise 3pt\hbox{${}'$}}}_{(m',n')} \left( m'z+n'\right)^{-k} = (cz+d)^k G_k(z),\]</span> as wanted.</p>
+</div>
+<p>We have already seen that <span class="math inline">\(G_k\)</span> is holomorphic at infinity, and in fact we know its value there. The next task will be to compute its Fourier series. We start by introducing the Bernoulli numbers, which appear in the Fourier series for <span class="math inline">\(G_k\)</span>.</p>
+<div id="def-bernoulli-numbers" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.8</strong></span> The <em>Bernoulli numbers</em> are defined <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> by: <span id="eq-bernoulli-numbers"><span class="math display">\[
+\frac{x}{e^x -1} = \sum_{k=0}^\infty B_k \frac{x^k}{k!} = 1 -\frac 1 2 x + \frac 1{6} \frac{x^2}{2} - \frac 1{30}\frac{x^4}{24} + \cdots.
+\tag{1.2}\]</span></span></p>
+</div>
+<p>Recall the definition of Riemann’s zeta function <span class="math display">\[\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s},\quad \Re(s)&gt;1.\]</span> It has a simple pole of residue <span class="math inline">\(1\)</span> at <span class="math inline">\(s=1\)</span>, and extends to a meromorphic function on <span class="math inline">\({\mathbb{C}}\)</span>, holomorphic on <span class="math inline">\({\mathbb{C}}\setminus \{1\}\)</span>. The Bernoulli numbers appear also naturally in the formulas: <span id="eq-bernoulli-zeta"><span class="math display">\[
+\zeta(k) = \sum_{n=1}^\infty \frac{1}{n^k} = -\frac{(2\pi i)^k}{2}\frac{B_k}{k!},\quad \forall k \geq 2,\quad \zeta(1-n) = -\frac{B_n}{n},\quad \forall n \geq 1. \tag{1.3}\]</span></span> An odd prime <span class="math inline">\(p\)</span> is called if <span class="math inline">\(p\)</span> does not divide the numerator of <span class="math inline">\(B_2\)</span>, <span class="math inline">\(B_4\)</span>,…<span class="math inline">\(B_{p-3}\)</span>. This is equivalent to <span class="math inline">\(p\)</span> not dividing the class number of <span class="math inline">\({\mathbb{Q}}(\sqrt[p]{1})\)</span>. Under this assumption, Fermat’s Last Theorem was proved by Kummer around 1850, and probably by Fermat himself. Although Siegel conjectured that about <span class="math inline">\(60\%\)</span> of primes are regular, it is not know even whether there are infinitely many of them.</p>
+<p>We will derive the Fourier expansion of <span class="math inline">\(G_k\)</span> from that of the cotangent:</p>
+<div id="lem-cotangent" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1.8</strong></span> The following identity of holomorphic functions holds. <span class="math display">\[\frac 1z + \sum_{d=1}^\infty\left(\frac 1{z-d} + \frac 1{z+d}\right) = \pi\cot(\pi z) = \pi i - 2\pi i\sum_{m=0}^\infty q^m,\quad q = e^{2\pi i z}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Consider Euler’s product formula for the sine function: <span class="math display">\[\sin(\pi z) = \pi z \prod_{n=1}^\infty \left(1-\frac{z^2}{n^2}\right).\]</span> Taking the logarithmic derivative of this equation yields <span class="math display">\[\pi\cot(\pi z) = \frac 1 z + \sum_{d=1}^\infty \frac{2z}{z^2-n^2} = \frac 1z + \sum_{d=1}^\infty \left(\frac 1{z-d}+\frac 1{z+d}\right).\]</span> On the other hand, we can use the expression of <span class="math inline">\(\sin\)</span> and <span class="math inline">\(\cos\)</span> in terms of the exponential function to write: <span class="math display">\[\begin{align*}
+\pi\cot(\pi z)&amp;=\pi \frac{\cos(\pi z)}{\sin(\pi z)} = \pi \frac{\frac{e^{i\pi z} + e^{-i\pi z}}{2}}{\frac{e^{i\pi z} - e^{-i\pi z}}{2i}}=\pi i\frac{e^{i\pi z} + e^{-i\pi z}}{e^{i\pi z} - e^{-i\pi z}}\\
+&amp;=\pi i\left(1 - 2\frac{e^{-i\pi z}}{e^{-i\pi z} - e^{i\pi z}}\right)=\pi i\left(1 - 2\frac{1}{1 - e^{2\pi i z}}\right).
+\end{align*}\]</span> Finally, write <span class="math inline">\(q=e^{2\pi i z}\)</span> and the formula follows from the identity <span class="math display">\[
+\frac{1}{1-q} = \sum_{m=0}^\infty q^m,\quad |q|&lt;1.
+\]</span></p>
+</div>
+<div id="lem-expansion-latticesum" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1.9</strong></span> For each <span class="math inline">\(k\geq 2\)</span> we have <span class="math display">\[
+\sum_{d\in{\mathbb{Z}}}\frac{1}{(z+d)^k} = \frac{(-2\pi i)^k}{(k-1)!}\sum_{n=1}^\infty n^{k-1}q^n.
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>From <a href="#lem-cotangent" class="quarto-xref">Lemma&nbsp;<span>1.8</span></a> we have <span class="math display">\[\frac 1z + \sum_{d=1}^\infty\left(\frac 1{z-d} + \frac 1{z+d}\right) = \pi i - 2\pi i\sum_{d=0}^\infty q^d,\quad q = e^{2\pi i z}.\]</span> Differentiating both sides with respect to <span class="math inline">\(z\)</span> gives <span class="math display">\[\frac{-1}{z^2}+\sum_{d=1}^\infty \left(\frac{-1}{(z-d)^2}+\frac{-1}{(z+d)^2}\right) = -(2\pi i)^2 \sum_{d=1}^\infty dq^d.\]</span> Since each of the terms in the infinite sum of the left hand side converges absolutely, we can reorder the series and obtain the identity <span class="math display">\[\sum_{d\in {\mathbb{Z}}} \frac{1}{(z+d)^2} = (2\pi i)^2\sum_{d=1}^\infty dq^d.\]</span> This is proves the formula for <span class="math inline">\(k=2\)</span>. The identity for general <span class="math inline">\(k\)</span> follows by induction, by differentiating the identity for <span class="math inline">\(k-1\)</span>.</p>
+</div>
+<p>We have finally all the ingredients to prove the sought expansion. As a piece of notation for the next result, for <span class="math inline">\(m\geq 0\)</span> the is: <span class="math display">\[\sigma_{m}(n)=\sum_{d\mid n} d^{m}.\]</span></p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.5</strong></span> Let <span class="math inline">\(k\geq 4\)</span> be even. Then <span class="math display">\[G_k(z) = 2\zeta(k) E_k(z), \text{ where } E_k(z) = 1-\frac{2k}{B_k}\sum_{n=1}^\infty \sigma_{k-1}(n)q^n\in{\mathbb{Q}}[\hspace{-1.5pt}[q]\hspace{-1.5pt}].\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Consider now <span class="math inline">\(k\geq 4\)</span> and calculate <span class="math display">\[\begin{align*}
+G_k(z)=\mathop{\sum{\raise 3pt\hbox{${}'$}}}_{(m,n)\in{\mathbb{Z}}^2} \frac{1}{(mz+n)^k} &amp;= \sum_{n\neq 0} \frac{1}{n^k} + \sum_{m\neq 0}\sum_{n\in{\mathbb{Z}}} \frac{1}{(mz+n)^k}\\
+&amp;=2\zeta(k) + 2\sum_{m=1}^\infty \sum_{n\in{\mathbb{Z}}}\frac{1}{(mz+n)^k}.
+\end{align*}\]</span> Here we have used the definition of Riemann’s zeta function at <span class="math inline">\(k\)</span> and the fact that <span class="math inline">\(k\)</span> is even. Using now the formula of <a href="#lem-expansion-latticesum" class="quarto-xref">Lemma&nbsp;<span>1.9</span></a> where <span class="math inline">\(z\)</span> gets substituted by <span class="math inline">\(mz\)</span>, we can replace the second term, and obtain the formula <span class="math display">\[\begin{align*}
+G_k(z) &amp;= 2\zeta(k)+2\sum_{m=1}^\infty\left( \frac{(-2\pi i)^k}{(k-1)!}\sum_{d=1}^\infty d^{k-1} q^{dm}\right) = 2\zeta(k) + \frac{2\cdot (-2\pi i)^k}{(k-1)!} \sum_{m=1}^\infty\sum_{d=1}^\infty d^{k-1}q^{md}.
+\end{align*}\]</span> Finally, group the terms in the inner sum that contribute to <span class="math inline">\(q^n\)</span>. These consist of all pairs of positive integers <span class="math inline">\((m,d)\)</span> such that <span class="math inline">\(md=n\)</span>. That is, for each <span class="math inline">\(n\)</span> we must consider all divisors <span class="math inline">\(d'\)</span> of <span class="math inline">\(n\)</span>, and we can rewrite: <span class="math display">\[\sum_{m=1}^\infty\sum_{d=1}^\infty d^{k-1} q^{md} = \sum_{n=1}^\infty \sigma_{k-1}(n)q^n.\]</span> This gives the desired expansion, by using <a href="#eq-bernoulli-zeta" class="quarto-xref">Equation&nbsp;<span>1.3</span></a>.</p>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.1</strong></span> Define the <span class="math display">\[E_4 = 1 + 240\sum_{n=1}^\infty \sigma_3(n)q^n\in M_4\]</span> and <span class="math display">\[E_6 = 1 - 504\sum_{n=1}^\infty \sigma_5(n)q^n\in M_6.\]</span> Since both <span class="math inline">\(E_4^3\)</span> and <span class="math inline">\(E_6^2\)</span> are both in <span class="math inline">\(M_{12}\)</span>, its difference is also there. Computing we see that <span class="math display">\[E_4^3-E_6^2 = (1+720q+\cdots)-(1-1008q+\cdots) = 1728q+\cdots\in S_{12},\]</span> and thus we may define <span class="math display">\[\Delta(z)=\frac{E_4^3-E_6^2}{1728} = q-24q^2+252q^3+\cdots,\]</span> which is a cusp form of weight <span class="math inline">\(12\)</span>.</p>
+</div>
+</section>
+<section id="fundamental-domains" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="fundamental-domains"><span class="header-section-number">1.5</span> Fundamental domains</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Pictures/fundomSL2Z.svg" class="img-fluid figure-img"></p>
+<figcaption>Fundamental domain for <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span></figcaption>
+</figure>
+</div>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.9</strong></span> Let <span class="math inline">\(\Gamma\)</span> be a group acting on <span class="math inline">\({\mathbb{H}}\)</span>. A for <span class="math inline">\(\Gamma\)</span> is closed subset <span class="math inline">\(\mathcal{D}\subset{\mathbb{H}}\)</span> such that</p>
+<ol type="1">
+<li><p>The set <span class="math inline">\(\mathcal{D}\)</span> is the closure of its interior.</p></li>
+<li><p>Every point in <span class="math inline">\({\mathbb{H}}\)</span> is <span class="math inline">\(\Gamma\)</span>-equivalent to a point of <span class="math inline">\(\mathcal{D}\)</span>.</p></li>
+<li><p>If <span class="math inline">\(z,z'\in\mathcal{D}\)</span> are two distinct points which are <span class="math inline">\(\Gamma\)</span>-equivalent then they lie on the boundary of <span class="math inline">\(\mathcal{D}\)</span>.</p></li>
+</ol>
+</div>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.6</strong></span> The subset <span class="math inline">\(\mathcal{D}\)</span> of <span class="math inline">\({\mathbb{H}}\)</span> as above is a (connected) fundamental domain for <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>.</p>
+<p>Moreover the stabilizer <span class="math inline">\(H_z\)</span> of a point <span class="math inline">\(z\in\mathcal{D}\)</span> in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> is <span class="math display">\[H_z=\begin{cases}
+C_6=\langle ST\rangle = \langle\left(\begin{smallmatrix}0&amp;-1\\1&amp;1\end{smallmatrix}\right)\rangle  &amp; z = \rho,\\
+C_6'=\langle TS\rangle =\langle \left(\begin{smallmatrix}1&amp;-1\\1&amp;0\end{smallmatrix}\right)\rangle &amp; z=\rho + 1,\\
+C_4=\langle S\rangle =\langle \left(\begin{smallmatrix}0&amp;-1\\1&amp;0\end{smallmatrix}\right)\rangle &amp; z=i,\\
+C_2=\langle -I\rangle =\langle \left(\begin{smallmatrix}-1&amp;0\\0&amp;-1\end{smallmatrix}\right)\rangle&amp;\text{ else.}
+\end{cases}\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(z\in {\mathbb{H}}\)</span>. We have seen that, if <span class="math inline">\(\gamma\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span>, then <span class="math display">\[\Im(\gamma z) = \frac{\Im(z)}{|cz+d|^2},\quad \gamma = \left(\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right).\]</span> There are finitely many pairs <span class="math inline">\((c,d)\in{\mathbb{Z}}^2\)</span> such that <span class="math inline">\(|cz+d|&lt;1\)</span>. In particular, one can choose a matrix <span class="math inline">\(\gamma\in\langle S,T\rangle\subseteq {\operatorname{SL}}_2({\mathbb{Z}})\)</span> such that <span class="math display">\[\Im(\gamma z)\geq \Im(\gamma' z),\quad \forall \gamma'\in \langle S,T\rangle\subseteq{\operatorname{SL}}_2({\mathbb{Z}}).\]</span> By premultiplying <span class="math inline">\(\gamma\)</span> by an appropriate power of <span class="math inline">\(T\)</span> (which does not change the imaginary part), we may and do assume that <span class="math inline">\(|\Re(\gamma z)|\leq \frac 12\)</span>. We will now show that <span class="math inline">\(|\gamma z|\geq 1\)</span>: <span class="math display">\[\Im(\gamma z)\geq \Im(S\gamma z)=\Im(-1/\gamma z)=\frac{\Im(\gamma z)}{|\gamma z|^2}.\]</span> This implies <span class="math inline">\(|\gamma z|\geq 1\)</span>, and hence <span class="math inline">\(\gamma z\in \mathcal{D}\)</span>, thus proving <span class="math inline">\((1)\)</span>.</p>
+<p>In order to show <span class="math inline">\((2)\)</span>, suppose that <span class="math inline">\(z'=\gamma z\)</span> and both <span class="math inline">\(z\)</span> and <span class="math inline">\(z'\)</span> lie in <span class="math inline">\(\mathcal{D}\)</span>. Without loss of generality, we may assume that <span class="math inline">\(\Im(\gamma z)\geq \Im(z)\)</span>, or equivalently that <span class="math display">\[|cz+d|^2=|cx+d|^2+|cy|^2\leq 1.\quad\text{ (we write $z=x+iy$).}\]</span> Since <span class="math inline">\(y&gt;1/2\)</span>, this implies that <span class="math inline">\(|c|\leq 1\)</span>. The case <span class="math inline">\(c=0\)</span> gives that <span class="math inline">\(|d|\leq 1\)</span> and since <span class="math inline">\(\left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right)\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span> this means that <span class="math inline">\(\gamma=\pm\left(\begin{smallmatrix}1&amp;b\\0&amp;1\end{smallmatrix}\right)\)</span>, a translation matrix. Therefore <span class="math inline">\(z'=z\pm 1\)</span>.</p>
+<p>Let us suppose that <span class="math inline">\(c=1\)</span> (the case <span class="math inline">\(c=-1\)</span> is completely analogous). Then the condition <span class="math inline">\(|z+d|^2\leq 1\)</span> is only satisfied when <span class="math inline">\(|z|=1\)</span> (<span class="math inline">\(d=0\)</span>), when <span class="math inline">\(z=\rho\)</span> (<span class="math inline">\(d=1\)</span>), or when <span class="math inline">\(z=\rho+1\)</span> (<span class="math inline">\(d=-1\)</span>), giving <span class="math inline">\((2)\)</span>.</p>
+<p>To study the stabilizers of points <span class="math inline">\(z\in\mathcal{D}\)</span>, we can use the calculations that we have used to show <span class="math inline">\((2)\)</span>. If <span class="math inline">\(\gamma z = z\)</span>, then necessarily <span class="math inline">\(c=\pm 1\)</span>, and by changing <span class="math inline">\(\gamma\)</span> to <span class="math inline">\(-\gamma\)</span> we may assume <span class="math inline">\(c=1\)</span>. The quadratic equation given by <span class="math inline">\(\gamma z = z\)</span> gives that <span class="math inline">\(|a+d|&lt;2\)</span>, so <span class="math inline">\(|a+d|\leq 1\)</span>. At the same time, the fact that <span class="math inline">\(z\in\mathcal{D}\)</span> gives <span class="math inline">\(|a-d|\leq 1\)</span>. Together, these two inequalities give <span class="math inline">\(|a|\leq 1\)</span>. We obtain the following possibilities:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(\gamma\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(z\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(z'=\gamma z\)</span></th>
+<th style="text-align: center;">fixed points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\pm \left(\begin{smallmatrix}1&amp;0\\0&amp;1\end{smallmatrix}\right)\)</span></td>
+<td style="text-align: center;">all</td>
+<td style="text-align: center;"><span class="math inline">\(z\)</span></td>
+<td style="text-align: center;">all</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\pm \left(\begin{smallmatrix}1&amp;1\\0&amp;1\end{smallmatrix}\right)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\Re(z)=-\frac 12\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(z+1\)</span></td>
+<td style="text-align: center;">none</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\pm \left(\begin{smallmatrix}1&amp;-1\\0&amp;1\end{smallmatrix}\right)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\Re(z)=\frac 12\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(z-1\)</span></td>
+<td style="text-align: center;">none</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\pm \left(\begin{smallmatrix}0&amp;-1\\1&amp;0\end{smallmatrix}\right)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(|z|=1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-1/z\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(i\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\pm \left(\begin{smallmatrix}-1&amp;-1\\1&amp;0\end{smallmatrix}\right),\pm \left(\begin{smallmatrix}0&amp;-1\\1&amp;1\end{smallmatrix}\right)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\rho\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\rho\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\rho\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\pm \left(\begin{smallmatrix}1&amp;-1\\1&amp;0\end{smallmatrix}\right),\pm \left(\begin{smallmatrix}0&amp;-1\\1&amp;-1\end{smallmatrix}\right)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\rho+1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\rho+1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\rho+1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>By studying this table we conclude the classification of stabilizers.</p>
+</div>
+<div id="cor-STgenerate" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1.3</strong></span> The group <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> is generated by the matrices <span class="math inline">\(T\)</span> and <span class="math inline">\(S\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(z_0\)</span> be a point in the interior of <span class="math inline">\(\mathcal{D}\)</span>. Given <span class="math inline">\(\gamma\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span>, the theorem provides a matrix <span class="math inline">\(\delta\in\langle T,S\rangle\)</span> such that <span class="math inline">\(\delta\gamma^{-1} z_0\in\mathcal{D}\)</span>. Therefore <span class="math inline">\(\delta\gamma^{-1} z_0 = z_0\)</span> and hence <span class="math inline">\(\delta\gamma^{-1} = \pm I\)</span>. Since <span class="math inline">\(S^2=-I\)</span>, we are done by possibly multiplying <span class="math inline">\(\delta\)</span> by <span class="math inline">\(S^2\)</span>.</p>
+</div>
+</section>
+<section id="sec:valence-formula" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="sec:valence-formula"><span class="header-section-number">1.6</span> Valence formula</h2>
+<p>Let <span class="math inline">\(f\)</span> be a meromorphic function on some open subset of <span class="math inline">\({\mathbb{H}}\)</span>. Write <span class="math inline">\(v_p(f)\)</span> for the order (or valuation) of <span class="math inline">\(f\)</span> at <span class="math inline">\(p\in {\mathbb{H}}\cup\{\infty\}\)</span>. This is the unique integer <span class="math inline">\(n\)</span> such that <span class="math inline">\((z-p)^{-n}f(z)\)</span> is holomorphic and non-vanishing at <span class="math inline">\(p\)</span>. If <span class="math inline">\(n\)</span> is positive we say that <span class="math inline">\(f\)</span> has a zero of order <span class="math inline">\(n\)</span>, and if <span class="math inline">\(n\)</span> is negative we say that <span class="math inline">\(f\)</span> has a pole of order <span class="math inline">\(-n\)</span>. If <span class="math inline">\(f\)</span> is weakly modular and meromorphic at infinity, then also define <span class="math inline">\(v_\infty(f)=n_0\)</span> if <span class="math display">\[f(q)=\sum_{n\geq n_0} a_n q^n,\quad a_{n_0}\neq 0.\]</span> Next, suppose that <span class="math inline">\(f\)</span> has a Laurent expansion of the form <span class="math display">\[f(z) = \sum_{n\geq n_0} c_n (z-p)^n.\]</span> The of <span class="math inline">\(f\)</span> at <span class="math inline">\(p\)</span> is <span class="math inline">\({\operatorname{res}}_p(f) = c_{-1}\in{\mathbb{C}}\)</span>. One can calculate the order of <span class="math inline">\(f\)</span> at <span class="math inline">\(p\)</span> by using residues, using the following lemma.</p>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1.10</strong></span> If <span class="math inline">\(f\)</span> is a meromorphic function around a point <span class="math inline">\(p\)</span>, then <span class="math display">\[{\operatorname{res}}_p(f'/f) = v_p(f).\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(v_p(f)=n\)</span>, write <span class="math inline">\(f(z)=(z-p)^ng(z)\)</span> with <span class="math inline">\(g(z)\)</span> holomorphic and non-vanishing at <span class="math inline">\(p\)</span>. Then calculate the residue of <span class="math inline">\(f'/f\)</span> by hand.</p>
+</div>
+<p>We recall without proof two basic results of complex analysis.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.7</strong></span> Let <span class="math inline">\(g\)</span> be a holomorphic function on an open subset <span class="math inline">\(U\subseteq{\mathbb{C}}\)</span> and let <span class="math inline">\(C\)</span> be a contour in <span class="math inline">\(U\)</span>. For each <span class="math inline">\(p\in U\)</span>, <span class="math display">\[\int_C \frac{g(z)}{z-p}dz = 2\pi i g(p).\]</span></p>
+</div>
+<div id="cor-" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1.4</strong></span> Let <span class="math inline">\(C(p,r,\alpha)\)</span> be an arc of a circle, of radius <span class="math inline">\(r\)</span> and angle <span class="math inline">\(\alpha\)</span> around a point <span class="math inline">\(p\)</span>. If <span class="math inline">\(g\)</span> is holomorphic at <span class="math inline">\(p\)</span>, then <span class="math display">\[\lim_{r\longrightarrow 0}\int_{C(p,r,\alpha)} \frac{g(z)}{z-p}dz = \alpha i g(p).\]</span></p>
+</div>
+<p>The following result relates the contour integral of the logarithmic derivative of <span class="math inline">\(f\)</span> to the orders of <span class="math inline">\(f\)</span> at the interior points.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.8</strong></span> Let <span class="math inline">\(f\)</span> be a meromorphic function on an open subset <span class="math inline">\(U\subseteq {\mathbb{C}}\)</span> and let <span class="math inline">\(C\)</span> be a contour in <span class="math inline">\(U\)</span> not passing through any zeros or poles of <span class="math inline">\(f\)</span>. Then: <span class="math display">\[\int_C\frac{f'(z)}{f(z)}dz = 2\pi i \sum_{z\in\operatorname{int}(C)} v_z(f).\]</span></p>
+</div>
+<div id="cor-" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1.5</strong></span> Let <span class="math inline">\(C(p,r,\alpha)\)</span> be an arc of a circle, of radius <span class="math inline">\(r\)</span> and angle <span class="math inline">\(\alpha\)</span> around a point <span class="math inline">\(p\)</span>. If <span class="math inline">\(f\)</span> is meromorphic at <span class="math inline">\(p\)</span>, then <span class="math display">\[\lim_{r\longrightarrow 0}\int_{C(p,r,\alpha)} \frac{f'(z)}{f(z)}dz = \alpha i v_p(f).\]</span></p>
+</div>
+<p>We will study weakly modular meromorphic functions <span class="math inline">\(f\colon {\mathbb{H}}\longrightarrow{\mathbb{C}}\)</span>. In this case, the order of vanishing makes sense in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>-orbits: suppose that <span class="math inline">\(f\)</span> has weight <span class="math inline">\(k\)</span>. Then an easy computation shows that, for <span class="math inline">\(\gamma\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span>, <span class="math display">\[\lim_{z\longrightarrow\gamma p} (z-\gamma p)^{-n}f(z) = j(\gamma,p)^{k+2n}\lim_{z\longrightarrow p} (z-p)^{-n}f(z).\]</span> But note now that <span class="math inline">\(j(\gamma,p)\)</span> is nonzero because <span class="math inline">\(p\not\in {\mathbb{Q}}\cup\{\infty\}\)</span>. We conclude that <span class="math inline">\(v_p(f)=v_{\gamma p}(f)\)</span>.</p>
+<div id="thm-valence-formula" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.9</strong></span> Let <span class="math inline">\(f\)</span> be a non-zero weakly modular meromorphic form of weight <span class="math inline">\(k\)</span> on <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>. Then: <span class="math display">\[v_\infty(f)+\frac 12 v_i(f)+\frac 13 v_\rho(f) + \sum_{\tau\in {\operatorname{SL}}_2({\mathbb{Z}})\backslash{\mathbb{H}}'} v_\tau(f) = \frac{k}{12}.\]</span> Here the sum runs through the orbits in <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\backslash{\mathbb{H}}\)</span> other than those of <span class="math inline">\(i\)</span> and <span class="math inline">\(\rho\)</span>.</p>
+</div>
+<p>Before proving this theorem we will see how helpful it is in studying the spaces of modular forms.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.10</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p><span class="math inline">\(M_k=\{0\}\)</span> if <span class="math inline">\(k&lt;0\)</span> or <span class="math inline">\(k = 2\)</span>.</p></li>
+<li><p><span class="math inline">\(S_k=\{0\}\)</span> if <span class="math inline">\(k &lt; 12\)</span>.</p></li>
+<li><p><span class="math inline">\(M_0={\mathbb{C}}\)</span>.</p></li>
+<li><p><span class="math inline">\(S_{12} = {\mathbb{C}}\Delta\)</span>.</p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><em>Proof.</em></p>
+<ol type="1">
+<li><p>Since the left-hand side of the valence formula is non-negative, the right hand side must be non-negative too, hence <span class="math inline">\(k\geq 0\)</span>. If <span class="math inline">\(k=2\)</span>, then we get <span class="math inline">\(1/6\)</span> on the right-hand side. However, the left-hand side is a sum of non-negative multiples of <span class="math inline">\(1\)</span>, <span class="math inline">\(1/2\)</span> and <span class="math inline">\(1/3\)</span>, thus a contradiction.</p></li>
+<li><p>If <span class="math inline">\(0\neq f\in S_k\)</span>, then <span class="math inline">\(v_\infty(f)\geq 1\)</span>. Therefore the valence formula gives <span class="math inline">\(k\geq 12\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(f\in M_0\)</span>. Since the constant function <span class="math inline">\(g=f(\infty)\)</span> also belongs to <span class="math inline">\(M_0\)</span>, the difference <span class="math inline">\(f-g\)</span> belongs to <span class="math inline">\(S_0=\{0\}\)</span>. Therefore <span class="math inline">\(f=g\)</span> is constant, and <span class="math inline">\(M_0={\mathbb{C}}\)</span> is the space of constant functions on <span class="math inline">\({\mathbb{H}}\)</span>.</p></li>
+<li><p>If <span class="math inline">\(f\in S_{12}\)</span>, then <span class="math inline">\(v_\infty(f)\geq 1\)</span>. Therefore by the valence formula <span class="math inline">\(v_\infty(f)=1\)</span> and <span class="math inline">\(f\)</span> has no other zeros or poles. Define <span class="math display">\[g(z)=f(z)-\frac{f(i)}{\Delta(i)}\Delta(z).\]</span> Then <span class="math inline">\(g(z)\in S_{12}\)</span> and <span class="math inline">\(g(i)=0\)</span>. If <span class="math inline">\(g\)</span> is non-zero, then the valence formula applied to <span class="math inline">\(g\)</span> would give a contradiction because <span class="math inline">\(v_\infty(g)\geq 1\)</span> and <span class="math inline">\(v_i(g)\geq 1\)</span>. Therefore <span class="math inline">\(g=0\)</span> and <span class="math inline">\(f\)</span> is a multiple of <span class="math inline">\(\Delta\)</span>.</p></li>
+</ol>
+</div>
+<div id="cor-" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1.6</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>For all <span class="math inline">\(k\)</span>, we have <span class="math inline">\(S_{k+12} = \Delta M_{k}\)</span>.</p></li>
+<li><p>For <span class="math inline">\(k\geq 4\)</span> we have <span class="math display">\[M_k = ({\mathbb{C}}E_k) \oplus S_k\]</span></p></li>
+<li><p>If <span class="math inline">\(k\)</span> is odd or negative then <span class="math inline">\(M_k = \{0\}\)</span>. For each even <span class="math inline">\(k\geq 2\)</span>, we have: <span class="math display">\[\dim(M_k)=\begin{cases}
+\lfloor\frac k{12}\rfloor &amp; k\equiv 2\pmod{12},\\
+1+ \lfloor\frac k{12}\rfloor &amp; k\not\equiv 2\pmod{12}.
+\end{cases}\]</span></p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>For <span class="math inline">\(k&lt;0\)</span> the first statement is trivial, and we just proved it also for <span class="math inline">\(k=0\)</span>. Given <span class="math inline">\(f\in S_{k+12}\)</span>, the function <span class="math inline">\(g=f/\Delta\)</span> is holomorphic on <span class="math inline">\({\mathbb{H}}\)</span> because <span class="math inline">\(\Delta\)</span> is non-vanishing, and it belongs to <span class="math inline">\(M_k\)</span> because <span class="math inline">\(v_\infty(g)=v_\infty(f)-v_\infty(\Delta)=v_\infty(f)-1\geq 0\)</span>.</p>
+<p>Consider the linear map <span class="math display">\[\varphi\colon M_k\longrightarrow{\mathbb{C}},\quad f\mapsto f(\infty).\]</span> Then <span class="math inline">\(S_k=\ker\varphi\)</span>. Also <span class="math inline">\(\varphi\)</span> is surjective because <span class="math inline">\(\varphi(E_k)=1\)</span>. Therefore <span class="math inline">\(M_k={\mathbb{C}}E_k\oplus S_k\)</span>.</p>
+<p>Note that this gives a recursive way to obtain <span class="math inline">\(M_k\)</span>: <span class="math display">\[M_k = {\mathbb{C}}E_k \oplus S_k = {\mathbb{C}}E_k \oplus (\Delta M_{k-12}).\]</span></p>
+<p>For <span class="math inline">\(k\)</span> odd we know that <span class="math inline">\(M_k=\{0\}\)</span> by the weak-modularity condition. For <span class="math inline">\(k&lt;0\)</span> we also know <span class="math inline">\(M_k=\{0\}\)</span> by the previous part. We prove the remaining formula by induction on <span class="math inline">\(k\)</span>. Note that we already know it for <span class="math inline">\(k=0\)</span> and <span class="math inline">\(k=2\)</span>. For <span class="math inline">\(k=4, 6, 8, 10\)</span> then since <span class="math inline">\(\dim(M_k)=1+\dim(S_k)=1+\dim(M_{k-12}) = 1\)</span> we get <span class="math inline">\(\dim(M_k)=1\)</span>. If <span class="math inline">\(k\)</span> is even and <span class="math inline">\(k\geq 12\)</span>, then: <span class="math display">\[\dim(M_k)=1+\dim(M_{k-12}).\]</span></p>
+</div>
+<div id="cor-" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1.7</strong></span> The space <span class="math inline">\(M_k\)</span> has for basis the following set: <span class="math display">\[M_k=\langle E_4^aE_6^b~|~ a\geq 0,b\geq 0, 4a+6b=k\rangle.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We start by showing that the given monomials <span class="math inline">\(E_4^aE_6^b\)</span> generate <span class="math inline">\(M_k\)</span>. For <span class="math inline">\(k=2,4,6\)</span> this is clear because we know <span class="math inline">\(M_2=\{0\}\)</span>, and <span class="math inline">\(M_4={\mathbb{C}}E_4\)</span> and <span class="math inline">\(M_6={\mathbb{C}}E_6\)</span>. For <span class="math inline">\(k\geq 8\)</span> we induct on <span class="math inline">\(k\)</span>. Choose some pair <span class="math inline">\((a,b)\)</span> such that <span class="math inline">\(4a+6b=k\)</span> (convince yourself that this is always possible). If <span class="math inline">\(f\in M_k\)</span>, then since <span class="math inline">\(E_4^aE_6^b (\infty)=1\)</span>, the function <span class="math inline">\(g(z)=f(z)-f(\infty)E_4^aE_6^b\)</span> is a cusp form in <span class="math inline">\(S_k\)</span>. Therefore <span class="math inline">\(g=\Delta h\)</span>, for some <span class="math inline">\(h\in M_{k-12}\)</span>. By induction hypothesis, <span class="math inline">\(h\)</span> is a linear combination of monomials <span class="math inline">\(E_4^xE_6^y\)</span> for appropriate pairs <span class="math inline">\((x,y)\)</span>. Using the expression <span class="math inline">\(\Delta=\frac{1}{1728}(E_4^3-E_6^2)\)</span> we deduce the result for <span class="math inline">\(f\)</span>.</p>
+<p>Now we show that the given monomials are linearly independent. We can use induction on <span class="math inline">\(k\)</span> in steps of <span class="math inline">\(12\)</span> once more, to show that the number of such monomials agrees with <span class="math inline">\(\dim M_k\)</span>. This can be checked by hand for <span class="math inline">\(k\leq 14\)</span>. Suppose that <span class="math inline">\(k\geq 14\)</span>. Note that each monomial <span class="math inline">\(E_4^aE_6^b\)</span> of weight <span class="math inline">\(k-12\)</span> gives a monomial <span class="math inline">\(E_4^aE_6^{b+2}\)</span> of weight <span class="math inline">\(k\)</span>. All such monomials are obtained in this way, except for those of the form <span class="math inline">\(E_4^a\)</span> or <span class="math inline">\(E_4^aE_6\)</span>. When <span class="math inline">\(k\equiv 0\pmod 4\)</span> then <span class="math inline">\(E_4^{k/4}\)</span> is of weight <span class="math inline">\(k\)</span>, and when <span class="math inline">\(k\equiv 2\pmod 4\)</span> then <span class="math inline">\(E_4^{(k-6)/2}E_6\)</span> is of weight <span class="math inline">\(k\)</span>, thus in any case there is exactly one more monomial of weight <span class="math inline">\(k\)</span> than there are of weight <span class="math inline">\(k-12\)</span>. This completes the proof.</p>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.2</strong></span> This allows to write down all spaces of modular and cusp forms for <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>. For example, <span class="math display">\[M_{18} = {\mathbb{C}}E_{18}\oplus S_{18} = {\mathbb{C}}E_{18} \oplus \Delta M_6 = {\mathbb{C}}E_{18}\oplus {\mathbb{C}}\Delta E_6.\]</span> <span class="math display">\[M_{30} = {\mathbb{C}}E_{30} \oplus {\mathbb{C}}\Delta E_{18} \oplus {\mathbb{C}}\Delta^2 E_6.\]</span> Another basis for the same space (which is better because it is expressed in terms of <span class="math inline">\(E_4\)</span>, <span class="math inline">\(E_6\)</span> and <span class="math inline">\(\Delta\)</span>): <span class="math display">\[M_{30} = {\mathbb{C}}E_6^5\oplus \Delta E_6^3 \oplus \Delta^2 E_6.\]</span> Note that these forms are linearly independent (why?). Since <span class="math inline">\(\dim M_{30}=3\)</span>, they form a basis.</p>
+</div>
+<div id="rmk-">
+<p>Suppose that <span class="math inline">\(f(z)\)</span> is a non-zero weakly-modular form of weight <span class="math inline">\(0\)</span>. Then <span class="math inline">\(f(\gamma z)=f(z)\)</span>. By the valence formula, <span class="math inline">\(f\)</span> has the same number of zeros as poles. This number is called the <em>valence</em> of <span class="math inline">\(f\)</span>, and hence the name for the theorem.</p>
+</div>
+<p>Another very powerful application of the valence formula is the following:</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.11</strong></span> Let <span class="math inline">\(f\)</span> be a modular form of weight <span class="math inline">\(k\)</span>. Suppose that <span class="math inline">\(f\)</span> has a <span class="math inline">\(q\)</span>-expansion of the form <span class="math inline">\(\sum_{n\geq 0} a_nq^n\)</span>. If <span class="math inline">\(a_j=0\)</span> for all <span class="math inline">\(0\leq j\leq k/12\)</span>, then <span class="math inline">\(f=0\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The hypothesis means that <span class="math inline">\(v_\infty(f) &gt; k/12\)</span>. This is incompatible with the valence formula, and thus <span class="math inline">\(f\)</span> must be zero.</p>
+</div>
+<div id="cor-" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1.8</strong></span> Let <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> be two modular forms of the same weight <span class="math inline">\(k\)</span>, and suppose that their <span class="math inline">\(q\)</span>-expansions coincide for the first <span class="math inline">\(\lfloor k/12\rfloor\)</span> coefficients. Then <span class="math inline">\(f=g\)</span>.</p>
+</div>
+<section id="the-modular-invariant-j" class="level3" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="the-modular-invariant-j"><span class="header-section-number">1.6.1</span> The modular invariant <span class="math inline">\(j\)</span></h3>
+<p>Define the function <span class="math display">\[j(z)=\frac{E_4^3}{\Delta} = \frac{1+\cdots}{q+\cdots} = q^{-1} + 744 + 196884 q + \cdots.\]</span></p>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1.4</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p><span class="math inline">\(j\)</span> is a meromorphic weakly-modular form of weight <span class="math inline">\(0\)</span>.</p></li>
+<li><p><span class="math inline">\(j\)</span> is holomorphic on <span class="math inline">\({\mathbb{H}}\)</span> and has a simple pole at infinity.</p></li>
+<li><p>It induces a bijection <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\backslash{\mathbb{H}}\longrightarrow{\mathbb{C}}\)</span>.</p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The fact that <span class="math inline">\(j\)</span> it is meromorphic weakly-modular of weight <span class="math inline">\(0\)</span> follows from it being a quotient of two modular forms of weight <span class="math inline">\(12\)</span>.</p>
+<p>Since <span class="math inline">\(E_4\)</span> is non-vanishing at infinity and <span class="math inline">\(\Delta\)</span> has a simple zero then <span class="math inline">\(j=E_4^3/\Delta\)</span> has a simple pole at infinity (we can also see it from its <span class="math inline">\(q\)</span>-expansion, which starts with <span class="math inline">\(q^{-1}\)</span>). The valence formula shows that <span class="math inline">\(v_\rho(E_4)=1\)</span>, and therefore <span class="math inline">\(j(z)\)</span> has a triple zero at <span class="math inline">\(\rho\)</span>. It is holomorphic on <span class="math inline">\({\mathbb{H}}\)</span> because <span class="math inline">\(\Delta\)</span> is non-vanishing on <span class="math inline">\({\mathbb{H}}\)</span>.</p>
+<p>Fix <span class="math inline">\(c\in{\mathbb{C}}\)</span>. The function <span class="math inline">\(j(z)-c=q^{-1}+744-c+\cdots\)</span> is another meromorphic weakly-modular function of weight <span class="math inline">\(0\)</span> and has a simple pole at <span class="math inline">\(\infty\)</span>. The valence formula gives in this case that <span class="math inline">\(j(z)-c\)</span> has exactly one zero on <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\backslash{\mathbb{H}}\)</span>. This gives the last claim.</p>
+</div>
+</section>
+<section id="proof-of-the-valence-formula" class="level3" data-number="1.6.2">
+<h3 data-number="1.6.2" class="anchored" data-anchor-id="proof-of-the-valence-formula"><span class="header-section-number">1.6.2</span> Proof of the valence formula</h3>
+<p>The proof presented here avoids algebraic geometry, at the cost of some complex analysis. Let <span class="math inline">\(f\)</span> be a modular function, and consider the following contour:</p>
+<div id="fig-contour" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-contour-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Pictures/contour.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-contour-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: Contour to integrate
+</figcaption>
+</figure>
+</div>
+<p>The proof consists in integrating <span class="math inline">\(f'(z)/f(z)\)</span> around the indicated contour <span class="math inline">\(C\)</span> in two different ways.</p>
+<section id="integral-residue-formula" class="level5" data-number="1.6.2.0.1">
+<h5 data-number="1.6.2.0.1" class="anchored" data-anchor-id="integral-residue-formula"><span class="header-section-number">1.6.2.0.1</span> Integral residue formula:</h5>
+<p>This is the first way in which we calculate the contour integral. For <span class="math inline">\(R\)</span> large enough so that the contour contains all zeros and poles of <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\backslash{\mathbb{H}}'\)</span> with large imaginary part, we have: <span class="math display">\[\int_C \frac{f'(z)}{f(z)}dz = 2\pi i \sum_{p\in\operatorname{int}(C)} {\operatorname{res}}_p\left(\frac{f'}{f}\right) = 2\pi i\sum_{p\in {\operatorname{SL}}_2({\mathbb{Z}})\backslash{\mathbb{H}}'} v_p(f).\]</span> The rest of the proof consists in computing the integral as the sum of the path integrals along <span class="math inline">\(C_1\)</span>,…, <span class="math inline">\(C_8\)</span>.</p>
+</section>
+<section id="integral-along-c_1" class="level5" data-number="1.6.2.0.2">
+<h5 data-number="1.6.2.0.2" class="anchored" data-anchor-id="integral-along-c_1"><span class="header-section-number">1.6.2.0.2</span> Integral along <span class="math inline">\(C_1\)</span>:</h5>
+<p>Perform the change of variables <span class="math inline">\(q(z)=e^{2\pi i z}\)</span>. Note that: <span class="math display">\[dq = 2\pi i qdz,\quad dz = \frac{1}{2\pi i}\frac{dq}{q}.\]</span> Moreover, the path <span class="math inline">\(q(C_1)\)</span> is a clockwise circle of radius <span class="math inline">\(e^{-2\pi R}\)</span> centered around <span class="math inline">\(0\)</span>. Finally, <span class="math display">\[\frac{d}{dz}f(q) = \frac{d}{dz} f(e^{2\pi i z}) = 2\pi i q f'(q).\]</span> Putting these together, we obtain: <span class="math display">\[\int_{C_1}\frac{f'(z)}{f(z)}dz = \int_{q(C_1)} \frac{f'(q)}{f(q)} dq.\]</span> Since <span class="math inline">\(f\)</span> is meromorphic around infinity, this last quantity equals <span class="math inline">\(- v_\infty(f)\)</span>.</p>
+</section>
+<section id="integral-along-c_2-and-c_8" class="level5" data-number="1.6.2.0.3">
+<h5 data-number="1.6.2.0.3" class="anchored" data-anchor-id="integral-along-c_2-and-c_8"><span class="header-section-number">1.6.2.0.3</span> Integral along <span class="math inline">\(C_2\)</span> and <span class="math inline">\(C_8\)</span>:</h5>
+<p>Note that since <span class="math inline">\(f\)</span> is modular it satisfies <span class="math inline">\(f(z+1)=f(z)\)</span>. Therefore also <span class="math inline">\(f'(z+1)=f'(z)\)</span>, and we get, by changing <span class="math inline">\(w=z+1\)</span>: <span class="math display">\[\begin{align*}
+\int_{C_8}\frac{f'(w)}{f(w)}dw &amp;= -\int_{C_2}\frac{f'(z+1)}{f(z+1)}dz = -\int_{C_2}\frac{f'(z)}{f(z)}dz.
+\end{align*}\]</span> Therefore the contributions of <span class="math inline">\(C_2\)</span> and <span class="math inline">\(C_8\)</span> cancel out.</p>
+</section>
+<section id="integral-along-c_4-and-c_6" class="level5" data-number="1.6.2.0.4">
+<h5 data-number="1.6.2.0.4" class="anchored" data-anchor-id="integral-along-c_4-and-c_6"><span class="header-section-number">1.6.2.0.4</span> Integral along <span class="math inline">\(C_4\)</span> and <span class="math inline">\(C_6\)</span>:</h5>
+<p>In the same way that for <span class="math inline">\(C_2\)</span> and <span class="math inline">\(C_8\)</span> we considered the change <span class="math inline">\(z\mapsto z+1\)</span>, here we consider the change <span class="math inline">\(z\mapsto s(z)=-z^{-1}\)</span>. This change of variables transforms <span class="math inline">\(C_4\)</span> to <span class="math inline">\(-C_6\)</span>. Weak-modularity of <span class="math inline">\(f\)</span> implies also that <span class="math inline">\(f(z) = z^{-k}f(s(z))\)</span>. Differentiating both sides yields: <span class="math display">\[f'(z) = -kz^{-k-1}f(s(z)) + z^{-k}f'(s(z))s'(z).%\implies z^{-k}f'(-z^{-1})z^{-2} = -f'(z) - kz^{-k-1}f(-z^{-1}).\]</span> This gives <span class="math display">\[\frac{f'(z)}{f(z)} = \frac{-k}{z} + \frac{f'(s(z))s'(z)}{f(s(z))}.\]</span> Therefore we may compute <span class="math display">\[\begin{align*}
+\int_{C_4}\frac{f'(z)}{f(z)}dz &amp;=\int_{C_4} \frac{-k}{z}dz + \int_{C_4}\frac{f'(s(z))s'(z)}{f(s(z))}dz =2\pi i\frac{k}{12} +\int_{-C_6}\frac{f'(s)}{f(s)}ds,
+\end{align*}\]</span> and hence <span class="math display">\[\int_{C_4+C_6}\frac{f'(z)}{f(z)}dz \longrightarrow_{r\longrightarrow 0} 2\pi i\frac{k}{12}.\]</span></p>
+</section>
+<section id="integral-along-c_5" class="level5" data-number="1.6.2.0.5">
+<h5 data-number="1.6.2.0.5" class="anchored" data-anchor-id="integral-along-c_5"><span class="header-section-number">1.6.2.0.5</span> Integral along <span class="math inline">\(C_5\)</span>:</h5>
+<p>Using the argument principle we obtain <span class="math display">\[\int_{C_5} \frac{f'(z)}{f(z)}dz \stackrel[r\longrightarrow 0]{}\longrightarrow -\frac 12 2\pi i v_i(f).\]</span></p>
+</section>
+<section id="integrals-along-c_3-and-c_7" class="level5" data-number="1.6.2.0.6">
+<h5 data-number="1.6.2.0.6" class="anchored" data-anchor-id="integrals-along-c_3-and-c_7"><span class="header-section-number">1.6.2.0.6</span> Integrals along <span class="math inline">\(C_3\)</span> and <span class="math inline">\(C_7\)</span>:</h5>
+<p>Applying again the argument principle we obtain <span class="math display">\[\int_{C_3} \frac{f'(z)}{f(z)}dz \stackrel[r\longrightarrow 0]{}\longrightarrow -\frac 16 2\pi i v_\rho(f),\text{ and}\quad
+\int_{C_5} \frac{f'(z)}{f(z)}dz \stackrel[r\longrightarrow 0]{}\longrightarrow -\frac 16 2\pi i v_{\rho+1}(f)=-\frac{1}{6}2\pi i v_\rho(f).\]</span> Therefore <span class="math display">\[\int_{C_3+C_5} \frac{f'(z)}{f(z)}dz \stackrel[r\longrightarrow 0]{}\longrightarrow -\frac{1}{3}2\pi i v_\rho(f).\]</span></p>
+</section>
+<section id="conclusion" class="level5" data-number="1.6.2.0.7">
+<h5 data-number="1.6.2.0.7" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">1.6.2.0.7</span> Conclusion:</h5>
+<p>Putting together all the above calculations yields the sought formula.</p>
+</section>
+</section>
+</section>
+<section id="sec:a-product-formula-for-Delta" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="sec:a-product-formula-for-Delta"><span class="header-section-number">1.7</span> A product formula for <span class="math inline">\(\Delta(z)\)</span></h2>
+<p>Consider the weight-<span class="math inline">\(2\)</span> Eisenstein series <span class="math display">\[G_2(z)=\sum_c\mathop{\sum{\raise 3pt\hbox{${}'$}}}_d \frac{1}{(cz+d)^2},\]</span> which does not converge absolutely. It is <em>not</em> a weight-<span class="math inline">\(2\)</span> modular form (there are no such other than <span class="math inline">\(0\)</span>), but we still have the formula: <span class="math display">\[G_2(z)=2\zeta(2)E_2(z),\quad E_2(z)=1-24\sum_{n=1}^\infty \sigma_1(n)q^n.\]</span> The function <span class="math inline">\(E_2(z)\)</span> is holomorphic on <span class="math inline">\({\mathbb{H}}\)</span>, and <span class="math inline">\(E_2(z+1)=E_2(z)\)</span>. However, we are about to see that <span class="math display">\[z^{-2}E_2(-1/z) = E_2(z)+\frac{12}{2\pi i z}.\]</span> Sometimes these functions are called .</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.12</strong></span> The function <span class="math inline">\(G_2\)</span> satisfies <span class="math inline">\(G_2(z+1)=G_2(z)\)</span> and it has the <span class="math inline">\(q\)</span>-expansion <span class="math display">\[G_2(z) = 2\zeta(2) - 8\pi^2\sum_{n=1}^\infty \sigma_1(n)q^n,\quad q=e^{2\pi i z}.\]</span> Moreover, <span class="math inline">\(G_2\)</span> satisfies the transformation property: <span id="eq-G2"><span class="math display">\[
+G_2(\gamma z) = (cz+d)^2G_2(z)- 2\pi i c(cz+d),\quad \gamma=\left(\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right).
+\tag{1.4}\]</span></span> In particular, the non-holomorphic function <span class="math inline">\(G_2^*(z) = G_2(z)-\pi/\Im(z)\)</span> is weight-<span class="math inline">\(2\)</span>-invariant for <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>To show that <span class="math inline">\(G_2(z+1)=G_2(z)\)</span>, we must show that <span class="math display">\[\sum_{n\neq 0}\frac{1}{(m(z+1)+n)^2} = \sum_{n\neq 0} \frac{1}{(mz+n)^2}.\]</span> This follows from the fact that the sum converges absolutely and <span class="math inline">\(n\mapsto n+m\)</span> is a bijection of <span class="math inline">\({\mathbb{Z}}\)</span> (for each fixed <span class="math inline">\(m\in{\mathbb{Z}}\)</span>).</p>
+<p>Next, we compute the <span class="math inline">\(q\)</span>-expansion of <span class="math inline">\(G_2\)</span>. First, note that <span class="math display">\[G_2(z)=2\zeta(2)+2\sum_{m=1}^\infty \sum_{n\in{\mathbb{Z}}}\frac{1}{(mz+n)^2}.\]</span> Using now <a href="#lem-expansion-latticesum" class="quarto-xref">Lemma&nbsp;<span>1.9</span></a> with <span class="math inline">\(z\)</span> substituted by <span class="math inline">\(mz\)</span>, we obtain <span class="math display">\[G_2(z)=2\zeta(2)-8\pi^2\sum_{m=1}^\infty\sum_{d=1}^\infty dq^{md}.\]</span> Grouping terms contributing to a given power of <span class="math inline">\(q\)</span> gives the formula.</p>
+<p>Next, by expanding <span class="math inline">\(G_2(\gamma_1\gamma_2z)\)</span>, using the cocycle property of <span class="math inline">\(j(\gamma,z)\)</span> and calculating the lower left entry of the product of two matrices, we see that if <a href="#eq-G2" class="quarto-xref">Equation&nbsp;<span>1.4</span></a> is satisfied for matrices <span class="math inline">\(\gamma_1\)</span> and <span class="math inline">\(\gamma_2\)</span> then it is also satisfied for <span class="math inline">\(\gamma_1\gamma_2\)</span> and <span class="math inline">\(\gamma_1^{-1}\)</span>. Therefore to prove Equation <a href="#eq-G2" class="quarto-xref">Equation&nbsp;<span>1.4</span></a> it will be enough to prove it for the matrix <span class="math inline">\(S=\left(\begin{smallmatrix}0&amp;-1\\1&amp;0\end{smallmatrix}\right)\)</span>.</p>
+<p>We next show that <span class="math display">\[G_2(-1/z) = z^2 \left(2\zeta(2) + \sum_{n\in{\mathbb{Z}}}\sum_{m\neq 0}\frac{1}{(mz+n)^2}\right).\]</span> This only differs from <span class="math inline">\(z^2G_2(z)\)</span> in the order of summation! This is done by substituting <span class="math inline">\(-1/z\)</span> in the definition to get: <span class="math display">\[G_2(-1/z) = \sum_{n\neq 0} \frac 1{n^2} + \sum_{m\neq 0}\sum_{n\in{\mathbb{Z}}}\frac{z^2}{(mz-n)^2} = \sum_{n\neq 0} \frac 1{n^2} + \sum_{m\neq 0}\sum_{n\in{\mathbb{Z}}}\frac{z^2}{(m-nz)^2}\]</span> This can be rewritten as <span class="math display">\[2\zeta(2) + z^2\left(\sum_{n\in{\mathbb{Z}}}\sum_{m\neq 0}\frac{1}{(mz+n)^2}\right)=2\zeta(2)+z^2\left(\sum_{n\neq 0}\sum_{m\neq 0} \frac{1}{(mz+n)^2} + 2\zeta(2)\right).\]</span> The outer term <span class="math inline">\(2\zeta(2)\)</span> can be put into the sum corresponding to the term <span class="math inline">\(n=0\)</span>, getting the desired formula. The partial fraction decomposition <span class="math display">\[\frac{1}{(mz+n)(mz+n+1)} = \frac{1}{mz+n}-\frac{1}{mz+n+1}\]</span> allows us to show (via a telescoping sum) that <span class="math display">\[\sum_{m\neq 0} \sum_{n\in{\mathbb{Z}}} \frac{1}{(mz+n)(mz+n+1)} = 0\]</span> Subtracting this series from the definition of <span class="math inline">\(G_2(z)\)</span> (which can be done term by term, this only needs conditional convergence) we get the new formula involving an absolutely convergent sum: <span class="math display">\[G_2(z)=2\zeta(2)+\sum_{\substack{m\neq 0\\n\in{\mathbb{Z}}}} \frac{1}{(mz+n)^2(mz+n+1)}.\]</span></p>
+<p>Then we compute <span class="math display">\[z^{-2}G_2(-1/z)-G_2(z) = \sum_{n\in{\mathbb{Z}}}\sum_{m\neq 0}\frac{1}{(mz+n)^2} - \sum_{m\neq 0,n\in{\mathbb{Z}}} \frac{1}{(mz+n)^2(mz+n+1)}.\]</span> Subtracting term by term and using that <span class="math display">\[\frac{1}{(mz+n)^2} - \frac{1}{(mz+n)^2(mz+n+1)} = \frac{1}{(mz+n)(mz+n+1)}\]</span> gives an alternative formula for <span class="math inline">\(G_2(z)\)</span>: <span class="math display">\[G_2(z) = z^{-2}G_2(-1/z) - \sum_{n\in{\mathbb{Z}}}\sum_{m\neq 0} \frac{1}{(mz+n)(mz+n+1)}.\]</span></p>
+<p>Finally, consider the sum <span class="math display">\[\lim_{N\longrightarrow\infty} \sum_{n=-N}^{N-1}\sum_{m\neq 0}\left(\frac{1}{mz+n}-\frac{1}{mz+n+1}\right).\]</span> For each fixed <span class="math inline">\(N\)</span> we can reverse the sum and calculate, since the inner sum telescopes: <span class="math display">\[\begin{align*}
+\sum_{m\neq 0}\sum_{n=-N}^{N-1} \left(\frac{1}{mz+n}-\frac{1}{mz+n+1}\right) &amp;= \sum_{m\neq 0} \left(\frac{1}{mz-N} - \frac{1}{mz+N}\right)\\
+&amp;=\frac{-1}{z}\sum_{m\neq 0}\left( \frac{1}{N/z + m}+\frac{1}{N/z-m}\right)\\
+&amp;=\frac{-2\pi}{z}\cot(\pi N/z).
+\end{align*}\]</span> Taking the sum as <span class="math inline">\(N\longrightarrow\infty\)</span> and using that <span class="math display">\[\pi\cot(\pi N/z)=\pi i-2\pi i\sum_{m=0}^\infty e^{2\pi i mN/z}\]</span> we get the formula: <span class="math display">\[\lim_{N\longrightarrow\infty} \sum_{n=-N}^{N-1}\sum_{m\neq 0}\left(\frac{1}{mz+n}-\frac{1}{mz+n+1}\right)=-\frac{2\pi i}{z}.\]</span> This finishes the proof.</p>
+</div>
+<section id="sec:dedekind-eta" class="level3" data-number="1.7.1">
+<h3 data-number="1.7.1" class="anchored" data-anchor-id="sec:dedekind-eta"><span class="header-section-number">1.7.1</span> The Dedekind-eta function</h3>
+<p>Define <span class="math inline">\(\eta(z)\)</span> as through the following product <span class="math display">\[\eta(z) = q^{1/24}\prod_{n=1}^\infty (1-q^n).\]</span> The function <span class="math inline">\(\eta(z)\)</span> is holomorphic and non-vanishing on <span class="math inline">\({\mathbb{H}}\)</span> (to check it, it is enough to check that <span class="math inline">\(\sum q^n\)</span> converges absolutely and uniformly on compact subsets of <span class="math inline">\({\mathbb{H}}\)</span>).</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.13</strong></span> The <span class="math inline">\(\eta\)</span> function satisfies the following transformation property: <span class="math display">\[\eta(-1/z) = \sqrt{z/i} \eta(z).\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Note that: <span class="math display">\[\begin{align*}
+\frac d{dz} \log\eta(z) &amp;= \frac{2\pi i}{24}  + \sum_{n=1}^\infty\frac{-2\pi i n q^n}{1-q^n} =\frac{2\pi i}{24}\left(1-24\sum_{n=1}^\infty \frac{nq^n}{1-q^n}\right)\\
+&amp;=\frac{\pi i}{12}\left(1-24\sum_{n=1}^\infty n\sum_{m=1}^\infty q^{nm}\right)=\frac{\pi i}{12} E_2(z).
+\end{align*}\]</span> Using quasi-modularity of <span class="math inline">\(E_2\)</span>, we deduce: <span class="math display">\[\operatorname{dlog}\left(\eta(-1/z)\right) = \operatorname{dlog}\left(\sqrt{z/i} \eta(z)\right).\]</span> Therefore <span class="math inline">\(\eta(-1/z) = C \sqrt{z/i} \eta(z)\)</span> and setting <span class="math inline">\(z=i\)</span> one gets <span class="math inline">\(C=1\)</span>, as we wanted.</p>
+</div>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.14</strong></span> <span class="math display">\[\Delta = q\prod_{n=1}^\infty (1-q^n)^{24}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Note that:<span class="math display">\[\eta^{24}(z)=q\prod_{n=1}^\infty (1-q^n)^{24},\]</span> so <span class="math inline">\(\eta^{24}(z+1)=\eta^{24}(z)\)</span>. Moreover, <span class="math display">\[\eta^{24}(-1/z) = z^{12}\eta^{24}(z).\]</span> Since <span class="math inline">\(\eta^{24}(z)=q+\cdots\)</span> and <span class="math inline">\(\eta^{24}(z)\in S_{12} = {\mathbb{C}}\Delta\)</span>, we deduce that <span class="math inline">\(\eta^{24}=\Delta\)</span>.</p>
+</div>
+</section>
+</section>
+<section id="growth-of-fourier-coefficients" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="growth-of-fourier-coefficients"><span class="header-section-number">1.8</span> Growth of Fourier coefficients</h2>
+<p>In this final section we study the different behavior of the Fourier coefficients of a modular form <span class="math inline">\(f\)</span>, depending on whether <span class="math inline">\(f\)</span> is cuspidal or not. Intuitively, if <span class="math inline">\(f\)</span> is cuspidal, the vanishing at infinity should force the coefficients to grow slower.</p>
+<p>We start by studying Eisenstein series.</p>
+<div id="prp-growtheistenstein" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1.5</strong></span> The Fourier coefficients <span class="math inline">\(a_n(E_k)\)</span> of the Eisenstein series <span class="math inline">\(E_k\)</span> grow as <span class="math inline">\(n^{k-1}\)</span>. Precisely, there exist constant <span class="math inline">\(A,B&gt;0\)</span> such that <span class="math display">\[An^{k-1}\leq |a_n(E_k)|\leq B n^{k-1}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We will use that the Fourier coefficients of <span class="math inline">\(E_k\)</span> have a simple formula: <span class="math display">\[E_k = 1+C_k\sum_{n=1}^\infty \sigma_{k-1}(n)q^n,\]</span> and hence <span class="math inline">\(|a_n(E_k)|=|C_k|\sigma_{k-1}(n)\)</span>. Therefore <span class="math display">\[|a_n(E_k)|=|C_k|\sum_{d\mid n} d^{k-1} \geq |C_k|n^{k-1},\]</span> and we may take <span class="math inline">\(A=|C_k|\)</span>. On the other hand, <span class="math display">\[\frac{|a_n(E_k)|}{n^{k-1}} = |C_k|\sum_{d\mid n} \left(\frac{d}{n}\right)^{k-1} = |C_k|\sum_{d\mid n} \frac{1}{d^{k-1}}.\]</span> This last term can be coarsely estimated: <span class="math display">\[|C_k|\sum_{d\mid n} \frac{1}{d^{k-1}}\geq |C_k|\sum_{d=1}^\infty \frac{1}{d^{k-1}} = |C_k|\zeta(k-1).\]</span> Hence we may take <span class="math inline">\(B=|C_k|\zeta(k-1)\)</span>.</p>
+</div>
+<p>The following result shows that the coefficients of cusp forms grow much slower.</p>
+<div id="thm-growthcusps" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.15</strong></span> If <span class="math inline">\(\sum_{n=1}^\infty a_nq^n\)</span> is the <span class="math inline">\(q\)</span>-expansion of a cusp form of weight <span class="math inline">\(k\)</span>, then <span class="math inline">\(a_n=O(n^{k/2})\)</span>. Precisely, there is a constant <span class="math inline">\(M&gt;0\)</span> such that <span class="math display">\[|a_n|\leq Mn^{k/2}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Note that as <span class="math inline">\(q\longrightarrow\infty\)</span> we have <span class="math inline">\(|f(z)|=O(q)=O(e^{-2\pi i})\)</span>, where <span class="math inline">\(y=\Im(z)\)</span>. Consider the function <span class="math display">\[\phi(z)=|f(z)|y^{k/2}.\]</span> It is a continuous function <span class="math inline">\({\mathbb{H}}\longrightarrow{\mathbb{R}}_{\geq 0}\)</span>, and it is invariant under <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span>. Since <span class="math inline">\(\phi\)</span> approaches <span class="math inline">\(0\)</span> as <span class="math inline">\(y\)</span> approaches infinity, we deduce that <span class="math inline">\(\phi\)</span> is bounded: <span class="math inline">\(|f(z)|\leq M' y^{-k/2}\)</span> for all <span class="math inline">\(z\in{\mathbb{H}}\)</span>. Since <span class="math inline">\(f(z)q^{-n-1} = \cdots +a_nq^{-1} + a_{n+1} + a_{n+2} q + \cdots\)</span> the residue theorem implies that <span class="math display">\[a_n = \frac{1}{2\pi i} \int_{C_y} f(z)q^{-n-1}dq,\]</span> where <span class="math inline">\(C_y\)</span> is the counter-clockwise circle described by <span class="math inline">\(e^{2\pi i (x+iy)}\)</span> when <span class="math inline">\(y\)</span> is fixed and <span class="math inline">\(x\)</span> moves from <span class="math inline">\(0\)</span> to <span class="math inline">\(1\)</span>. This gives: <span class="math display">\[a_n=\int_0^1 f(x+iy)q^{-n}dx,\]</span> Using the bound for <span class="math inline">\(|f|\)</span> we obtain: <span class="math display">\[|a_n|\leq \int_0^1 M' y^{-k/2}|e^{-2\pi i n (x+iy)}dx = M'y^{-k/2} e^{2\pi yn}.\]</span> This expression is valid for all <span class="math inline">\(y&gt;0\)</span>. In particular, for <span class="math inline">\(y=1/n\)</span> we get <span class="math inline">\(|a_n|\leq M'e^{2\pi} n^{k/2}\)</span>. Setting <span class="math inline">\(M=M'e^{2\pi}\)</span> finishes the proof.</p>
+</div>
+<div id="cor-growthmodforms" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1.9</strong></span> If <span class="math inline">\(f\)</span> is not a cusp form, then the coefficients <span class="math inline">\(a_n\)</span> grow as <span class="math inline">\(n^{k-1}\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(f\)</span> is a modular form of weight <span class="math inline">\(k\)</span>, write <span class="math inline">\(f=\lambda E_k + h\)</span>, where <span class="math inline">\(h\)</span> is a cusp form. The hypothesis of <span class="math inline">\(f\)</span> not being a cups form translates in <span class="math inline">\(\lambda\neq 0\)</span>. Therefore <span class="math display">\[a_n(f)=\lambda a_n(E_k)+a_n(h).\]</span> Since <span class="math inline">\(n^{k-1}\)</span> grows much faster than <span class="math inline">\(n^{k/2}\)</span> and <span class="math inline">\(\lambda\neq 0\)</span>, we deduce that <span class="math inline">\(a_n(f)\)</span> grows as <span class="math inline">\(n^{k-1}\)</span>.</p>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-book123modforms" class="csl-entry" role="listitem">
+Bruinier, Jan Hendrik, Gerard van der Geer, Günter Harder, and Don Zagier. 2008. <em>The 1-2-3 of Modular Forms</em>. Edited by Kristian Ranestad. Universitext. Springer-Verlag, Berlin. <a href="https://doi.org/10.1007/978-3-540-74119-0">https://doi.org/10.1007/978-3-540-74119-0</a>.
+</div>
+<div id="ref-diamond-shurman" class="csl-entry" role="listitem">
+Diamond, Fred, and Jerry Michael Shurman. 2005. <em>A First Course in Modular Forms</em>. Vol. 228. Springer.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>These are called “first Bernoulli numbers”, and differ by a sign from those defined originally by Bernoulli.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./2_modformscongruence.html" class="pagination-link" aria-label="Modular forms for congruence subgroups">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Modular forms for congruence subgroups</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://www.github.com/mmasdeu/modforms/edit/main/1_modformslevelone.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://www.github.com/mmasdeu/modforms/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://www.github.com/mmasdeu/modforms/blob/main/1_modformslevelone.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>

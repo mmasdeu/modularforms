@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Eisenstein series – Modular Forms</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./6_lfunctions.html" rel="next">
+<link href="./4_hecke.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5_eisenstein.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eisenstein series</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Modular Forms</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://www.github.com/mmasdeu/modforms" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Modular-Forms.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1_modformslevelone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Modular forms of level one</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_modformscongruence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Modular forms for congruence subgroups</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_complextori.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Moduli interpretation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_hecke.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hecke Theory</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5_eisenstein.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eisenstein series</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_lfunctions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">L-functions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7_modsym.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modular symbols</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bibliography.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bibliography</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#eisenstein-series-for-congruence-subgroups" id="toc-eisenstein-series-for-congruence-subgroups" class="nav-link active" data-scroll-target="#eisenstein-series-for-congruence-subgroups"><span class="header-section-number">5.1</span> Eisenstein series for congruence subgroups</a></li>
+  <li><a href="#eisenstein-series-for-gamma_1n" id="toc-eisenstein-series-for-gamma_1n" class="nav-link" data-scroll-target="#eisenstein-series-for-gamma_1n"><span class="header-section-number">5.2</span> Eisenstein series for <span class="math inline">\(\Gamma_1(N)\)</span></a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://www.github.com/mmasdeu/modforms/edit/main/5_eisenstein.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://www.github.com/mmasdeu/modforms/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://www.github.com/mmasdeu/modforms/blob/main/5_eisenstein.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-eisenstein" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eisenstein series</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="hidden">
+
+</div>
+<p>The conclusion of the previous chapter has been that <span class="math inline">\(S_k(\Gamma_1(N))\)</span> has a basis of eigenforms each of them new at some level dividing <span class="math inline">\(N\)</span>. For a general congruence subgroup <span class="math inline">\(\Gamma\)</span>, recall that the Petersson inner product allowed us to define an “orthogonal complement” to <span class="math inline">\(S_k(\Gamma)\)</span>, the Eisenstein subspace <span class="math display">\[{\mathcal{E}}_k(\Gamma)=\{f\in M_k(\Gamma) ~|~ \langle f,g\rangle_\Gamma=0\quad \forall g\in S_k(\Gamma)\}.\]</span> The goal for this chapter is to find a natural basis for <span class="math inline">\({\mathcal{E}}_k(\Gamma)\)</span>.</p>
+<section id="eisenstein-series-for-congruence-subgroups" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="eisenstein-series-for-congruence-subgroups"><span class="header-section-number">5.1</span> Eisenstein series for congruence subgroups</h2>
+<p>Recall the Eisenstein series for <span class="math inline">\({\operatorname{SL}}_2({\mathbb{Z}})\)</span> that we saw at the beginning: <span class="math display">\[G_k(z)=\mathop{\sum{\raise 3pt\hbox{${}'$}}}_{(m,n)\in{\mathbb{Z}}^2} \frac{1}{(mz+n)^k}.\]</span> In order to generalize this construction, we need to put it in a more intrinsic form. Recall that the stabilizer of the cusp <span class="math inline">\(\infty\)</span> is <span class="math display">\[P_\infty = {\operatorname{SL}}_2({\mathbb{Z}})_\infty = \{\pm \left(\begin{smallmatrix}1&amp;b\\0&amp;1\end{smallmatrix}\right) ~|~ b\in{\mathbb{Z}}\}.\]</span> Write also <span class="math inline">\(P_\infty^+=\{\left(\begin{smallmatrix}1&amp;b\\0&amp;1\end{smallmatrix}\right) ~|~ b\in{\mathbb{Z}}\}\)</span>.</p>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 5.1</strong></span> The map <span class="math inline">\(\left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right)\mapsto (c,d)\)</span> induces a bijection <span class="math display">\[P_\infty^+\backslash {\operatorname{SL}}_2({\mathbb{Z}})\stackrel{\sim}{\longrightarrow} \{(c,d)\in{\mathbb{Z}}^2~|~\gcd(c,d)=1\}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Surjectivity of the map follows from Bézout: given <span class="math inline">\((c,d)\)</span> with <span class="math inline">\(\gcd(c,d)=1\)</span> we can find <span class="math inline">\(a,b\in{\mathbb{Z}}\)</span> such that <span class="math inline">\(ad-bc = 1\)</span>. Moreover, any solution to the equation <span class="math inline">\(xd-yc = 1\)</span> is of the form <span class="math display">\[x = a+tc, y = b+td,\quad t\in {\mathbb{Z}}.\]</span> That is, the preimage of <span class="math inline">\((c,d)\)</span> consists of the set of matrices of the form <span class="math display">\[\left(\begin{matrix}a+tc&amp;b+td\\c&amp;d\end{matrix}\right) = \left(\begin{matrix}1&amp;t\\0&amp;1\end{matrix}\right)\left(\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right),\quad t\in{\mathbb{Z}}.\]</span></p>
+</div>
+<p>This lemma allows us to rewrite <span class="math inline">\(G_k(z)\)</span> in a different way.</p>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 5.1</strong></span> We have <span class="math display">\[G_k(z)=\zeta(k)\sum_{\gamma\in P_\infty^+\backslash {\operatorname{SL}}_2({\mathbb{Z}})} j(\gamma,z)^{-k}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Write a pair <span class="math inline">\((m,n)\in{\mathbb{Z}}^2\smallsetminus \{(0,0)\}\)</span> as <span class="math inline">\((gc,gd)\)</span>, with <span class="math inline">\(g=\gcd(m,n)\)</span> and <span class="math inline">\((c,d)\)</span> coprime. Therefore <span class="math display">\[\begin{align*}
+G_k(z)&amp;=\sum_{g=1}^\infty \sum_{\substack{(c,d)\in{\mathbb{Z}}^2\\\gcd(c,d)=1}} \frac{1}{g^k(cz+d)^k}\\
+&amp;=\sum_{g=1}^\infty \frac{1}{g^k} \sum_{\substack{(c,d)\in{\mathbb{Z}}^2\\\gcd(c,d)=1}} \frac{1}{(cz+d)^k}=\zeta(k) \sum_{\gamma\in P_\infty^+\backslash{\operatorname{SL}}_2({\mathbb{Z}})} j(\gamma,z)^{-k}.
+\end{align*}\]</span></p>
+</div>
+<p>Let now <span class="math inline">\(\Gamma\)</span> be an arbitrary congruence subgroup, and define <span class="math inline">\(\Gamma_\infty=\Gamma\cap P_\infty\)</span> and <span class="math inline">\(\Gamma_\infty^+=\Gamma\cap P_\infty^+\)</span>.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5.1</strong></span> The of weight <span class="math inline">\(k\)</span> attached to <span class="math inline">\(\Gamma\)</span> and to the cusp <span class="math inline">\(\infty\)</span> is <span class="math display">\[G_{k,\Gamma,\infty}(z)=\sum_{\gamma\in \Gamma^+_\infty\backslash\Gamma} j(\gamma,z)^{-k}.\]</span></p>
+</div>
+<div id="rmk-">
+<p>Since <span class="math inline">\(j(h\gamma,z)=j(\gamma,z)\)</span> whenever <span class="math inline">\(h\in \Gamma_\infty^+\)</span>, the terms in the above sum are well-defined. Moreover, since <span class="math inline">\(\Gamma_\infty^+\backslash\Gamma\)</span> injects in <span class="math inline">\(P_\infty^+\backslash{\operatorname{SL}}_2({\mathbb{Z}})\)</span>, the series above is a sub-series of <span class="math inline">\(G_k(z)\)</span> and therefore it converges. So in particular, <span class="math inline">\(G_{k,\Gamma,\infty}\)</span> is holomorphic on <span class="math inline">\({\mathbb{H}}\)</span>.</p>
+</div>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 5.2</strong></span> If either</p>
+<ol type="1">
+<li><p><span class="math inline">\(k\)</span> is even, or</p></li>
+<li><p><span class="math inline">\(k\)</span> is odd, <span class="math inline">\(-I\not\in\Gamma\)</span> and <span class="math inline">\(\infty\)</span> is a regular cusp of <span class="math inline">\(\Gamma\)</span></p></li>
+</ol>
+<p>then <span class="math inline">\(G_{k,\Gamma,\infty}\)</span> belongs to <span class="math inline">\(M_k(\Gamma)\)</span>. Moreover, <span class="math inline">\(G_{k,\Gamma,\infty}(\infty)\neq 0\)</span> and <span class="math inline">\(G_{k,\Gamma,\infty}\)</span> vanishes at all cusps <span class="math inline">\(s\neq \infty\)</span>.</p>
+<p>If <span class="math inline">\(k\)</span> is odd and either <span class="math inline">\(-I\in\Gamma\)</span> or <span class="math inline">\(\infty\)</span> is an irregular cusp of <span class="math inline">\(\Gamma\)</span>, then <span class="math inline">\(G_{k,\Gamma,\infty}=0\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>It is easy to show that <span class="math inline">\(G_{k,\Gamma,\infty}=0\)</span> if the conditions stated in the proposition are satisfied. The computation showing that <span class="math inline">\(G_{k,\Gamma,\infty}\)</span> is weakly-modular of weight <span class="math inline">\(k\)</span> for <span class="math inline">\(\Gamma\)</span> is also straightforward, using the cocycle condition of <span class="math inline">\(j(\gamma,z)\)</span>.</p>
+<p>Next we compute the value <span class="math inline">\(G_{k,\Gamma,\infty}(\infty)\)</span>. We need to understand how <span class="math inline">\(j(\gamma,z)^{-k}\)</span> behaves when <span class="math inline">\(\Im z\longrightarrow\infty\)</span>. Suppose that <span class="math inline">\(\gamma=\left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right)\)</span>. Then <span class="math display">\[\lim_{\Im z\longrightarrow\infty} j(\gamma,z)^{-k}=\lim_{\Im z\longrightarrow\infty} (cz+d)^{-k} = \begin{cases}
+d^{-k}&amp;\text{if }c=0,\\
+0&amp;\text{if }c\neq 0.
+\end{cases}\]</span> Note also that <span class="math inline">\(c=0\iff \gamma\in\Gamma_\infty\)</span>. Therefore we may calculate <span class="math display">\[\begin{align*}
+\lim_{\Im z\longrightarrow\infty} G_{k,\Gamma,\infty}(z)&amp;=\lim_{\Im z\longrightarrow\infty} \sum_{\gamma\in\Gamma_\infty^+\backslash \Gamma} j(\gamma,z)^{-k}\\
+&amp;=\sum_{\gamma\in\Gamma_\infty^+\backslash\Gamma_\infty} j(\gamma,z)^{-k}\\
+&amp;=\begin{cases}
+1&amp;\text{if }\Gamma_\infty^+=\Gamma_\infty,\\
+1+(-1)^k&amp;\text{if }[\Gamma_\infty\colon\Gamma_\infty^+]=2.
+\end{cases}
+=\begin{cases}
+1&amp;\text{if } \Gamma_\infty^+=\Gamma_\infty,\\
+2&amp;\text{if } [\Gamma_\infty\colon\Gamma_\infty^+]=2\text{ and } k\text{ is even,}\\
+0&amp;\text{if } [\Gamma_\infty\colon\Gamma_\infty^+]=2\text{ and } k\text{ is odd.}
+\end{cases}
+\end{align*}\]</span> The last case does not occur, by assumption. Hence <span class="math inline">\(G_{k,\Gamma,\infty}(\infty)\in \{1,2\}\)</span> is nonzero.</p>
+<p>Consider now a cusp <span class="math inline">\(s\)</span> of <span class="math inline">\(\Gamma\)</span>, different from <span class="math inline">\(\infty\)</span>. Let <span class="math inline">\(\gamma_s\in {\operatorname{SL}}_2({\mathbb{Z}})\)</span> satisfy <span class="math inline">\(\gamma_s \infty = s\)</span>, so that <span class="math inline">\(G_{k,\Gamma,\infty}(s) = (G_{k,\Gamma,\infty}|_k\gamma_s)(\infty)\)</span>. Note that <span class="math display">\[(G_{k,\Gamma,\infty}|_k\gamma_s)(z) = \sum_{\gamma\in\Gamma_\infty^+\backslash\Gamma} j(\gamma,\gamma_s z)^{-k}j(\gamma_s,z)^{-k}=\sum_{\gamma\in\Gamma_\infty^+\backslash\Gamma} j(\gamma\gamma_s,z)^{-k}.\]</span> Since <span class="math inline">\(\gamma\gamma_s\)</span> has nonzero bottom-left entry (otherwise <span class="math inline">\(\gamma\gamma_s\)</span> would stabilize infinity, which does not), then each of the terms approaches <span class="math inline">\(0\)</span> as <span class="math inline">\(\Im z\longrightarrow\infty\)</span> and we obtain the desired vanishing.</p>
+</div>
+<p>The next goal is to construct Eisenstein series that are non-vanishing at each of the other cusps <span class="math inline">\(s\)</span> of <span class="math inline">\(\Gamma\)</span> (and vanish at the cusps <span class="math inline">\(s'\neq s\)</span>). This is done by translating <span class="math inline">\(G_{k,\Gamma,\infty}\)</span> by the matrices <span class="math inline">\(\gamma_s\)</span>.</p>
+<div id="lem-" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 5.2</strong></span> Let <span class="math inline">\(s\)</span> be a cusp of <span class="math inline">\(\Gamma\)</span> and let <span class="math inline">\(\gamma_s\in{\operatorname{SL}}_2({\mathbb{Z}})\)</span> be a matrix such that <span class="math inline">\(\gamma_s \infty = s\)</span>. Define <span class="math display">\[G_{k,\Gamma,s} = G_{k,\gamma_s^{-1}\Gamma\gamma_s,\infty}|_k \gamma_s^{-1} = \sum_{\gamma\in\Gamma_s^+\backslash \Gamma} j(\gamma_s^{-1}\gamma,z),\quad\text{where }\Gamma_s^+=\{\gamma\in\Gamma~|~ \gamma_s^{-1}\gamma\gamma_s = \left(\begin{smallmatrix}1&amp;*\\0&amp;1\end{smallmatrix}\right)\}.\]</span> If <span class="math inline">\(k\)</span> is odd, suppose that <span class="math inline">\(-I\not\in\Gamma\)</span>, and <span class="math inline">\(s\)</span> is a regular cusp of <span class="math inline">\(\Gamma\)</span>. Then <span class="math inline">\(G_{k,\Gamma,s}\)</span> belongs to <span class="math inline">\({\mathcal{E}}_k(\Gamma)\)</span>, does not vanish at <span class="math inline">\(s\)</span> and vanishes at all other cusps <span class="math inline">\(s'\neq s\)</span> of <span class="math inline">\(\Gamma\)</span>.</p>
+</div>
+<div id="rmk-">
+<p>Although there is a choice of <span class="math inline">\(\gamma_s\)</span> involved, the form <span class="math inline">\(G_{k,\Gamma,s}\)</span> is well defined when <span class="math inline">\(k\)</span> is even, and well-defined up to sign when <span class="math inline">\(k\)</span> is odd.</p>
+</div>
+<p>We next show that the Eisenstein series we have just introduced belong in fact to the Eisenstein subspace <span class="math inline">\({\mathcal{E}}_k(\Gamma\)</span>).</p>
+<div id="prp-" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 5.3</strong></span> Let <span class="math inline">\(\Gamma\)</span> be a congruence subgroup, let <span class="math inline">\(k\geq 3\)</span> be an integer and let <span class="math inline">\(s\)</span> be a cusp of <span class="math inline">\(\Gamma\)</span>. Then <span class="math inline">\(G_{k,\Gamma,s}\)</span> belongs to <span class="math inline">\({\mathcal{E}}_k(\Gamma)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We need to prove that for each <span class="math inline">\(f\in S_k(\Gamma)\)</span> we have <span class="math inline">\(\langle f,G_{k,\Gamma,s}\rangle_\Gamma = 0\)</span>. From the definition of the Petersson inner product there is an equality <span class="math display">\[\langle f,g\rangle_\Gamma = \langle f|_k\gamma,g|_k\gamma\rangle_{\gamma^{-1}\Gamma\gamma}.\]</span> Thus we may reduce to showing <span class="math inline">\(\langle f,G_{k,\Gamma,\infty}\rangle_\Gamma=0\)</span> for all <span class="math inline">\(f\in S_k(\Gamma)\)</span>. Writing the definition of the pairing and exchanging the sum with the integral gives <span class="math display">\[\langle f,G_{k,\Gamma,\infty}\rangle_\Gamma = \sum_{\gamma\in \Gamma_\infty^+\backslash \Gamma} \int_{D_\Gamma} f(z)\overline{j(\gamma,z)^{-k}} \Im(z)^kd\mu(z).\]</span> Make the change of variables <span class="math inline">\(w=\gamma z\)</span>, so <span class="math display">\[f(w)=j(\gamma,z)^kf(z),\quad \Im(w)=|j(\gamma,z)|^{-2}\Im(z).\]</span> This gives <span class="math display">\[\langle f,G_{k,\Gamma,\infty}\rangle_\Gamma = \sum_{\gamma\in\Gamma_\infty^+\backslash \Gamma}\int_{w\in \gamma D_\Gamma} f(w) y^k\frac{dxdy}{y^2} = \int_{w\in\Gamma_\infty^+\backslash{\mathbb{H}}} f(w)y^{k-2}dxdy.\]</span> Suppose now that <span class="math inline">\(\infty\)</span> has width <span class="math inline">\(h\)</span> and that the <span class="math inline">\(q\)</span>-expansion of <span class="math inline">\(f\)</span> is <span class="math inline">\(\sum a_n q_h^n\)</span>. Then <span class="math display">\[\begin{align*}
+\langle f,G_{k,\Gamma,\infty}\rangle_\Gamma &amp;= \int_{\Gamma_\infty^+\backslash {\mathbb{H}}}\left(\sum_{n=1}^\infty a_n e^{2\pi i nw/h}\right)y^{k-2}dxdy\\
+&amp;= \int_{x=0}^h\int_{y=0}^\infty\left(\sum_{n=1}^\infty a_n e^{2\pi i nx/h}e^{-2\pi ny/h}\right)y^{k-2}dxdy\\
+&amp;=\sum_{n=1}^\infty a_n \int_{x=0}^h e^{2\pi i nx/h} dx\int_{y=0}^\infty e^{-2\pi ny/h} y^{k-2}dy.
+\end{align*}\]</span> Since <span class="math inline">\(n\geq 1\)</span>, the integrals on <span class="math inline">\(x\)</span> vanish and thus we get the result.</p>
+</div>
+<p>We end the section by stating essentially that the Eisenstein series give a basis for <span class="math inline">\({\mathcal{E}}_k(\Gamma)\)</span>. We do this by giving the dimension of the Eisenstein space, and then exhibiting a the explicit basis.</p>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 5.1</strong></span> Let <span class="math inline">\(\Gamma\)</span> be a congruence subgroup, let <span class="math inline">\(k\)</span> be an integer, let <span class="math inline">\(\varepsilon_\Gamma\)</span> be the number of cusps of <span class="math inline">\(\Gamma\)</span> and let <span class="math inline">\(\varepsilon^\text{reg}_\Gamma\leq\varepsilon_\Gamma\)</span> be the number of regular cusps. Then: <span class="math display">\[\dim_{\mathbb{C}}{\mathcal{E}}_k(\Gamma)=\begin{cases}
+0&amp;\text{ if }k&lt;0,\text{ or }k\text{ odd and }-I\in\Gamma,\\
+1&amp;\text{ if }k=0,\\
+\varepsilon_\Gamma^\text{reg}/2&amp;\text{ if }k=1\text{ and } -I\not\in\Gamma,\\
+\varepsilon_\Gamma-1&amp;\text{ if }k=2,\\
+\varepsilon_\Gamma&amp;\text{ if }k\text{ even, and } k\geq 4,\\
+\varepsilon_\Gamma^\text{reg}&amp;\text{ if }k\text{ odd, }k\geq 3\text{, and } -I\not\in\Gamma.\\
+\end{cases}\]</span></p>
+</div>
+</section>
+<section id="eisenstein-series-for-gamma_1n" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="eisenstein-series-for-gamma_1n"><span class="header-section-number">5.2</span> Eisenstein series for <span class="math inline">\(\Gamma_1(N)\)</span></h2>
+<p>We now specialize the above construction in the case where <span class="math inline">\(\Gamma=\Gamma_1(N)\)</span> for any positive integer <span class="math inline">\(N\)</span>. In fact, we will construct a basis of Hecke eigenforms.</p>
+<p>Recall that in <a href="4_hecke.html" class="quarto-xref"><span>Chapter 4</span></a> we introduced Dirichlet characters modulo <span class="math inline">\(N\)</span>. Let <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> be positive integers with <span class="math inline">\(M\mid N\)</span>. A Dirichlet character <span class="math inline">\(\chi\)</span> modulo <span class="math inline">\(M\)</span> can be lifted to a Dirichlet character <span class="math inline">\(\chi^{(N)}\)</span> modulo <span class="math inline">\(N\)</span>, by <span class="math display">\[\chi^{(N)}(m)=\begin{cases}
+\chi(m)&amp;\text{ if }\gcd(m,N)=1,\\
+0&amp;\text{ if }\gcd(m,N)&gt;1.
+\end{cases}\]</span></p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5.2</strong></span> Let <span class="math inline">\(\chi\colon {\mathbb{Z}}\longrightarrow{\mathbb{C}}\)</span> be a Dirichlet character modulo <span class="math inline">\(N\)</span>. The of <span class="math inline">\(\chi\)</span> is the smallest divisor <span class="math inline">\(M\)</span> of <span class="math inline">\(N\)</span> such that <span class="math inline">\(\chi\)</span> is the lift of a Dirichlet character modulo <span class="math inline">\(M\)</span>. A Dirichlet character modulo <span class="math inline">\(N\)</span> is if it has conductor <span class="math inline">\(N\)</span>.</p>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.1</strong></span> The only character modulo one is <span class="math inline">\(1\colon {\mathbb{Z}}\longrightarrow{\mathbb{C}}\)</span>, the constant function <span class="math inline">\(1\)</span>. If <span class="math inline">\(N\)</span> is any positive integer, the lift of <span class="math inline">\(1\)</span> to a Dirichlet character modulo <span class="math inline">\(N\)</span> is the function <span class="math display">\[1^{(N)}\colon{\mathbb{Z}}\longrightarrow{\mathbb{C}},\quad m\mapsto \begin{cases}1&amp;\gcd(m,N)=1,\\0&amp;\gcd(m,N)&gt;1.
+\end{cases}\]</span></p>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.2</strong></span> For each prime number <span class="math inline">\(p\)</span>, and each integer <span class="math inline">\(a\)</span> we define the <span class="math display">\[\left(\frac a p\right)=\begin{cases}
+0&amp;\text{ if }p\mid a,\\
+1&amp;\text{ if }p\mid a\text{ and $a$ is a square modulo $p$},\\
+-1&amp;\text{ if }p\mid a\text{ and $a$ is not a square modulo $p$},\\
+\end{cases}\]</span> Then <span class="math inline">\(\left(\frac\bullet p\right)\)</span> is a Dirichlet character modulo <span class="math inline">\(p\)</span>. Its conductor is <span class="math inline">\(p\)</span> if <span class="math inline">\(p\neq 2\)</span>, and <span class="math inline">\(1\)</span> if <span class="math inline">\(p=2\)</span>.</p>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.3</strong></span> Let <span class="math inline">\(\chi_1\)</span> be a Dirichlet character modulo <span class="math inline">\(N_1\)</span> and let <span class="math inline">\(\chi_2\)</span> be a Dirichlet character modulo <span class="math inline">\(N_2\)</span>. If <span class="math inline">\(M\)</span> is a common multiple of <span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span>, one may consider the product <span class="math inline">\(\chi=\chi_1\chi_2 = \chi_1^{(M)}\chi_2^{(M)}\)</span>. This is a character with modulus <span class="math inline">\(M\)</span>. Note however that the conductor is not multiplicative: if <span class="math inline">\(\chi\)</span> is a quadratic character of conductor <span class="math inline">\(N\)</span>, say, then <span class="math inline">\(\chi^2\)</span> is the trivial character which will have conductor <span class="math inline">\(1\)</span>.</p>
+</div>
+<p>In order to give the <span class="math inline">\(q\)</span>-expansions of the Eisenstein series attached to a pair of characters, we need some new notation. We will need the folloing generalization of the divisor function. If <span class="math inline">\(\chi_1\)</span> and <span class="math inline">\(\chi_2\)</span> are Dirichlet characters, define <span class="math display">\[\sigma_{k-1}^{\chi_1,\chi_2}(n)=\sum_{d\mid n}\chi_1(n/d)\chi_2(d)d^{k-1}.\]</span> The following theorem gives the <span class="math inline">\(q\)</span>-expansions of Eisenstein series that will form a basis of eigenforms for the Eisenstein space.</p>
+<div id="thm-eisenstein-gamma1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 5.2</strong></span> Let <span class="math inline">\(\chi_1,\chi_2\)</span> be primitive Dirichlet characters modulo <span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span>, respectively. Let <span class="math inline">\(\chi=\chi_1\chi_2\)</span> be the product as a character modulo <span class="math inline">\(N_1N_2\)</span> (not necessarily primitive). Let <span class="math inline">\(k\geq 3\)</span> be such that <span class="math inline">\(\chi(-1)=(-1)^k\)</span>. Define <span class="math display">\[\delta(\chi_1)=\begin{cases}
+1&amp;\text{if } \chi_1=1_1,\\
+0&amp;\text{else.}
+\end{cases}\]</span> and let <span class="math inline">\(L(\chi_2,s)=\sum_{n=1}^\infty \chi_2(n)n^{-s}\)</span> be the <span class="math inline">\(L\)</span>-series of <span class="math inline">\(\chi_2\)</span>. Then the function <span class="math inline">\(E_k^{\chi_1,\chi_2}\)</span> defined by <span class="math display">\[E_k^{\chi_1,\chi_2}(z) = \delta(\chi_1)L(\chi_2,1-k) + 2\sum_{n=1}^\infty\sigma_{k-1}^{\chi_1,\chi_2}(n)q^n\]</span> belongs to <span class="math inline">\({\mathcal{E}}_k(\Gamma_1(N_1N_2))\)</span>. Moreover, it is a Hecke eigenform with character <span class="math inline">\(\chi\)</span>.</p>
+</div>
+<p>The modular form <span class="math inline">\(E_k^{\chi_1,\chi_2}\)</span> is called the <em>Eisenstein series of weight <span class="math inline">\(k\)</span> associated to <span class="math inline">\((\chi_1,\chi_2)\)</span></em>.</p>
+<div id="rmk-">
+<p>When <span class="math inline">\(k=1\)</span> the theorem remains true, although in this case <span class="math inline">\(E_1^{\chi_1,\chi_2} = E_1^{\chi_2,\chi_1}\)</span>. When <span class="math inline">\(k=2\)</span>, then we must require in addition that <span class="math inline">\(\chi_1\)</span> and <span class="math inline">\(\chi_2\)</span> must not be both trivial. If both <span class="math inline">\(\chi_1\)</span> and <span class="math inline">\(\chi_2\)</span> are trivial, then we know that <span class="math inline">\(E_2(z)=1-24\sum_{n\geq 1} \sigma_1(n)q^n\)</span> is not a modular form. However, for any <span class="math inline">\(N&gt;1\)</span> the function <span class="math display">\[E_2^{(N)}(z)=E_2(z)-NE_2(Nz)\]</span> belongs to <span class="math inline">\(M_2(\Gamma_1(N))\)</span>.</p>
+</div>
+<div id="thm-" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 5.3</strong></span> Let <span class="math inline">\(k\geq 3\)</span>, let <span class="math inline">\(N\geq 1\)</span> and let <span class="math inline">\(\chi\)</span> be a Dirichlet character modulo <span class="math inline">\(N\)</span> such that <span class="math inline">\(\chi(-1) = (-1)^k\)</span>. Then there is a decomposition <span class="math display">\[{\mathcal{E}}_k(\Gamma_0(N),\chi) = \bigoplus_{d\mid N}\bigoplus_{N_1N_2 \mid\frac Nd} \bigoplus_{\chi_1\chi_2=\chi}{\mathbb{C}}V_d(E_k^{\chi_1,\chi_2}),\]</span> where the inner sum runs through factorizations of <span class="math inline">\(\chi\)</span> into primitive Dirichlet characters <span class="math inline">\(\chi_1\)</span> and <span class="math inline">\(\chi_2\)</span> modulo <span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span>.</p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./4_hecke.html" class="pagination-link" aria-label="Hecke Theory">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hecke Theory</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./6_lfunctions.html" class="pagination-link" aria-label="L-functions">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">L-functions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://www.github.com/mmasdeu/modforms/edit/main/5_eisenstein.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://www.github.com/mmasdeu/modforms/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://www.github.com/mmasdeu/modforms/blob/main/5_eisenstein.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
