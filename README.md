@@ -2,6 +2,6 @@
 
 Source code for the notes on modular forms available at
 
-https://mmasdeu.github.io/formesmodulars/
+https://mmasdeu.github.io/modularforms/
 
 Typeset with Quarto (https://quarto.org/).# modularforms
