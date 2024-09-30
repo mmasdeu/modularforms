@@ -258,7 +258,7 @@ then we may replace $U_2$ with $V_2$ and $U_1$ with $\gamma^{-1} V_1$ if
 $V_1\cap V_2=\emptyset$, $\tau_2\in V_2$ and $\gamma\tau_1\in V_1$:
 
 ![Shrinking the
-neighborhoods](Pictures/shrinking-neighborhoods.svg){#fig-shriking-neighborhoods}
+neighborhoods](Pictures/shrinking-neighborhoods){#fig-shriking-neighborhoods}
 
 Since the set of $\gamma$ such that these intersections are nonempty is
 finite, this process terminates after a finite number of steps and will
@@ -585,7 +585,7 @@ a cusp form of weight $12$.
 
 ## Fundamental domains
 
-![Fundamental domain for $\SL_2(\ZZ)$](Pictures/fundomSL2Z.svg)
+![Fundamental domain for $\SL_2(\ZZ)$](Pictures/fundomSL2Z)
 
 ::: {#def-}
 Let $\Gamma$ be a group acting on $\HH$. A for $\Gamma$ is closed subset
@@ -930,7 +930,7 @@ The proof presented here avoids algebraic geometry, at the cost of some
 complex analysis. Let $f$ be a modular function, and consider the
 following contour:
 
-![Contour to integrate](Pictures/contour.svg){#fig-contour}
+![Contour to integrate](Pictures/contour){#fig-contour}
 
 The proof consists in integrating $f'(z)/f(z)$ around the indicated
 contour $C$ in two different ways.

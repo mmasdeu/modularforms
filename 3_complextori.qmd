@@ -38,7 +38,7 @@ structure of an abelian group, and analytically it is a torus (a genus
 one Riemann surface).
 :::
 
-![A torus](Pictures/torus.svg){#fig-torus}
+![A torus](Pictures/torus){#fig-torus}
 
 ::: {#prp-}
 Suppose that $\varphi\colon\CC/\Lambda\to\CC/\Lambda'$ is a holomorphic
@@ -59,7 +59,7 @@ $\lambda\in\Lambda$, and define
 $$f_\lambda(z)=\tilde\varphi(z+\lambda)-\tilde\varphi(z).$$
 
 ![Lifting to the universal covering
-space](Pictures/universal_covering_space.svg){#fig-universal-covering-space}
+space](Pictures/universal_covering_space){#fig-universal-covering-space}
 
 Then $f_\lambda$ is continuous and has image in $\Lambda'$. Since
 $\Lambda'$ is discrete, necessarily $f_\lambda$ is constant. Consider
@@ -237,7 +237,7 @@ $e_i$ at any other points outside the $2$-torsion.
 :::
 
 ![The $2$-torsion points of
-$E_\Lambda$](Pictures/twotorsion.svg){#fig-two-torsion}
+$E_\Lambda$](Pictures/twotorsion){#fig-two-torsion}
 
 To summarize, what we have found is that there is a holomorphic map:
 $$\CC/\Lambda\to E_\Lambda,\quad z+\Lambda\mapsto (\wp_\Lambda(z),\wp_\Lambda'(z)),$$
@@ -309,7 +309,7 @@ We will write $E[N]$ for the $N$-torsion in $E=\CC/\Lambda$, which is
 isomorphic to $\ZZ/N\ZZ\times \ZZ/N\ZZ$.
 
 ![The $8$-torsion of a complex torus
-$\CC/(\ZZ w_1 + \ZZ w_2)$.](Pictures/ntorsion.svg){#fig-n-torsion}
+$\CC/(\ZZ w_1 + \ZZ w_2)$.](Pictures/ntorsion){#fig-n-torsion}
 
 In order to give a moduli interpretation for modular forms on
 $\Gamma_0(N)$, we need to add more structure to the elliptic curves (or

@@ -75,7 +75,7 @@ of congruence subgroups on $\HH$. Here is for example a fundamental
 domain for $\Gamma_0(2)$:
 
 ![A fundamental domain for
-$\Gamma_0(2)$](Pictures/fundomGamma02.svg){#fig-fundom-gamma02}
+$\Gamma_0(2)$](Pictures/fundomGamma02){#fig-fundom-gamma02}
 
 In this case, the fundamental domain contains two points in its closure
 which do not belong to $\HH$: the cusp $\infty$ as before, but also $0$.

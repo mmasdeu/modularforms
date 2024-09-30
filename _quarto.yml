@@ -38,6 +38,7 @@ format:
       title-block-author-single: "Author"
     theme:
       - materia
+    default-image-extension: svg
 
   pdf:
     pdf-engine: lualatex
@@ -46,6 +47,7 @@ format:
     colorlinks: true
     mainfont: Latin Modern Roman
     sansfont: Latin Modern Roman
+    default-image-extension: pdf
     toc: true
     toc-depth: 2
     toc-title: Contents
