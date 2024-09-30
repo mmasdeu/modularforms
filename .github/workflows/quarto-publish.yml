@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get install ipe
+          sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get install ipe ipe-tools
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
