@@ -1,0 +1,61 @@
+project:
+  type: book
+  pre-render: ./generate-svg
+
+
+book:
+  title: "Modular Forms"
+  subtitle: "Notes for Advanced Number Theory (Master in Advanced Mathematics, UAB/UB)"
+  author: "Marc Masdeu"
+
+  date: "1/1/2025"
+  chapters:
+    - index.qmd
+    - 1_modformslevelone.qmd
+    - 2_modformscongruence.qmd
+    - 3_complextori.qmd
+    - 4_hecke.qmd
+    - 5_eisenstein.qmd
+    - 6_lfunctions.qmd
+    - 7_modsym.qmd
+    - bibliography.qmd
+  sidebar:
+    pinned: false
+  repo-url: https://www.github.com/mmasdeu/modforms   
+  issue-url: https://www.github.com/mmasdeu/modforms/issues
+  repo-actions: [edit, issue, source]
+  search: 
+    location: sidebar
+    type: textbox
+  downloads: [pdf]
+
+bibliography: references.bib
+
+format:
+  html:
+    lang: en
+    language:
+      title-block-author-single: "Author"
+    theme:
+      - materia
+
+  pdf:
+    pdf-engine: lualatex
+    lang: en
+    documentclass: scrreprt
+    colorlinks: true
+    mainfont: Latin Modern Roman
+    sansfont: Latin Modern Roman
+    toc: true
+    toc-depth: 2
+    toc-title: Contents
+    number-sections: true
+    cite-method: biblatex
+    include-in-header: 
+      text: |
+        \usepackage{imakeidx}
+        \makeindex[intoc=true, columns=3, columnseprule=true]
+    include-after-body: 
+      text: |
+        \printindex
+
