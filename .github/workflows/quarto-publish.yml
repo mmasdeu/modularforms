@@ -19,8 +19,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install dependencies
-      	run: |
-	sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get install ipe
+        run: |
+          sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get install ipe
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         env:
