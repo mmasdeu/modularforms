@@ -1,6 +1,7 @@
 #!/bin/bash
 mkdir -p Pictures
 for file in PicSrc/*.pdf; do
-    iperender -svg $file Pictures/`basename $file .pdf`.svg  2>> errors.log || true;
+    inkscape $file --pages=1 --export-type="svg" -o Pictures/`basename $file .pdf`.svg
+    # iperender -svg $file Pictures/`basename $file .pdf`.svg  2>> errors.log || true;
 done;
 cp PicSrc/*.pdf Pictures/
